@@ -2,7 +2,7 @@
 
 namespace Lumin
 {
-	class LApplication
+	class LGameInstanceBase
 	{
 	public:
 		virtual bool Init() = 0;

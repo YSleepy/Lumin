@@ -60,6 +60,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>$(ProjectDir)Src\Engine;$(ProjectDir)Src\Log;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
@@ -97,13 +98,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Engine\LApplication.cpp" />
+    <ClCompile Include="Src\Engine\LGameInstanceBase.cpp" />
+    <ClCompile Include="Src\Example\EGameInstance.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Engine\LApplication.h" />
+    <ClInclude Include="Src\Engine\LGameInstanceBase.h" />
     <ClInclude Include="Src\Engine\LEngine.h" />
+    <ClInclude Include="Src\Example\EGameInstance.h" />
+    <ClInclude Include="Src\Log\LLog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Doc\设计文档.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
