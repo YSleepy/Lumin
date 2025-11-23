@@ -2,12 +2,23 @@
 
 #include "LLog.h"
 #include "LGameInstanceBase.h"
+#include "LViewport.h"
 
 namespace Lumin
 {
-	bool LEngine::Init()
+	LEngine& LEngine::GetInstance()
+	{
+		static LEngine engine;
+		return engine;
+	}
+
+	bool LEngine::Init(const LEngineConfig& config)
 	{
 		CHECK_PTR_RETURN_VALUE(m_gameInstance, false, "GameInstance is nullptr");
+		LViewportConfig viewportConfig = config.viewportConfig;
+		viewportConfig.engine = this;
+		m_viewport = new LViewport(viewportConfig);//手动管理
+		CHECK_PTR_RETURN_VALUE(m_viewport, false, "Viewport is nullptr");
 		return m_gameInstance->Init();
 	}
 
@@ -15,13 +26,15 @@ namespace Lumin
 	{
 		CHECK_PTR_RETURN(m_gameInstance, "GameInstance is nullptr");
 		m_lastFrameTime = std::chrono::high_resolution_clock::now();
-		while(!m_gameInstance->IsNeedToBeClosed())
+		while(!m_viewport->ViewportShouldClose() && !m_gameInstance->IsNeedToBeClosed())
 		{
 			auto nowTime = std::chrono::high_resolution_clock::now();
 			float deltaTime = std::chrono::duration<float>(nowTime - m_lastFrameTime).count();
 			m_lastFrameTime = nowTime;
 
 			m_gameInstance->Tick(deltaTime);
+
+
 		}
 	}
 
@@ -31,6 +44,8 @@ namespace Lumin
 
 		m_gameInstance->Destroy();
 		m_gameInstance.reset();
+		delete m_viewport;
+		m_viewport = nullptr;
 	}
 
 	void LEngine::SetGameInstance(LGameInstanceBase* gameInstance)
@@ -43,6 +58,11 @@ namespace Lumin
 	LGameInstanceBase* LEngine::GetGameInstance() const
 	{
 		return m_gameInstance.get();
+	}
+
+	LInputManager& LEngine::GetInputManager()
+	{
+		return m_inputManager;
 	}
 }
 

@@ -37,7 +37,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>6.4.3_msvc2019_64</QtInstall>
-    <QtModules>core</QtModules>
+    <QtModules>core;gui;widgets;opengl;openglwidgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -98,14 +98,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\Input\LInputManager.cpp" />
+    <ClCompile Include="Src\Engine\LApp.cpp" />
     <ClCompile Include="Src\Engine\LGameInstanceBase.cpp" />
+    <ClCompile Include="Src\Engine\LViewport.cpp" />
     <ClCompile Include="Src\Example\EGameInstance.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\Input\LInputManager.h" />
+    <ClInclude Include="Src\Engine\LApp.h" />
     <ClInclude Include="Src\Engine\LGameInstanceBase.h" />
     <ClInclude Include="Src\Engine\LEngine.h" />
+    <QtMoc Include="Src\Engine\LViewport.h" />
     <ClInclude Include="Src\Example\EGameInstance.h" />
     <ClInclude Include="Src\Log\LLog.h" />
   </ItemGroup>

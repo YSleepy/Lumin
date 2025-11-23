@@ -1,15 +1,33 @@
+#include <thread>
+
+#include "Engine/LApp.h"
 #include "Example/EGameInstance.h"
 #include "Engine/LEngine.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-	Lumin::LEngine engine;
+	Lumin::LApp app(argc, argv);
+
+	Lumin::LEngine& engine = Lumin::LEngine::GetInstance();
 	EGameInstance* gameInstance = new EGameInstance();
 	engine.SetGameInstance(gameInstance);
-	if (engine.Init())
+	Lumin::LEngineConfig engineConfig{
+		{
+			111,
+			222
+		}
+	};
+	if (engine.Init(engineConfig))
 	{
-		engine.Run();
+		std::thread engineThread(
+			[&engine]()
+			{
+				engine.Run();//Run内有游戏主循环
+			}
+		);
+		app.exec();
+		engineThread.join();
+		engine.Destroy();
 	}
-	engine.Destroy();
 	return 0;
 }

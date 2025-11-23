@@ -1,6 +1,8 @@
 #include "EGameInstance.h"
 
 #include <QDebug>
+#include <QEvent>
+#include "LEngine.h"
 
 bool EGameInstance::Init()
 {
@@ -9,7 +11,10 @@ bool EGameInstance::Init()
 
 void EGameInstance::Tick(float deltaTime)
 {
-	qDebug() << "GameInstance Tick deltaTime:" << deltaTime;
+	if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_A))
+	{
+		qDebug() << "GameInstance Tick deltaTime:" << deltaTime;
+	}
 }
 
 void EGameInstance::Destroy()
