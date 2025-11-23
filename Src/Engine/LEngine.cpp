@@ -64,5 +64,10 @@ namespace Lumin
 	{
 		return m_inputManager;
 	}
+
+	LGraphicsCore& LEngine::GetGraphicsCore()
+	{
+		return m_graphicsCore;
+	}
 }
 

@@ -98,6 +98,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\Graphics\LGraphicsCore.cpp" />
+    <ClCompile Include="Src\Engine\Graphics\LShader.cpp" />
     <ClCompile Include="Src\Engine\Input\LInputManager.cpp" />
     <ClCompile Include="Src\Engine\LApp.cpp" />
     <ClCompile Include="Src\Engine\LGameInstanceBase.cpp" />
@@ -107,6 +109,8 @@
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\Graphics\LGraphicsCore.h" />
+    <ClInclude Include="Src\Engine\Graphics\LShader.h" />
     <ClInclude Include="Src\Engine\Input\LInputManager.h" />
     <ClInclude Include="Src\Engine\LApp.h" />
     <ClInclude Include="Src\Engine\LGameInstanceBase.h" />
