@@ -9,6 +9,7 @@ namespace Lumin
 	{
 	public:
 		LShader(GLuint programID);
+		LShader(const char* vertexShaderSource, const char* fragmentShaderSource);
 		// 期望着色器仅创建一次或删除一次，避免重复产生的问题
 		LShader(const LShader&) = delete;
 		LShader& operator=(const LShader&) = delete;

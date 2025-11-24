@@ -104,6 +104,7 @@
     <ClCompile Include="Src\Engine\LApp.cpp" />
     <ClCompile Include="Src\Engine\LGameInstanceBase.cpp" />
     <ClCompile Include="Src\Engine\LViewport.cpp" />
+    <ClCompile Include="Src\Engine\Render\LMaterial.cpp" />
     <ClCompile Include="Src\Example\EGameInstance.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\Engine\LEngine.cpp" />
@@ -116,6 +117,8 @@
     <ClInclude Include="Src\Engine\LGameInstanceBase.h" />
     <ClInclude Include="Src\Engine\LEngine.h" />
     <QtMoc Include="Src\Engine\LViewport.h" />
+    <ClInclude Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.h" />
+    <ClInclude Include="Src\Engine\Render\LMaterial.h" />
     <ClInclude Include="Src\Example\EGameInstance.h" />
     <ClInclude Include="Src\Log\LLog.h" />
   </ItemGroup>

@@ -2,7 +2,6 @@
 
 #include "LGameInstanceBase.h"
 
-
 class EGameInstance : public Lumin::LGameInstanceBase
 {
 public:

@@ -3,6 +3,7 @@
 #include "LEngine.h"
 #include "QKeyEvent"
 #include "LLog.h"
+#include "OpenGLApi/LOpenGLFunctionsManager.h"
 
 namespace Lumin
 {
@@ -15,14 +16,13 @@ namespace Lumin
 		if (m_canShow == true)
 		{
 			resize(config.width, config.height);  // 默认大小
-			makeCurrent();
 			this->show();
 		}
 	}
 
 	LViewport::~LViewport()
 	{
-		doneCurrent();
+		
 	}
 
 	bool LViewport::ViewportShouldClose() const
@@ -32,7 +32,8 @@ namespace Lumin
 
 	void LViewport::initializeGL()
 	{
-
+		LOpenGLFunctionsManager::GetInstance().Initialize();
+		makeCurrent();
 	}
 
 	void LViewport::resizeGL(int w, int h)

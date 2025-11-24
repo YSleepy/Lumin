@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QOpenGLWidget>
+#include <QOpenGLFunctions_3_3_Core>
 
 namespace Lumin
 {
@@ -12,7 +13,7 @@ namespace Lumin
 		LEngine* engine;
 	};
 
-	class LViewport : public QOpenGLWidget
+	class LViewport : public QOpenGLWidget, public QOpenGLFunctions_3_3_Core
 	{
 		Q_OBJECT
 
