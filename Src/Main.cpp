@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	Lumin::LEngineConfig engineConfig{
 		{
 			1080,
-			1920
+			960
 		}
 	};
 	if (engine.Init(engineConfig))

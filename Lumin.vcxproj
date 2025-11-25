@@ -109,7 +109,12 @@
     <ClCompile Include="Src\Engine\Render\LMesh.cpp" />
     <ClCompile Include="Src\Engine\Render\LRenderQueue.cpp" />
     <ClCompile Include="Src\Example\EGameInstance.cpp" />
-    <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\Main.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </ClCompile>
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>

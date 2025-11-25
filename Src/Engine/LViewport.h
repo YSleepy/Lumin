@@ -2,6 +2,7 @@
 
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions_3_3_Core>
+#include <QTimer>
 
 namespace Lumin
 {
@@ -13,14 +14,11 @@ namespace Lumin
 		LEngine* engine;
 	};
 
-	class LViewport : public QOpenGLWidget, public QOpenGLFunctions_3_3_Core
+	class LViewport : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 	{
 		Q_OBJECT
-
 	public:
-		LViewport(const LViewportConfig& config, QWidget* parent = nullptr);
-		~LViewport();
-
+		explicit LViewport(const LViewportConfig& config, QWidget* parent = nullptr);
 		bool ViewportShouldClose() const;
 	protected:
 		void initializeGL() override;

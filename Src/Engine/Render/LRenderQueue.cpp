@@ -12,7 +12,6 @@ namespace Lumin
 	{
 		std::lock_guard<std::mutex> lock(m_mutex);
 		qDebug() << "Drawing " << m_renderQueue.size() << " objects";
-		// 锁
 
 		for (auto& renderable : m_renderQueue)
 		{

@@ -25,6 +25,7 @@ namespace Lumin
 	void LEngine::Run()
 	{
 		CHECK_PTR_RETURN(m_gameInstance, "GameInstance is nullptr");
+		CHECK_PTR_RETURN(m_viewport, "Viewport is nullptr");
 		m_lastFrameTime = std::chrono::high_resolution_clock::now();
 		while(!m_viewport->ViewportShouldClose() && !m_gameInstance->IsNeedToBeClosed())
 		{
@@ -35,7 +36,7 @@ namespace Lumin
 			m_gameInstance->Tick(deltaTime);
 
 			//m_renderQueue.Draw(m_graphicsCore);
-			m_viewport->update();
+			//m_viewport->update();
 		}
 	}
 

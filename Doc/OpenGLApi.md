@@ -7,3 +7,78 @@ glVertexAttribPointer函数的参数非常多，所以我会逐一介绍它们�
 5. 第五个参数叫做步长(Stride)，它告诉我们在连续的顶点属性组之间的间隔。由于下个组位置数据在3个GLfloat之后，我们把步长设置为3 * sizeof(GLfloat)。要注意的是由于我们知道这个数组是紧密排列的（在两个顶点属性之间没有空隙）我们也可以设置为0来让OpenGL决定具体步长是多少（只有当数值是紧密排列时才可用）。一旦我们有更多的顶点属性，我们就必须更小心地定义每个顶点属性之间的间隔，我们在后面会看到更多的例子(译注: 这个参数的意思简单说就是从这个属性第二次出现的地方到整个数组0位置之间有多少字节)。
 6. 最后一个参数的类型是GLvoid*，所以需要我们进行这个奇怪的强制类型转换。它表示位置数据在缓冲中起始位置的偏移量(Offset)。由于位置数据在数组的开头，所以这里是0。我们会在后面详细解释这个参数。
 ```
+
+
+```
+
+class SimpleOpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
+{
+	Q_OBJECT
+
+public:
+	explicit SimpleOpenGLWidget(QWidget* parent = nullptr)
+		: QOpenGLWidget(parent)
+	{
+		// 设置自动重绘定时器
+		QTimer* timer = new QTimer(this);
+		connect(timer, &QTimer::timeout, this, [this]() {
+			update(); // 触发重绘
+			});
+		timer->start(16); // 约60fps
+		resize(1960, 1080);  // 默认大小
+		this->show();
+	}
+
+protected:
+	void initializeGL() override
+	{
+		// 初始化OpenGL函数
+		initializeOpenGLFunctions();
+
+		// 设置清除颜色为蓝色
+		glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
+
+		// 启用深度测试
+		glEnable(GL_DEPTH_TEST);
+
+		qDebug() << "OpenGL initialized successfully";
+		qDebug() << "OpenGL Version:" << (const char*)glGetString(GL_VERSION);
+		qDebug() << "GLSL Version:" << (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION);
+	}
+
+	void resizeGL(int w, int h) override
+	{
+		// 设置视口
+		glViewport(0, 0, w, h);
+		qDebug() << "Viewport resized to:" << w << "x" << h;
+	}
+
+	void paintGL() override
+	{
+		static int frameCount = 0;
+		frameCount++;
+
+		// 每帧改变清除颜色以便观察
+		float r = (sin(frameCount * 0.01f) + 1.0f) * 0.5f * 0.3f + 0.2f;
+		float g = (cos(frameCount * 0.02f) + 1.0f) * 0.5f * 0.3f + 0.2f;
+		float b = (sin(frameCount * 0.03f) + 1.0f) * 0.5f * 0.3f + 0.4f;
+
+		glClearColor(r, g, b, 1.0f);
+
+		// 清除颜色和深度缓冲区
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// 检查OpenGL错误
+		GLenum error = glGetError();
+		if (error != GL_NO_ERROR) {
+			qDebug() << "OpenGL error in frame" << frameCount << ":" << error;
+		}
+
+		// 每100帧输出一次信息
+		if (frameCount % 100 == 0) {
+			qDebug() << "Frame" << frameCount << "cleared with color:" << r << g << b;
+		}
+	}
+};
+#include "main.moc"
+```
