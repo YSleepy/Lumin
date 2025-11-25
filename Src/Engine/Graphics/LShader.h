@@ -5,7 +5,7 @@
 
 namespace Lumin
 {
-	class LShader: public QOpenGLFunctions_3_3_Core
+	class LShader
 	{
 	public:
 		LShader(GLuint programID);

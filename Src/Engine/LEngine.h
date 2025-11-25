@@ -5,6 +5,7 @@
 #include "LViewport.h"
 #include "Input/LInputManager.h"
 #include "Graphics/LGraphicsCore.h"
+#include "Render/LRenderQueue.h"
 
 namespace Lumin
 {
@@ -26,6 +27,7 @@ namespace Lumin
 		LGameInstanceBase* GetGameInstance() const;
 		LInputManager& GetInputManager();
 		LGraphicsCore& GetGraphicsCore();
+		LRenderQueue& GetRenderQueue();
 	private:
 		LEngine() = default;
 		LEngine& operator=(const LEngine&) = delete;
@@ -36,6 +38,7 @@ namespace Lumin
 		LViewport* m_viewport = nullptr;
 		LInputManager m_inputManager;
 		LGraphicsCore m_graphicsCore;
+		LRenderQueue m_renderQueue;
 	};
 }
 

@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	engine.SetGameInstance(gameInstance);
 	Lumin::LEngineConfig engineConfig{
 		{
-			111,
-			222
+			1080,
+			1920
 		}
 	};
 	if (engine.Init(engineConfig))

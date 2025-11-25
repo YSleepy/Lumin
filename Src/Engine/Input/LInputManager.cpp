@@ -1,6 +1,8 @@
 #include "LInputManager.h"
 
 #include "LLog.h"
+#include "QDebug"
+
 namespace Lumin
 {
 	void LInputManager::SetKeyPressed(int key, bool pressed)

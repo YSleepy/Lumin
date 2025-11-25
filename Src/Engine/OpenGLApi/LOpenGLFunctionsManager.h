@@ -21,6 +21,14 @@ public:
 
 	bool IsInitialized() const { return m_initialized; }
 
+	void CheckOpenGLError()
+	{
+		GLenum error = glGetError();
+		if (error != GL_NO_ERROR) {
+			qDebug() << "OpenGL error after initialization:" << error;
+		}
+	}
+
 private:
 	LOpenGLFunctionsManager() = default;
 	bool m_initialized = false;

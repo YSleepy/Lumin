@@ -32,6 +32,7 @@ namespace Lumin
 		GLuint fragmentShader = L_GL.glCreateShader(GL_FRAGMENT_SHADER);
 		L_GL.glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
 		L_GL.glCompileShader(fragmentShader);
+		L_GL.CheckOpenGLError();
 
 		// Check fragment shader
 		L_GL.glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
@@ -71,6 +72,7 @@ namespace Lumin
 	{
 		CHECK_CONDITION_RETURN(m_programID != 0, "Shader not compiled");
 		L_GL.glUseProgram(m_programID);
+		L_GL.CheckOpenGLError();
 	}
 
 	GLint LShader::GetUniformLocation(const std::string& name)

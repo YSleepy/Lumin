@@ -36,7 +36,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.4.3_msvc2019_64</QtInstall>
+    <QtInstall>6.8.1_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets;opengl;openglwidgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -98,6 +98,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\Render\LMeshSceneComponent.cpp" />
     <ClCompile Include="Src\Engine\Graphics\LGraphicsCore.cpp" />
     <ClCompile Include="Src\Engine\Graphics\LShader.cpp" />
     <ClCompile Include="Src\Engine\Input\LInputManager.cpp" />
@@ -105,11 +106,14 @@
     <ClCompile Include="Src\Engine\LGameInstanceBase.cpp" />
     <ClCompile Include="Src\Engine\LViewport.cpp" />
     <ClCompile Include="Src\Engine\Render\LMaterial.cpp" />
+    <ClCompile Include="Src\Engine\Render\LMesh.cpp" />
+    <ClCompile Include="Src\Engine\Render\LRenderQueue.cpp" />
     <ClCompile Include="Src\Example\EGameInstance.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\Render\LMeshSceneComponent.h" />
     <ClInclude Include="Src\Engine\Graphics\LGraphicsCore.h" />
     <ClInclude Include="Src\Engine\Graphics\LShader.h" />
     <ClInclude Include="Src\Engine\Input\LInputManager.h" />
@@ -119,10 +123,14 @@
     <QtMoc Include="Src\Engine\LViewport.h" />
     <ClInclude Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.h" />
     <ClInclude Include="Src\Engine\Render\LMaterial.h" />
+    <ClInclude Include="Src\Engine\Render\LMesh.h" />
+    <ClInclude Include="Src\Engine\Graphics\LVertexLayout.h" />
+    <ClInclude Include="Src\Engine\Render\LRenderQueue.h" />
     <ClInclude Include="Src\Example\EGameInstance.h" />
     <ClInclude Include="Src\Log\LLog.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Doc\OpenGLApi.md" />
     <None Include="Doc\设计文档.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
