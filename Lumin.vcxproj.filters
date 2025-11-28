@@ -62,6 +62,9 @@
     <ClCompile Include="Src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Engine\LGameInstanceBase.h">
@@ -110,6 +113,7 @@
   <ItemGroup>
     <None Include="Doc\设计文档.md" />
     <None Include="Doc\OpenGLApi.md" />
+    <None Include="Doc\Debug文档.md" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Src\Engine\LViewport.h">

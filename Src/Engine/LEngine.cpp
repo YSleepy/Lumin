@@ -27,6 +27,7 @@ namespace Lumin
 		CHECK_PTR_RETURN(m_gameInstance, "GameInstance is nullptr");
 		CHECK_PTR_RETURN(m_viewport, "Viewport is nullptr");
 		m_lastFrameTime = std::chrono::high_resolution_clock::now();
+		qDebug() << "Engine Run Thread";
 		while(!m_viewport->ViewportShouldClose() && !m_gameInstance->IsNeedToBeClosed())
 		{
 			auto nowTime = std::chrono::high_resolution_clock::now();

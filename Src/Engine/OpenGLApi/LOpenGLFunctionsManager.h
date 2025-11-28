@@ -2,37 +2,29 @@
 
 #include <QOpenGLFunctions_3_3_Core>
 
-class LOpenGLFunctionsManager : public QOpenGLFunctions_3_3_Core
+namespace Lumin
 {
-	Q_DISABLE_COPY(LOpenGLFunctionsManager)
-
-public:
-	static LOpenGLFunctionsManager& GetInstance() {
-		static LOpenGLFunctionsManager instance;
-		return instance;
-	}
-
-	bool Initialize() {
-		if (!m_initialized) {
-			m_initialized = initializeOpenGLFunctions();
-		}
-		return m_initialized;
-	}
-
-	bool IsInitialized() const { return m_initialized; }
-
-	void CheckOpenGLError()
+	class LOpenGLFunctionsManager : public QOpenGLFunctions_3_3_Core
 	{
-		GLenum error = glGetError();
-		if (error != GL_NO_ERROR) {
-			qDebug() << "OpenGL error after initialization:" << error;
-		}
-	}
+		Q_DISABLE_COPY(LOpenGLFunctionsManager)
 
-private:
-	LOpenGLFunctionsManager() = default;
-	bool m_initialized = false;
-};
+	public:
+		static LOpenGLFunctionsManager* GetInstance();
+		// 也可将其私有化，将LViewport作为友元
+		static void DestroyInstance();
+		bool Initialize();
+		bool IsInitialized() const { return m_initialized; }
+		void CheckOpenGLError();
 
-// 便捷宏
+	private:
+		LOpenGLFunctionsManager() = default;
+		~LOpenGLFunctionsManager() = default;
+		static LOpenGLFunctionsManager* s_instance;
+		bool m_initialized = false;
+	};
+
+	// 便捷宏
 #define L_GL LOpenGLFunctionsManager::GetInstance()
+
+}
+

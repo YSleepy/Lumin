@@ -98,6 +98,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.cpp" />
     <ClCompile Include="Src\Engine\Render\LMeshSceneComponent.cpp" />
     <ClCompile Include="Src\Engine\Graphics\LGraphicsCore.cpp" />
     <ClCompile Include="Src\Engine\Graphics\LShader.cpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="Src\Log\LLog.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Doc\Debug文档.md" />
     <None Include="Doc\OpenGLApi.md" />
     <None Include="Doc\设计文档.md" />
   </ItemGroup>

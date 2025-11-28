@@ -9,6 +9,13 @@ glVertexAttribPointer函数的参数非常多，所以我会逐一介绍它们�
 ```
 
 
+<p>
+线程私有
+OpenGL的绘制命令都是作用在当前的Context上，这个Current Context是一个线程私有（thread-local）的变量，也就是说如果我们在线程中绘制，那么需要为该线程制定一个Current Context的，当多个线程参与绘制任务时，需要原线程解绑再重新绑定新的线程。多个线程不能同时指定同一个Context为Current Context，否则会导致崩溃。
+
+OpenGL所创建的资源, 其实对程序员可见的仅仅是ID而已, 其内容依赖于这个上下文, 因此在大型程序中的一般做法是申请一条线程专门用于绘制，创建线程时，为该绘制线程申请一个绘制上下文，一直作为Current Context，不再进行切换。所有的绘制相关的操作，都在绘制线程完成。但是如果涉及复杂的OpenGL渲染时, 这样就未必足够，当有需求需多个并行的绘制任务时，则要创建多个Context，为并行的线程分别绑定不同的上下文。
+</p>
+
 ```
 
 class SimpleOpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core

@@ -18,25 +18,31 @@ namespace Lumin
 			connect(timer, &QTimer::timeout, this, [this]() {
 				update();
 				});
-			timer->start(16); // 约60fps
-			resize(config.width, config.height);  // 默认大小
+			timer->start(16); // 60fps
+			resize(config.width, config.height);
 			this->show();
 		}
 	}
 
+	LViewport::~LViewport()
+	{
+		LOpenGLFunctionsManager::DestroyInstance();
+		qDebug() << "LViewport::~LViewport()";
+	}
+
 	void LViewport::initializeGL()
 	{
-		LOpenGLFunctionsManager::GetInstance().Initialize();
-		L_GL.glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
-		L_GL.glEnable(GL_DEPTH_TEST);
+		LOpenGLFunctionsManager::GetInstance()->Initialize();
+		L_GL->glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
+		L_GL->glEnable(GL_DEPTH_TEST);
 		qDebug() << "OpenGL initialized successfully";
-		qDebug() << "OpenGL Version:" << (const char*)L_GL.glGetString(GL_VERSION);
-		qDebug() << "GLSL Version:" << (const char*)L_GL.glGetString(GL_SHADING_LANGUAGE_VERSION);
+		qDebug() << "OpenGL Version:" << (const char*)L_GL->glGetString(GL_VERSION);
+		qDebug() << "GLSL Version:" << (const char*)L_GL->glGetString(GL_SHADING_LANGUAGE_VERSION);
 	}
 
 	void LViewport::resizeGL(int w, int h)
 	{
-		L_GL.glViewport(0, 0, w, h);
+		L_GL->glViewport(0, 0, w, h);
 		qDebug() << "Viewport resized to:" << w << "x" << h;
 	}
 
@@ -50,11 +56,11 @@ namespace Lumin
 		float g = (cos(frameCount * 0.02f) + 1.0f) * 0.5f * 0.3f + 0.2f;
 		float b = (sin(frameCount * 0.03f) + 1.0f) * 0.5f * 0.3f + 0.4f;
 
-		L_GL.glClearColor(r, g, b, 1.0f);
+		L_GL->glClearColor(r, g, b, 1.0f);
 
-		L_GL.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		L_GL->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		GLenum error = L_GL.glGetError();
+		GLenum error = L_GL->glGetError();
 		if (error != GL_NO_ERROR) {
 			qDebug() << "OpenGL error in frame" << frameCount << ":" << error;
 		}
@@ -84,8 +90,10 @@ namespace Lumin
 
 	void LViewport::closeEvent(QCloseEvent* event)
 	{
-		QOpenGLWidget::closeEvent(event);
+		//QOpenGLWidget::closeEvent(event);
+		//this->hide();
 		m_canShow = false;
+		//event->ignore();
 	}
 
 	bool LViewport::ViewportShouldClose() const

@@ -8,6 +8,7 @@
 
 bool EGameInstance::Init()
 {
+	qDebug() << "EGameInstance Init";
 	// 创建着色器程序
 	const char* vertexShaderSource =
 		"#version 330 core\n"
