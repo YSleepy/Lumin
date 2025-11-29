@@ -8,12 +8,13 @@ namespace Lumin
 {
 	struct RenderObj
 	{
-		LMeshSceneComponent* renderSceneComponent;
+		LMeshSceneComponent renderSceneComponent;
 	};
+
 	class LRenderQueue
 	{
 	public:
-		void Submit(RenderObj renderable);
+		void Submit(const RenderObj& renderable);
 		void Draw(LGraphicsCore& graphicsCore);
 	private:
 		std::vector<RenderObj> m_renderQueue;

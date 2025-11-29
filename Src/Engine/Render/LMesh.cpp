@@ -40,12 +40,13 @@ namespace Lumin
 		L_GL->glBindVertexArray(m_vao);
 
 		L_GL->glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+		L_GL->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
+
 		for (LVertexElement& it : m_layout.elements)
 		{
 			L_GL->glVertexAttribPointer(it.index, it.size, it.type, GL_FALSE, m_layout.stride, (void*)it.offset);
 			L_GL->glEnableVertexAttribArray(it.index);
 		}
-		L_GL->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
 
 		L_GL->glBindVertexArray(0);
 		L_GL->glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -61,9 +62,9 @@ namespace Lumin
 
 	void LMesh::Bind()
 	{
-		qDebug() << "LMesh::Bind(): this_ptr: " << this;
 		L_GL->glBindVertexArray(m_vao);
 		L_GL->glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+		L_GL->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
 		L_GL->CheckOpenGLError();
 	}
 
@@ -71,7 +72,11 @@ namespace Lumin
 	{
 		if (m_indexCount > 0)
 		{
+			//L_GL->CheckOpenGLContext();
+			//L_GL->CheckThreadContextAssociation();
+			//L_GL->PrintCurrentState();
 			L_GL->glDrawElements(GL_TRIANGLES, m_indexCount, GL_UNSIGNED_INT, 0);
+
 			L_GL->CheckOpenGLError();
 		}
 		else

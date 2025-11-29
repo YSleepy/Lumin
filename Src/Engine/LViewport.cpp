@@ -1,10 +1,11 @@
 #include "LViewport.h"
 
+#include <QTimer>
+
 #include "LEngine.h"
 #include "QKeyEvent"
 #include "LLog.h"
 #include "OpenGLApi/LOpenGLFunctionsManager.h"
-#include <QTimer>
 
 namespace Lumin
 {
@@ -18,7 +19,7 @@ namespace Lumin
 			connect(timer, &QTimer::timeout, this, [this]() {
 				update();
 				});
-			timer->start(16); // 60fps
+			timer->start(16);
 			resize(config.width, config.height);
 			this->show();
 		}
@@ -48,26 +49,8 @@ namespace Lumin
 
 	void LViewport::paintGL()
 	{
-		//m_engine->GetRenderQueue().Draw(m_engine->GetGraphicsCore());
-		static int frameCount = 0;
-		frameCount++;
-
-		float r = (sin(frameCount * 0.01f) + 1.0f) * 0.5f * 0.3f + 0.2f;
-		float g = (cos(frameCount * 0.02f) + 1.0f) * 0.5f * 0.3f + 0.2f;
-		float b = (sin(frameCount * 0.03f) + 1.0f) * 0.5f * 0.3f + 0.4f;
-
-		L_GL->glClearColor(r, g, b, 1.0f);
-
 		L_GL->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		GLenum error = L_GL->glGetError();
-		if (error != GL_NO_ERROR) {
-			qDebug() << "OpenGL error in frame" << frameCount << ":" << error;
-		}
-
-		if (frameCount % 100 == 0) {
-			qDebug() << "Frame" << frameCount << "cleared with color:" << r << g << b;
-		}
+		m_engine->GetRenderQueue().Draw(m_engine->GetGraphicsCore());
 	}
 
 	void LViewport::keyPressEvent(QKeyEvent* event)
@@ -90,10 +73,7 @@ namespace Lumin
 
 	void LViewport::closeEvent(QCloseEvent* event)
 	{
-		//QOpenGLWidget::closeEvent(event);
-		//this->hide();
 		m_canShow = false;
-		//event->ignore();
 	}
 
 	bool LViewport::ViewportShouldClose() const

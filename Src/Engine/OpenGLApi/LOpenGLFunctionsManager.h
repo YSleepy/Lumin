@@ -15,6 +15,9 @@ namespace Lumin
 		bool Initialize();
 		bool IsInitialized() const { return m_initialized; }
 		void CheckOpenGLError();
+		void CheckOpenGLContext();
+		void CheckThreadContextAssociation();
+		void PrintCurrentState();
 
 	private:
 		LOpenGLFunctionsManager() = default;

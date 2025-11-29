@@ -35,9 +35,6 @@ namespace Lumin
 			m_lastFrameTime = nowTime;
 
 			m_gameInstance->Tick(deltaTime);
-
-			//m_renderQueue.Draw(m_graphicsCore);
-			//m_viewport->update();
 		}
 	}
 
