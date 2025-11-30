@@ -14,11 +14,20 @@ namespace Lumin
 		m_floatParams[name] = value;
 	}
 
+	void LMaterial::Set2FloatParam(const std::string& name, float x, float y)
+	{
+		m_2FloatParams[name] = QVector2D(x, y);
+	}
+
 	void LMaterial::Bind()
 	{
 		CHECK_PTR_RETURN(m_shader, "m_shader is null");
 		m_shader->Bind();
 		for (auto& param : m_floatParams)
+		{
+			m_shader->SetUniform(param.first, param.second);
+		}
+		for (auto& param : m_2FloatParams)
 		{
 			m_shader->SetUniform(param.first, param.second);
 		}

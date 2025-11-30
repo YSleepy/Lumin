@@ -1,7 +1,7 @@
 #pragma once
 #include <QOpenGLFunctions_3_3_Core>
-
 #include <unordered_map>
+#include <QVector2D>
 
 namespace Lumin
 {
@@ -17,6 +17,7 @@ namespace Lumin
 		void Bind();
 		GLint GetUniformLocation(const std::string& name);
 		void SetUniform(const std::string& name, float value);
+		void SetUniform(const std::string& name, const QVector2D& value);
 
 	private:
 		GLuint m_programID = 0;

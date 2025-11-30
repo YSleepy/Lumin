@@ -97,4 +97,10 @@ namespace Lumin
 		auto id = GetUniformLocation(name);
 		L_GL->glUniform1f(id, value);
 	}
+
+	void LShader::SetUniform(const std::string& name, const QVector2D& value)
+	{
+		auto id = GetUniformLocation(name);
+		L_GL->glUniform2f(id, value.x(), value.y());
+	}
 }
