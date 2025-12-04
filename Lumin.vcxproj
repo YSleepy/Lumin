@@ -98,6 +98,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\GamePlay\GActor.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\GLevel.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\GObject.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\GWorld.cpp" />
     <ClCompile Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.cpp" />
     <ClCompile Include="Src\Engine\Render\LMeshSceneComponent.cpp" />
     <ClCompile Include="Src\Engine\Graphics\LGraphicsCore.cpp" />
@@ -110,6 +114,7 @@
     <ClCompile Include="Src\Engine\Render\LMesh.cpp" />
     <ClCompile Include="Src\Engine\Render\LRenderQueue.cpp" />
     <ClCompile Include="Src\Example\EGameInstance.cpp" />
+    <ClCompile Include="Src\Example\MyActor.cpp" />
     <ClCompile Include="Src\Main.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
@@ -119,6 +124,10 @@
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\GamePlay\GActor.h" />
+    <ClInclude Include="Src\Engine\GamePlay\GLevel.h" />
+    <ClInclude Include="Src\Engine\GamePlay\GObject.h" />
+    <ClInclude Include="Src\Engine\GamePlay\GWorld.h" />
     <ClInclude Include="Src\Engine\Render\LMeshSceneComponent.h" />
     <ClInclude Include="Src\Engine\Graphics\LGraphicsCore.h" />
     <ClInclude Include="Src\Engine\Graphics\LShader.h" />
@@ -133,10 +142,11 @@
     <ClInclude Include="Src\Engine\Graphics\LVertexLayout.h" />
     <ClInclude Include="Src\Engine\Render\LRenderQueue.h" />
     <ClInclude Include="Src\Example\EGameInstance.h" />
+    <ClInclude Include="Src\Example\MyActor.h" />
     <ClInclude Include="Src\Log\LLog.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Doc\Debug文档.md" />
+    <None Include="Doc\Progress.md" />
     <None Include="Doc\OpenGLApi.md" />
     <None Include="Doc\设计文档.md" />
   </ItemGroup>

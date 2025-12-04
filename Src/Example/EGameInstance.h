@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LGameInstanceBase.h"
+#include "GamePlay/GWorld.h"
 #include "Render/LMaterial.h"
 #include "Render/LMesh.h"
 
@@ -10,9 +11,10 @@ public:
 	bool Init() override;
 	void Tick(float deltaTime) override;
 	void Destroy() override;
+	Lumin::GLevel* GetCurrentLevel();
+	Lumin::GWorld* GetWorld();
 private:
-	Lumin::LMaterial m_firstMaterial;
-	std::unique_ptr<Lumin::LMesh> m_firstMesh;
-	float m_offsetX = 0.0f;
-	float m_offsetY = 0.0f;
+	Lumin::GWorld m_world;
+	
+
 };

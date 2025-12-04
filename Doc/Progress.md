@@ -18,3 +18,11 @@
 ## 11.30
 * `issue`: 添加移动控制
 * `commit`: 在Example中添加移动控制。
+
+## 11.30
+* `design`: 概念引入GamePlay FrameWork，设计阶段
+* `point`: 参考虚幻引擎GamePlay
+
+## 12.01~12.03
+* `design`: 概念引入GamePlay FrameWork，编码阶段
+* `point`: 参考虚幻引擎GamePlay
