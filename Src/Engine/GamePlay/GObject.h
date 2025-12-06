@@ -7,6 +7,7 @@ namespace Lumin
 	{
 	public:
 		GObject();
+		virtual ~GObject() = default;
 		uint32_t MakeObjectId();
 	protected:
 		uint32_t m_objectId;

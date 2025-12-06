@@ -26,3 +26,7 @@
 ## 12.01~12.03
 * `design`: 概念引入GamePlay FrameWork，编码阶段
 * `point`: 参考虚幻引擎GamePlay
+
+## 12.06
+* `issue`: 由矩阵变换控制Actor移动
+* `commit`: 定义模型矩阵，更改RenderObj为RenderCmd，添加相关逻辑

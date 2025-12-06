@@ -18,6 +18,8 @@ namespace Lumin
 		GLint GetUniformLocation(const std::string& name);
 		void SetUniform(const std::string& name, float value);
 		void SetUniform(const std::string& name, const QVector2D& value);
+		void SetUniform(const std::string& name, const QVector3D& value);
+		void SetUniform(const std::string& name, const QMatrix4x4& value);
 
 	private:
 		GLuint m_programID = 0;

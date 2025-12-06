@@ -8,10 +8,10 @@ MyActor::MyActor()
 	const char* vertexShaderSource =
 		"#version 330 core\n"
 		"layout (location = 0) in vec3 aPos;\n"
-		"uniform vec2 offset;\n"
+		"uniform mat4 modelMatrix;\n"
 		"void main()\n"
 		"{\n"
-		"   gl_Position = vec4(aPos.x + offset.x, aPos.y + offset.y, aPos.z, 1.0);\n"
+		"   gl_Position = modelMatrix * vec4(aPos, 1.0);\n"
 		"}\n";
 
 	const char* fragmentShaderSource =
@@ -51,28 +51,27 @@ void MyActor::Tick(float deltaTime)
 	GActor::Tick(deltaTime);
 	if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_A))
 	{
-		m_offsetX -= 0.01f;
+		this->m_transform.position.setX(this->m_transform.position.x() - 0.01f);
 	}
 	else if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_D))
 	{
-		m_offsetX += 0.01f;
+		this->m_transform.position.setX(this->m_transform.position.x() + 0.01f);
 	}
 	if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_W))
 	{
-		m_offsetY += 0.01f;
+		this->m_transform.position.setY(this->m_transform.position.y() + 0.01f);
 	}
 	else if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_S))
 	{
-		m_offsetY -= 0.01f;
+		this->m_transform.position.setY(this->m_transform.position.y() - 0.01f);
 	}
-
-	m_firstMaterial.Set2FloatParam("offset", m_offsetX, m_offsetY);
 
 	qDebug() << "GameInstance Tick deltaTime:" << deltaTime;
 	Lumin::LMeshSceneComponent sc;
 	sc.m_material = &m_firstMaterial;
 	sc.m_mesh = m_firstMesh.get();
-	Lumin::RenderObj ro;
+	sc.m_modelMatrix = this->GetWorldTransform();
+	Lumin::RenderCmd ro;
 	ro.renderSceneComponent = sc;
 	auto& renderQueue = Lumin::LEngine::GetInstance().GetRenderQueue();
 	renderQueue.Submit(ro);

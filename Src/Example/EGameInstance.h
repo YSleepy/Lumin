@@ -2,8 +2,6 @@
 
 #include "LGameInstanceBase.h"
 #include "GamePlay/GWorld.h"
-#include "Render/LMaterial.h"
-#include "Render/LMesh.h"
 
 class EGameInstance : public Lumin::LGameInstanceBase
 {

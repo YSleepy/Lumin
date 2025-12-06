@@ -6,7 +6,8 @@
 
 namespace Lumin
 {
-	struct RenderObj
+	const std::string MODEL_MATRIX = "modelMatrix";
+	struct RenderCmd
 	{
 		LMeshSceneComponent renderSceneComponent;
 	};
@@ -14,10 +15,10 @@ namespace Lumin
 	class LRenderQueue
 	{
 	public:
-		void Submit(const RenderObj& renderable);
+		void Submit(const RenderCmd& renderable);
 		void Draw(LGraphicsCore& graphicsCore);
 	private:
-		std::vector<RenderObj> m_renderQueue;
+		std::vector<RenderCmd> m_renderQueue;
 		std::mutex m_mutex;
 	};
 }

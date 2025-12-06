@@ -19,6 +19,17 @@ namespace Lumin
 		m_2FloatParams[name] = QVector2D(x, y);
 	}
 
+	void LMaterial::Set3FloatParam(const std::string& name, float x, float y, float z)
+	{
+		m_3FloatParams[name] = QVector3D(x, y, z);
+	}
+
+	void LMaterial::Set4MatrixParam(const std::string& name, const QMatrix4x4& matrix)
+	{
+		m_4matrixParams[name] = matrix;
+	}
+
+
 	void LMaterial::Bind()
 	{
 		CHECK_PTR_RETURN(m_shader, "m_shader is null");
@@ -28,6 +39,14 @@ namespace Lumin
 			m_shader->SetUniform(param.first, param.second);
 		}
 		for (auto& param : m_2FloatParams)
+		{
+			m_shader->SetUniform(param.first, param.second);
+		}
+		for (auto& param : m_3FloatParams)
+		{
+			m_shader->SetUniform(param.first, param.second);
+		}
+		for (auto& param : m_4matrixParams)
 		{
 			m_shader->SetUniform(param.first, param.second);
 		}

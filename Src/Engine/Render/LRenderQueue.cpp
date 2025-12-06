@@ -2,7 +2,7 @@
 
 namespace Lumin
 {
-	void LRenderQueue::Submit(const RenderObj &renderable)
+	void LRenderQueue::Submit(const RenderCmd &renderable)
 	{
 		std::lock_guard<std::mutex> lock(m_mutex);
 		m_renderQueue.push_back(renderable);
@@ -19,6 +19,7 @@ namespace Lumin
 		for (auto& renderable : m_renderQueue)
 		{
 			graphicsCore.BindMesh(renderable.renderSceneComponent.m_mesh);
+			renderable.renderSceneComponent.m_material->Set4MatrixParam(MODEL_MATRIX, renderable.renderSceneComponent.m_modelMatrix);
 			graphicsCore.BindMaterial(renderable.renderSceneComponent.m_material);
 			graphicsCore.DrawMesh(renderable.renderSceneComponent.m_mesh);
 		}

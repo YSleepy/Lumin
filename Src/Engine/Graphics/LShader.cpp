@@ -2,6 +2,8 @@
 
 #include "LShader.h"
 
+#include <QMatrix4x4>
+
 #include "LLog.h"
 #include "OpenGLApi/LOpenGLFunctionsManager.h"
 
@@ -102,5 +104,17 @@ namespace Lumin
 	{
 		auto id = GetUniformLocation(name);
 		L_GL->glUniform2f(id, value.x(), value.y());
+	}
+
+	void LShader::SetUniform(const std::string& name, const QVector3D& value)
+	{
+		auto id = GetUniformLocation(name);
+		L_GL->glUniform3f(id, value.x(), value.y(), value.z());
+	}
+
+	void LShader::SetUniform(const std::string& name, const QMatrix4x4& value)
+	{
+		auto id = GetUniformLocation(name);
+		L_GL->glUniformMatrix4fv(id, 1, GL_FALSE, value.data());
 	}
 }

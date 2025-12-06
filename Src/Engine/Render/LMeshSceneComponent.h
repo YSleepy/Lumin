@@ -9,6 +9,7 @@ namespace Lumin
 	public:
 		LMesh* m_mesh;
 		LMaterial* m_material;
+		QMatrix4x4 m_modelMatrix;
 	};
 
 }
