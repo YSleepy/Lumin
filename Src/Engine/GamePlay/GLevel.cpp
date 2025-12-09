@@ -4,6 +4,12 @@
 
 namespace Lumin
 {
+	GLevel::GLevel()
+	{
+		m_gameMode = std::make_unique<GGameModeBase>();
+		m_gameMode->defaultActor = CreateActor("MyActor");
+	}
+
 	void GLevel::Tick(float deltaTime)
 	{
 		for (auto it = m_actors.begin(); it != m_actors.end();)
@@ -142,6 +148,17 @@ namespace Lumin
 
 		}
 		return result;
+	}
+
+	GGameModeBase* GLevel::GetGameMode() const
+	{
+		return m_gameMode.get();
+	}
+
+	void GLevel::SetDefaultActor(GActor* actor)
+	{
+		CHECK_CONDITION_RETURN(actor, "actor is null");
+		m_gameMode->defaultActor = actor;
 	}
 
 	GActor* GLevel::CreateActor(const std::string& name, GActor* parent)

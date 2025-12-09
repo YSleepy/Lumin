@@ -1,6 +1,9 @@
 #include "MyActor.h"
 #include <LEngine.h>
 
+#include "GamePlay/Component/GCameraComponent.h"
+#include "GamePlay/Component/GMeshSceneComponent.h"
+
 MyActor::MyActor()
 {
 	qDebug() << "EGameInstance Init";
@@ -23,7 +26,8 @@ MyActor::MyActor()
 		"}\n";
 	auto& graphics = Lumin::LEngine::GetInstance().GetGraphicsCore();
 	auto shader = graphics.CreateShader(vertexShaderSource, fragmentShaderSource);
-	m_firstMaterial.SetShader(shader);
+	auto material = std::make_shared<Lumin::LMaterial>();
+	material->SetShader(shader);
 
 	std::vector<float> vertices = {
 		  -0.5f, -0.5f, 0.0f,
@@ -43,7 +47,10 @@ MyActor::MyActor()
 		{ 0, 3, GL_FLOAT, 0 }
 	);
 	vertexLayout.stride = 3 * sizeof(float);
-	m_firstMesh = std::make_unique<Lumin::LMesh>(vertexLayout, vertices, indices);
+	auto mesh = std::make_shared<Lumin::LMesh>(vertexLayout, vertices, indices);
+	
+	AddCommponent(new Lumin::GMeshSceneComponent(mesh, material, "MeshComponent"));
+	AddCommponent(new Lumin::GCameraComponent("CameraComponent"));
 }
 
 void MyActor::Tick(float deltaTime)
@@ -67,14 +74,7 @@ void MyActor::Tick(float deltaTime)
 	}
 
 	qDebug() << "GameInstance Tick deltaTime:" << deltaTime;
-	Lumin::LMeshSceneComponent sc;
-	sc.m_material = &m_firstMaterial;
-	sc.m_mesh = m_firstMesh.get();
-	sc.m_modelMatrix = this->GetWorldTransform();
-	Lumin::RenderCmd ro;
-	ro.renderSceneComponent = sc;
-	auto& renderQueue = Lumin::LEngine::GetInstance().GetRenderQueue();
-	renderQueue.Submit(ro);
+
 
 	std::this_thread::sleep_for(std::chrono::milliseconds(16));
 }

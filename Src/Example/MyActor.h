@@ -8,8 +8,5 @@ class MyActor : public Lumin::GActor
 public:
 	MyActor();
 	void Tick(float deltaTime) override;
-private:
-	Lumin::LMaterial m_firstMaterial;
-	std::unique_ptr<Lumin::LMesh> m_firstMesh;
 };
 

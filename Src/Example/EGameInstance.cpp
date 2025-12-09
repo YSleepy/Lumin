@@ -9,7 +9,8 @@
 
 bool EGameInstance::Init()
 {
-	GetCurrentLevel()->CreateActor<MyActor>("test");
+	auto a = GetCurrentLevel()->CreateActor<MyActor>("test");
+	GetCurrentLevel()->SetDefaultActor(a);
 	return true;
 }
 
@@ -22,12 +23,3 @@ void EGameInstance::Destroy()
 {
 }
 
-Lumin::GLevel* EGameInstance::GetCurrentLevel()
-{
-	return m_world.GetCurrentLevel();
-}
-
-Lumin::GWorld* EGameInstance::GetWorld()
-{
-	return &m_world;
-}

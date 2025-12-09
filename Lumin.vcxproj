@@ -98,12 +98,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\GamePlay\Component\GCameraComponent.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\Component\GComponent.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GActor.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GLevel.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GObject.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GWorld.cpp" />
     <ClCompile Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.cpp" />
-    <ClCompile Include="Src\Engine\Render\LMeshSceneComponent.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.cpp" />
     <ClCompile Include="Src\Engine\Graphics\LGraphicsCore.cpp" />
     <ClCompile Include="Src\Engine\Graphics\LShader.cpp" />
     <ClCompile Include="Src\Engine\Input\LInputManager.cpp" />
@@ -124,11 +126,14 @@
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\GamePlay\Component\GCameraComponent.h" />
+    <ClInclude Include="Src\Engine\GamePlay\Component\GComponent.h" />
     <ClInclude Include="Src\Engine\GamePlay\GActor.h" />
+    <ClInclude Include="Src\Engine\GamePlay\GameMode\GGameModeBase.h" />
     <ClInclude Include="Src\Engine\GamePlay\GLevel.h" />
     <ClInclude Include="Src\Engine\GamePlay\GObject.h" />
     <ClInclude Include="Src\Engine\GamePlay\GWorld.h" />
-    <ClInclude Include="Src\Engine\Render\LMeshSceneComponent.h" />
+    <ClInclude Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.h" />
     <ClInclude Include="Src\Engine\Graphics\LGraphicsCore.h" />
     <ClInclude Include="Src\Engine\Graphics\LShader.h" />
     <ClInclude Include="Src\Engine\Input\LInputManager.h" />
@@ -146,9 +151,11 @@
     <ClInclude Include="Src\Log\LLog.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Doc\Cpp.md" />
     <None Include="Doc\Progress.md" />
     <None Include="Doc\OpenGLApi.md" />
     <None Include="Doc\设计文档.md" />
+    <None Include="Doc\随笔本.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

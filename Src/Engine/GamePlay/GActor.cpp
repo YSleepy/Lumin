@@ -9,6 +9,10 @@ namespace Lumin
 
 	void GActor::Tick(float deltaTime)
 	{
+		for (auto& component : m_components)
+		{
+			component->Tick(deltaTime);
+		}
 		for (auto it = m_children.begin(); it != m_children.end();)
 		{
 			if ((*it)->m_isAlive)
@@ -108,5 +112,12 @@ namespace Lumin
 	void GActor::MarkNextFrameDestruction()
 	{
 		m_isAlive = false;
+	}
+
+	void GActor::AddCommponent(GComponent* component)
+	{
+		CHECK_CONDITION_RETURN(component, "component is null");
+		m_components.emplace_back(component);
+		component->SetOwner(this);
 	}
 }

@@ -3,8 +3,10 @@
 #include <QTimer>
 
 #include "LEngine.h"
+#include "LGameInstanceBase.h"
 #include "QKeyEvent"
 #include "LLog.h"
+#include "GamePlay/Component/GCameraComponent.h"
 #include "OpenGLApi/LOpenGLFunctionsManager.h"
 
 namespace Lumin
@@ -50,7 +52,15 @@ namespace Lumin
 	void LViewport::paintGL()
 	{
 		L_GL->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		m_engine->GetRenderQueue().Draw(m_engine->GetGraphicsCore());
+		auto defaultActor = m_engine->GetGameInstance()->GetDefaultActor();
+		auto camera = defaultActor->GetComponentByName<GCameraComponent>();
+		CHECK_CONDITION_RETURN(camera, "camera is null");
+		CameraInfo cameraInfo{
+			camera->GetViewMatrix(),
+			camera->GetProjectionMatrix()
+		};
+		
+		m_engine->GetRenderQueue().Draw(m_engine->GetGraphicsCore(), cameraInfo);
 	}
 
 	void LViewport::keyPressEvent(QKeyEvent* event)

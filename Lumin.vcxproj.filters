@@ -56,7 +56,7 @@
     <ClCompile Include="Src\Engine\Render\LRenderQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Engine\Render\LMeshSceneComponent.cpp">
+    <ClCompile Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Main.cpp">
@@ -78,6 +78,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Example\MyActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\GamePlay\Component\GComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\GamePlay\Component\GCameraComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -121,7 +127,7 @@
     <ClInclude Include="Src\Engine\Render\LRenderQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Engine\Render\LMeshSceneComponent.h">
+    <ClInclude Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Engine\GamePlay\GObject.h">
@@ -139,11 +145,22 @@
     <ClInclude Include="Src\Example\MyActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Engine\GamePlay\Component\GComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\GamePlay\Component\GCameraComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\GamePlay\GameMode\GGameModeBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Doc\设计文档.md" />
     <None Include="Doc\OpenGLApi.md" />
     <None Include="Doc\Progress.md" />
+    <None Include="Doc\Cpp.md" />
+    <None Include="Doc\随笔本.md" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Src\Engine\LViewport.h">
