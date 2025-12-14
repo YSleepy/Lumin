@@ -1,6 +1,7 @@
 #include "GLevel.h"
 
 #include "LLog.h"
+#include "GameMode/GPlayerController.h"
 
 namespace Lumin
 {
@@ -8,6 +9,7 @@ namespace Lumin
 	{
 		m_gameMode = std::make_unique<GGameModeBase>();
 		m_gameMode->defaultActor = CreateActor("MyActor");
+		m_gameMode->defaultController = CreateActor<GPlayerController>("MyController");
 	}
 
 	void GLevel::Tick(float deltaTime)
@@ -159,6 +161,12 @@ namespace Lumin
 	{
 		CHECK_CONDITION_RETURN(actor, "actor is null");
 		m_gameMode->defaultActor = actor;
+	}
+
+	void GLevel::SetDefaultPlayerController(GPlayerController* controller)
+	{
+		CHECK_CONDITION_RETURN(controller, "controller is null");
+		m_gameMode->defaultController = controller;
 	}
 
 	GActor* GLevel::CreateActor(const std::string& name, GActor* parent)

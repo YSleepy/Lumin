@@ -5,6 +5,7 @@
 #include "GActor.h"
 #include "GObject.h"
 #include "GameMode/GGameModeBase.h"
+#include "GameMode/GPlayerController.h"
 
 namespace Lumin
 {
@@ -15,9 +16,9 @@ namespace Lumin
 		void Tick(float deltaTime);
 		void Clear();
 		bool SetActorParent(GActor* actor, GActor* parent);
-
 		GGameModeBase* GetGameMode() const;
 		void SetDefaultActor(GActor* actor);
+		void SetDefaultPlayerController(GPlayerController* controller);
 		GActor* CreateActor(const std::string& name, GActor* parent = nullptr);
 
 		template<typename T, typename = std::enable_if_t<std::is_base_of_v<GActor, T>>>

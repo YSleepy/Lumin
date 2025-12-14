@@ -2,15 +2,24 @@
 
 #include <QDebug>
 #include <QEvent>
+#include <QVector3D>
 
 #include "LEngine.h"
 #include "MyActor.h"
+#include "GamePlay/Component/GCameraComponent.h"
 
 
 bool EGameInstance::Init()
 {
-	auto a = GetCurrentLevel()->CreateActor<MyActor>("test");
-	GetCurrentLevel()->SetDefaultActor(a);
+	auto testActor = GetCurrentLevel()->CreateActor<MyActor>("test");
+	auto testPawn = GetCurrentLevel()->CreateActor("testCamera");
+	auto testPlayerController = GetCurrentLevel()->CreateActor<Lumin::GPlayerController>("testPlayerController");
+	testPawn->AddCommponent(new Lumin::GCameraComponent("testCameraComponent"));
+	testPawn->SetPosition(QVector3D(0, 0, 10));
+	GetCurrentLevel()->SetDefaultActor(testPawn);
+	GetCurrentLevel()->SetDefaultPlayerController(testPlayerController);
+	testPlayerController->Possess(testPawn);
+
 	return true;
 }
 

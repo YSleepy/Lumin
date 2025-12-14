@@ -14,6 +14,5 @@ namespace Lumin
 		std::shared_ptr<LMesh> m_mesh;
 		std::shared_ptr<LMaterial> m_material;
 	};
-
 }
 

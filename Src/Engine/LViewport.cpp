@@ -53,11 +53,13 @@ namespace Lumin
 	{
 		L_GL->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		auto defaultActor = m_engine->GetGameInstance()->GetDefaultActor();
+		CHECK_CONDITION_RETURN(defaultActor, "defaultActor is null");
 		auto camera = defaultActor->GetComponentByName<GCameraComponent>();
 		CHECK_CONDITION_RETURN(camera, "camera is null");
+		float aspectRatio = static_cast<float>(width()) / static_cast<float>(height());
 		CameraInfo cameraInfo{
 			camera->GetViewMatrix(),
-			camera->GetProjectionMatrix()
+			camera->GetProjectionMatrix(aspectRatio),
 		};
 		
 		m_engine->GetRenderQueue().Draw(m_engine->GetGraphicsCore(), cameraInfo);
@@ -79,6 +81,29 @@ namespace Lumin
 			qDebug() << "keyReleaseEvent" << event->key();
 			m_engine->GetInputManager().SetKeyPressed(event->key(), false);
 		}
+	}
+
+	void LViewport::mouseMoveEvent(QMouseEvent* event)
+	{
+		qDebug() << "mouseMoveEvent" << event->position();
+		QVector2D pos (event->position().x(), event->position().y());
+		m_engine->GetInputManager().SetMouseOldPos(m_engine->GetInputManager().GetMouseNewPos());
+		m_engine->GetInputManager().SetMouseNewPos(pos);
+	}
+
+	void LViewport::mousePressEvent(QMouseEvent* event)
+	{
+		qDebug() << "mousePressEvent" << event->button();
+		m_engine->GetInputManager().SetButton(event->button(), true);
+		QVector2D pos(event->position().x(), event->position().y());
+		m_engine->GetInputManager().SetMouseOldPos(pos);
+		m_engine->GetInputManager().SetMouseNewPos(pos);
+	}
+
+	void LViewport::mouseReleaseEvent(QMouseEvent* event)
+	{
+		qDebug() << "mouseReleaseEvent" << event->button();
+		m_engine->GetInputManager().SetButton(event->button(), false);
 	}
 
 	void LViewport::closeEvent(QCloseEvent* event)

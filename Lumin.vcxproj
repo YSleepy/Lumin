@@ -98,9 +98,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\GamePlay\GameMode\GController.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GCameraComponent.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GComponent.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GActor.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\GameMode\GPlayerController.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GLevel.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GObject.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GWorld.cpp" />
@@ -117,6 +119,7 @@
     <ClCompile Include="Src\Engine\Render\LRenderQueue.cpp" />
     <ClCompile Include="Src\Example\EGameInstance.cpp" />
     <ClCompile Include="Src\Example\MyActor.cpp" />
+    <ClCompile Include="Src\Log\LLog.cpp" />
     <ClCompile Include="Src\Main.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
@@ -126,10 +129,12 @@
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\GamePlay\GameMode\GController.h" />
     <ClInclude Include="Src\Engine\GamePlay\Component\GCameraComponent.h" />
     <ClInclude Include="Src\Engine\GamePlay\Component\GComponent.h" />
     <ClInclude Include="Src\Engine\GamePlay\GActor.h" />
     <ClInclude Include="Src\Engine\GamePlay\GameMode\GGameModeBase.h" />
+    <ClInclude Include="Src\Engine\GamePlay\GameMode\GPlayerController.h" />
     <ClInclude Include="Src\Engine\GamePlay\GLevel.h" />
     <ClInclude Include="Src\Engine\GamePlay\GObject.h" />
     <ClInclude Include="Src\Engine\GamePlay\GWorld.h" />

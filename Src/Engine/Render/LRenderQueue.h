@@ -7,6 +7,7 @@ namespace Lumin
 {
 	const std::string MODEL_MATRIX = "modelMatrix";
 	const std::string VIEW_MATRIX = "viewMatrix";
+	const std::string PROJECTION_MATRIX = "projectionMatrix";
 	struct RenderCmd
 	{
 		LMesh* m_mesh;

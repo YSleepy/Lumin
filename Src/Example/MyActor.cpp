@@ -12,9 +12,11 @@ MyActor::MyActor()
 		"#version 330 core\n"
 		"layout (location = 0) in vec3 aPos;\n"
 		"uniform mat4 modelMatrix;\n"
+		"uniform mat4 viewMatrix;\n"
+		"uniform mat4 projectionMatrix;\n"
 		"void main()\n"
 		"{\n"
-		"   gl_Position = modelMatrix * vec4(aPos, 1.0);\n"
+		"   gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(aPos, 1.0);\n"
 		"}\n";
 
 	const char* fragmentShaderSource =
@@ -50,29 +52,11 @@ MyActor::MyActor()
 	auto mesh = std::make_shared<Lumin::LMesh>(vertexLayout, vertices, indices);
 	
 	AddCommponent(new Lumin::GMeshSceneComponent(mesh, material, "MeshComponent"));
-	AddCommponent(new Lumin::GCameraComponent("CameraComponent"));
 }
 
 void MyActor::Tick(float deltaTime)
 {
 	GActor::Tick(deltaTime);
-	if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_A))
-	{
-		this->m_transform.position.setX(this->m_transform.position.x() - 0.01f);
-	}
-	else if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_D))
-	{
-		this->m_transform.position.setX(this->m_transform.position.x() + 0.01f);
-	}
-	if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_W))
-	{
-		this->m_transform.position.setY(this->m_transform.position.y() + 0.01f);
-	}
-	else if (Lumin::LEngine::GetInstance().GetInputManager().IsKeyPressed(Qt::Key_S))
-	{
-		this->m_transform.position.setY(this->m_transform.position.y() - 0.01f);
-	}
-
 	qDebug() << "GameInstance Tick deltaTime:" << deltaTime;
 
 

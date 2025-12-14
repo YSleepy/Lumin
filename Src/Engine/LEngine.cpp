@@ -35,6 +35,7 @@ namespace Lumin
 			m_lastFrameTime = nowTime;
 
 			m_gameInstance->Tick(deltaTime);
+			m_inputManager.SetMouseOldPos(m_inputManager.GetMouseNewPos());
 		}
 	}
 

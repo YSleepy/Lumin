@@ -20,7 +20,9 @@ namespace Lumin
 		{
 			graphicsCore.BindMesh(renderable.m_mesh);
 			renderable.m_material->Set4MatrixParam(MODEL_MATRIX, renderable.m_modelMatrix);
-			//renderable.m_material->Set4MatrixParam(VIEW_MATRIX, m_viewMatrix);
+			renderable.m_material->Set4MatrixParam(VIEW_MATRIX, cameraInfo.ViewMatrix);
+			renderable.m_material->Set4MatrixParam(PROJECTION_MATRIX, cameraInfo.ProjectionMatrix);
+
 			graphicsCore.BindMaterial(renderable.m_material);
 			graphicsCore.DrawMesh(renderable.m_mesh);
 		}
