@@ -2,6 +2,7 @@
 #include <memory>
 #include <vector>
 #include <QVector3D>
+#include <QQuaternion>
 
 #include "Component/GComponent.h"
 #include "GObject.h"
@@ -11,7 +12,7 @@ namespace Lumin
 	struct LTransform
 	{
 		QVector3D position = QVector3D(0, 0, 0);
-		QVector3D rotation = QVector3D(0, 0, 0);
+		QQuaternion rotation = QQuaternion(1, 0, 0, 0);
 		QVector3D scale = QVector3D(1, 1, 1);
 	};
 
@@ -25,8 +26,8 @@ namespace Lumin
 		GActor* GetParent();
 		void SetPosition(const QVector3D& position);
 		QVector3D GetPosition();
-		void SetRotation(const QVector3D& rotation);
-		QVector3D GetRotation();
+		void SetRotation(const QQuaternion& rotation);
+		QQuaternion GetRotation();
 		void SetScale(const QVector3D& scale);
 		QVector3D GetScale();
 		QMatrix4x4 GetLocalTransform(); // Transformation relative to the coordinate system of the parent node

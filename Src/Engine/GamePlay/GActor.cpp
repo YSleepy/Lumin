@@ -58,12 +58,12 @@ namespace Lumin
 		return m_transform.position;
 	}
 
-	void GActor::SetRotation(const QVector3D& rotation)
+	void GActor::SetRotation(const QQuaternion& rotation)
 	{
 		m_transform.rotation = rotation;
 	}
 
-	QVector3D GActor::GetRotation()
+	QQuaternion GActor::GetRotation()
 	{
 		return m_transform.rotation;
 	}
@@ -87,9 +87,7 @@ namespace Lumin
 			0, 0, 0, 1
 		);
 		transform.translate(m_transform.position);
-		transform.rotate(m_transform.rotation.x(), QVector3D(1, 0, 0));
-		transform.rotate(m_transform.rotation.y(), QVector3D(0, 1, 0));
-		transform.rotate(m_transform.rotation.z(), QVector3D(0, 0, 1));
+		transform.rotate(m_transform.rotation);
 		transform.scale(m_transform.scale);
 		qDebug() << "local transform: " << transform;
 		return transform;

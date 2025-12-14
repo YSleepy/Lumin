@@ -11,31 +11,27 @@ namespace Lumin
 		// TODO: modify player controller
 		auto& input = LEngine::GetInstance().GetInputManager();
 		CHECK_PTR_RETURN(m_controlledActor, "No actor controlled");
-		QVector3D rotation = m_controlledActor->GetRotation();
+		QQuaternion rotation = m_controlledActor->GetRotation();
 		qDebug() << "Rotation1: " << rotation;
 		if (input.IsButtonPressed(Qt::MouseButton::LeftButton))
 		{
 			const QVector2D& mouseOldPos = input.GetMouseOldPos();
 			const QVector2D& mouseNewPos = input.GetMouseNewPos();
 			QVector2D delta = mouseNewPos - mouseOldPos;
-			rotation.setY(rotation.y() - delta.x() * m_mouseSensitivity * deltaTime);
-			rotation.setX(rotation.x() - delta.y() * m_mouseSensitivity * deltaTime);
+
+			float x = delta.x() * m_mouseSensitivity * deltaTime;
+			float y = delta.y() * m_mouseSensitivity * deltaTime;
+
+			QQuaternion xRotation = QQuaternion::fromAxisAndAngle(QVector3D(0.f, 1.f, 0.f), -x);
+			QQuaternion yRotation = QQuaternion::fromAxisAndAngle(QVector3D(1.f, 0.f, 0.f), -y);
+			rotation = (rotation * xRotation * yRotation).normalized();
 			m_controlledActor->SetRotation(rotation);
 			qDebug() << "Rotation2: " << rotation;
 		}
-		QMatrix4x4 rotationMatrix(
-			1.f, 0.f, 0.f, 0.f,
-			0.f, 1.f, 0.f, 0.f,
-			0.f, 0.f, 1.f, 0.f,
-			0.f, 0.f, 0.f, 1.f
-		);
-		rotationMatrix.rotate(rotation.x(), QVector3D(1.f, 0.f, 0.f));
-		rotationMatrix.rotate(rotation.y(), QVector3D(0.f, 1.f, 0.f));
-		rotationMatrix.rotate(rotation.z(), QVector3D(0.f, 0.f, 1.f));
 		
-		QVector3D forward = rotationMatrix.map(QVector3D(0.f, 0.f, -1.f));
+		QVector3D forward = rotation * QVector3D(0.f, 0.f, -1.f);
 		qDebug() << "Forward: " << forward;
-		QVector3D right = rotationMatrix.map(QVector3D(1.f, 0.f, 0.f));
+		QVector3D right = rotation * QVector3D(1.f, 0.f, 0.f);
 		qDebug() << "Right: " << right;
 
 		auto pos = m_controlledActor->GetPosition();
