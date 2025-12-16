@@ -6,9 +6,10 @@ namespace Lumin
 {
 	GWorld::GWorld()
 	{
-		std::unique_ptr<GLevel> level = CreateEmptyLevel();
+		GLevel* level = CreateEmptyLevel();
 		m_currentLevel = level->m_objectId;
-		m_levels.insert(std::make_pair(level->m_objectId, std::move(level)));
+		//m_levels.insert(std::make_pair(level->m_objectId, std::move(level)));
+		m_levels.emplace(level->m_objectId, level);
 	}
 
 	void GWorld::Tick(float deltaTime)
@@ -16,9 +17,9 @@ namespace Lumin
 		GetCurrentLevel()->Tick(deltaTime);
 	}
 
-	std::unique_ptr<GLevel> GWorld::CreateEmptyLevel()
+	GLevel* GWorld::CreateEmptyLevel()
 	{
-		return std::make_unique<GLevel>();
+		return new GLevel();
 	}
 
 	GLevel* GWorld::GetLevel(uint32_t levelId)
@@ -26,7 +27,7 @@ namespace Lumin
 		auto it = m_levels.find(levelId);
 		if (it != m_levels.end())
 		{
-			return it->second.get();
+			return it->second;
 		}
 		qDebug("Level %u not found", levelId);
 		return nullptr;

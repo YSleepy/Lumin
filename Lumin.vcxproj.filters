@@ -29,9 +29,6 @@
     <ClCompile Include="Src\Engine\LEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Example\EGameInstance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Engine\LViewport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -59,9 +56,6 @@
     <ClCompile Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -75,9 +69,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Engine\GamePlay\GLevel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Example\MyActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Engine\GamePlay\Component\GComponent.cpp">
@@ -95,6 +86,9 @@
     <ClCompile Include="Src\Engine\GamePlay\GameMode\GPlayerController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Engine\FileSystem\LFileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Engine\LGameInstanceBase.h">
@@ -104,9 +98,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Log\LLog.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Example\EGameInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Engine\LApp.h">
@@ -151,9 +142,6 @@
     <ClInclude Include="Src\Engine\GamePlay\GLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Example\MyActor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Engine\GamePlay\Component\GComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -169,6 +157,12 @@
     <ClInclude Include="Src\Engine\GamePlay\GameMode\GPlayerController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Engine\FileSystem\LFileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\pre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Doc\设计文档.md" />
@@ -176,6 +170,7 @@
     <None Include="Doc\Progress.md" />
     <None Include="Doc\Cpp.md" />
     <None Include="Doc\随笔本.md" />
+    <None Include="Doc\vs2022项目分离与依赖.md" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Src\Engine\LViewport.h">

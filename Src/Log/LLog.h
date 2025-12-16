@@ -1,4 +1,6 @@
 #pragma once
+#include "pre.h"
+
 #include <filesystem>
 #include <QDateTime>
 #include <QThread>
@@ -48,5 +50,5 @@ namespace Lumin
 	// 自定义消息处理器（线程ID十进制显示）
 	void customMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg);
 
-	void InitLog();
+	void ENGINE_API InitLog();
 }

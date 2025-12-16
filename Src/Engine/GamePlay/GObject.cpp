@@ -7,6 +7,10 @@ namespace Lumin
 		m_objectId = MakeObjectId();
 	}
 
+	GObject::~GObject()
+	{
+	}
+
 	uint32_t GObject::MakeObjectId()
 	{
 		static uint32_t sNextObjectId = 1;

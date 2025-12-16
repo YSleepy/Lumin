@@ -1,13 +1,14 @@
 #pragma once
 #include <string>
+#include "pre.h"
 
 namespace Lumin
 {
-	class GObject
+	class ENGINE_API GObject
 	{
 	public:
 		GObject();
-		virtual ~GObject() = default;
+		virtual ~GObject();
 		uint32_t MakeObjectId();
 	protected:
 		uint32_t m_objectId;

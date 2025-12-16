@@ -3,11 +3,13 @@
 #include <Qt>
 #include <QVector2D>
 
+#include "pre.h"
+
 namespace Lumin
 {
 	constexpr int MAX_KEYS = 256;
 	constexpr int MAX_MOUSE_BUTTONS = UINT32_MAX;
-	class LInputManager
+	class ENGINE_API LInputManager
 	{
 	public:
 		void SetKeyPressed(int key, bool pressed);

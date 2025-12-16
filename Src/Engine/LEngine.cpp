@@ -12,6 +12,11 @@ namespace Lumin
 		return engine;
 	}
 
+	LEngine::~LEngine()
+	{
+		
+	}
+
 	bool LEngine::Init(const LEngineConfig& config)
 	{
 		CHECK_PTR_RETURN_VALUE(m_gameInstance, false, "GameInstance is nullptr");

@@ -1,7 +1,10 @@
 #pragma once
+#include "pre.h"
+
 #include <memory>
 #include <chrono>
 
+#include "LGameInstanceBase.h"
 #include "LViewport.h"
 #include "Input/LInputManager.h"
 #include "Graphics/LGraphicsCore.h"
@@ -9,16 +12,16 @@
 
 namespace Lumin
 {
-	struct LEngineConfig
+	struct ENGINE_API LEngineConfig
 	{
 		LViewportConfig viewportConfig;
 	};
 
-	class LGameInstanceBase;
-	class LEngine
+	class ENGINE_API LEngine
 	{
 	public:
 		static LEngine& GetInstance();
+		~LEngine();
 		bool Init(const LEngineConfig& config);
 		void Run();
 		void Destroy();

@@ -1,12 +1,9 @@
 #include "EGameInstance.h"
 
 #include <QDebug>
-#include <QEvent>
-#include <QVector3D>
 
-#include "LEngine.h"
 #include "MyActor.h"
-#include "GamePlay/Component/GCameraComponent.h"
+#include "Engine/GamePlay/Component/GCameraComponent.h"
 
 
 bool EGameInstance::Init()

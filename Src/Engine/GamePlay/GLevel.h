@@ -6,13 +6,19 @@
 #include "GObject.h"
 #include "GameMode/GGameModeBase.h"
 #include "GameMode/GPlayerController.h"
+#include "pre.h"
 
 namespace Lumin
 {
-	class GLevel : public GObject
+	class ENGINE_API GLevel : public GObject
 	{
 	public:
 		GLevel();
+		~GLevel();
+		GLevel(const GLevel&) = delete;
+		GLevel& operator=(const GLevel&) = delete;
+		GLevel(GLevel&&) noexcept = default;
+		GLevel& operator=(GLevel&&) noexcept = default;
 		void Tick(float deltaTime);
 		void Clear();
 		bool SetActorParent(GActor* actor, GActor* parent);

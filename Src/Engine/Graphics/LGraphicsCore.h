@@ -5,10 +5,11 @@
 #include "LShader.h"
 #include "Render/LMaterial.h"
 #include "Render/LMesh.h"
+#include "pre.h"
 
 namespace Lumin
 {
-	class LGraphicsCore
+	class ENGINE_API LGraphicsCore
 	{
 	public:
 		std::shared_ptr<LShader> CreateShader(const char* vertexShaderSource, const char* fragmentShaderSource);

@@ -1,9 +1,10 @@
 #pragma once
 #include "GController.h"
+#include "pre.h"
 
 namespace Lumin
 {
-	class GPlayerController : public GController
+	class ENGINE_API GPlayerController : public GController
 	{
 	public:
 		void Tick(float deltaTime) override;

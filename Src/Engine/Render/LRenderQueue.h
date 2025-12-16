@@ -2,26 +2,27 @@
 #include <mutex>
 
 #include "Graphics/LGraphicsCore.h"
+#include "pre.h"
 
 namespace Lumin
 {
 	const std::string MODEL_MATRIX = "modelMatrix";
 	const std::string VIEW_MATRIX = "viewMatrix";
 	const std::string PROJECTION_MATRIX = "projectionMatrix";
-	struct RenderCmd
+	struct ENGINE_API RenderCmd
 	{
 		LMesh* m_mesh;
 		LMaterial* m_material;
 		QMatrix4x4 m_modelMatrix;
 	};
 
-	struct CameraInfo
+	struct ENGINE_API CameraInfo
 	{
 		QMatrix4x4 ViewMatrix;
 		QMatrix4x4 ProjectionMatrix;
 	};
 
-	class LRenderQueue
+	class ENGINE_API LRenderQueue
 	{
 	public:
 		void Submit(const RenderCmd& renderable);

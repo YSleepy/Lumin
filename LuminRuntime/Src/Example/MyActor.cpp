@@ -1,8 +1,17 @@
 #include "MyActor.h"
-#include <LEngine.h>
 
-#include "GamePlay/Component/GCameraComponent.h"
-#include "GamePlay/Component/GMeshSceneComponent.h"
+#include <memory>
+#include <vector>
+#include <QDebug>
+
+#include "Engine/LEngine.h"
+#include "Engine/GamePlay/Component/GMeshSceneComponent.h"
+#include "Engine/GamePlay/GActor.h"
+
+namespace Lumin
+{
+	class LMaterial;
+}
 
 MyActor::MyActor()
 {
@@ -56,7 +65,7 @@ MyActor::MyActor()
 
 void MyActor::Tick(float deltaTime)
 {
-	GActor::Tick(deltaTime);
+	Lumin::GActor::Tick(deltaTime);
 	qDebug() << "GameInstance Tick deltaTime:" << deltaTime;
 
 

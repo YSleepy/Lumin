@@ -3,9 +3,11 @@
 #include <unordered_map>
 #include <QVector2D>
 
+#include "pre.h"
+
 namespace Lumin
 {
-	class LShader
+	class ENGINE_API LShader
 	{
 	public:
 		LShader(GLuint programID);

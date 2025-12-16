@@ -20,7 +20,16 @@ namespace Lumin
 		logFilePath = logDir + "/release.log";
 #endif
 		QFile file(logFilePath);
-		if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+		QIODevice::OpenMode openMode = QIODevice::WriteOnly | QIODevice::Text;
+		static bool isFirstLog = true;
+		if (isFirstLog) {
+			openMode |= QIODevice::Truncate;
+			isFirstLog = false;
+		}
+		else {
+			openMode |= QIODevice::Append;
+		}
+		if (!file.open(openMode))
 			return;
 		QTextStream out(&file);
 

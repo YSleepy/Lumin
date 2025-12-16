@@ -7,6 +7,10 @@ namespace Lumin
 		m_name = name;
 	}
 
+	GComponent::~GComponent()
+	{
+	}
+
 	GActor* GComponent::GetOwner() const
 	{
 		return m_owner;

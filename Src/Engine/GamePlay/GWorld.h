@@ -1,4 +1,6 @@
 #pragma once
+#include "pre.h"
+
 #include <unordered_map>
 
 #include "GLevel.h"
@@ -7,18 +9,18 @@
 namespace Lumin
 {
 	// World manages levels
-	class GWorld : public GObject
+	class ENGINE_API GWorld : public GObject
 	{
 	public:
 		GWorld();
 		void Tick(float deltaTime);
-		std::unique_ptr<GLevel> CreateEmptyLevel();
+		GLevel* CreateEmptyLevel();
 		GLevel* GetLevel(uint32_t levelId);
 		GLevel* GetCurrentLevel();
 		
 	private:
 		uint32_t m_currentLevel;
-		std::unordered_map<uint32_t, std::unique_ptr<GLevel>> m_levels;
+		std::unordered_map<uint32_t, GLevel*> m_levels;
 	};
 }
 

@@ -1,10 +1,11 @@
 #pragma once
 
 #include <QOpenGLFunctions_3_3_Core>
+#include "pre.h"
 
 namespace Lumin
 {
-	class LOpenGLFunctionsManager : public QOpenGLFunctions_3_3_Core
+	class ENGINE_API LOpenGLFunctionsManager : public QOpenGLFunctions_3_3_Core
 	{
 		Q_DISABLE_COPY(LOpenGLFunctionsManager)
 

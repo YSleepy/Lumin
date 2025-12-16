@@ -2,10 +2,11 @@
 #include <QOpenGLFunctions_3_3_Core>
 
 #include "Graphics/LVertexLayout.h"
+#include "pre.h"
 
 namespace Lumin
 {
-	class LMesh
+	class ENGINE_API LMesh
 	{
 		Q_DISABLE_COPY(LMesh)
 	public:

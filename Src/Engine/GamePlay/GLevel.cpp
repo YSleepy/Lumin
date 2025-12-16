@@ -12,6 +12,10 @@ namespace Lumin
 		m_gameMode->defaultController = CreateActor<GPlayerController>("MyController");
 	}
 
+	GLevel::~GLevel()
+	{
+	}
+
 	void GLevel::Tick(float deltaTime)
 	{
 		for (auto it = m_actors.begin(); it != m_actors.end();)

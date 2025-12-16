@@ -4,17 +4,19 @@
 #include <QOpenGLFunctions_3_3_Core>
 #include <QTimer>
 
+#include "pre.h"
+
 namespace Lumin
 {
 	class LEngine;
-	struct LViewportConfig
+	struct ENGINE_API LViewportConfig
 	{
 		int width;
 		int height;
 		LEngine* engine;
 	};
 
-	class LViewport : public QOpenGLWidget/*, protected QOpenGLFunctions_3_3_Core*/
+	class ENGINE_API LViewport : public QOpenGLWidget/*, protected QOpenGLFunctions_3_3_Core*/
 	{
 		Q_OBJECT
 	public:

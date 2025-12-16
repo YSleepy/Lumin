@@ -1,7 +1,6 @@
 #pragma once
 
-#include "LGameInstanceBase.h"
-#include "GamePlay/GWorld.h"
+#include "Engine/LGameInstanceBase.h"
 
 class EGameInstance : public Lumin::LGameInstanceBase
 {

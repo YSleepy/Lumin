@@ -1,11 +1,12 @@
 #pragma once
+#include "pre.h"
 #include <QMatrix4x4>
 
 #include "GComponent.h"
 
 namespace Lumin
 {
-	class GCameraComponent : public GComponent
+	class ENGINE_API GCameraComponent : public GComponent
 	{
 	public:
 		GCameraComponent(const std::string& name);

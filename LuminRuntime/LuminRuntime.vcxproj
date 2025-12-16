@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FEF81F19-3A96-4B30-A615-693CF16D417A}</ProjectGuid>
+    <ProjectGuid>{B5A14036-A860-4824-BF4A-E8201E0CD9BF}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0</WindowsTargetPlatformVersion>
@@ -19,7 +19,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
@@ -41,7 +41,7 @@
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>6.4.3_msvc2019_64</QtInstall>
+    <QtInstall>6.8.1_msvc2022_64</QtInstall>
     <QtModules>core</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -60,14 +60,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>$(ProjectDir)Src\Engine;$(ProjectDir)Src\Log;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <PreprocessorDefinitions>ENGINECORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\Log;$(SolutionDir)Src\Engine;$(SolutionDir)Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -99,63 +97,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Engine\FileSystem\LFileSystem.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\GameMode\GController.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\Component\GCameraComponent.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\Component\GComponent.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\GActor.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\GameMode\GPlayerController.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\GLevel.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\GObject.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\GWorld.cpp" />
-    <ClCompile Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.cpp" />
-    <ClCompile Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.cpp" />
-    <ClCompile Include="Src\Engine\Graphics\LGraphicsCore.cpp" />
-    <ClCompile Include="Src\Engine\Graphics\LShader.cpp" />
-    <ClCompile Include="Src\Engine\Input\LInputManager.cpp" />
-    <ClCompile Include="Src\Engine\LApp.cpp" />
-    <ClCompile Include="Src\Engine\LGameInstanceBase.cpp" />
-    <ClCompile Include="Src\Engine\LViewport.cpp" />
-    <ClCompile Include="Src\Engine\Render\LMaterial.cpp" />
-    <ClCompile Include="Src\Engine\Render\LMesh.cpp" />
-    <ClCompile Include="Src\Engine\Render\LRenderQueue.cpp" />
-    <ClCompile Include="Src\Log\LLog.cpp" />
-    <ClCompile Include="Src\Engine\LEngine.cpp" />
+    <ProjectReference Include="..\Lumin.vcxproj">
+      <Project>{fef81f19-3a96-4b30-a615-693cf16d417a}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Engine\FileSystem\LFileSystem.h" />
-    <ClInclude Include="Src\Engine\GamePlay\GameMode\GController.h" />
-    <ClInclude Include="Src\Engine\GamePlay\Component\GCameraComponent.h" />
-    <ClInclude Include="Src\Engine\GamePlay\Component\GComponent.h" />
-    <ClInclude Include="Src\Engine\GamePlay\GActor.h" />
-    <ClInclude Include="Src\Engine\GamePlay\GameMode\GGameModeBase.h" />
-    <ClInclude Include="Src\Engine\GamePlay\GameMode\GPlayerController.h" />
-    <ClInclude Include="Src\Engine\GamePlay\GLevel.h" />
-    <ClInclude Include="Src\Engine\GamePlay\GObject.h" />
-    <ClInclude Include="Src\Engine\GamePlay\GWorld.h" />
-    <ClInclude Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.h" />
-    <ClInclude Include="Src\Engine\Graphics\LGraphicsCore.h" />
-    <ClInclude Include="Src\Engine\Graphics\LShader.h" />
-    <ClInclude Include="Src\Engine\Input\LInputManager.h" />
-    <ClInclude Include="Src\Engine\LApp.h" />
-    <ClInclude Include="Src\Engine\LGameInstanceBase.h" />
-    <ClInclude Include="Src\Engine\LEngine.h" />
-    <QtMoc Include="Src\Engine\LViewport.h" />
-    <ClInclude Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.h" />
-    <ClInclude Include="Src\Engine\pre.h" />
-    <ClInclude Include="Src\Engine\Render\LMaterial.h" />
-    <ClInclude Include="Src\Engine\Render\LMesh.h" />
-    <ClInclude Include="Src\Engine\Graphics\LVertexLayout.h" />
-    <ClInclude Include="Src\Engine\Render\LRenderQueue.h" />
-    <ClInclude Include="Src\Log\LLog.h" />
+    <ClCompile Include="Src\Example\EGameInstance.cpp" />
+    <ClCompile Include="Src\Example\MyActor.cpp" />
+    <ClCompile Include="Src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Doc\Cpp.md" />
-    <None Include="Doc\Progress.md" />
-    <None Include="Doc\OpenGLApi.md" />
-    <None Include="Doc\vs2022项目分离与依赖.md" />
-    <None Include="Doc\设计文档.md" />
-    <None Include="Doc\随笔本.md" />
+    <ClInclude Include="Src\Example\EGameInstance.h" />
+    <ClInclude Include="Src\Example\MyActor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

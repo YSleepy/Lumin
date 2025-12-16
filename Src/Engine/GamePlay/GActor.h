@@ -6,19 +6,27 @@
 
 #include "Component/GComponent.h"
 #include "GObject.h"
+#include "pre.h"
 
 namespace Lumin
 {
-	struct LTransform
+	struct ENGINE_API LTransform
 	{
 		QVector3D position = QVector3D(0, 0, 0);
 		QQuaternion rotation = QQuaternion(1, 0, 0, 0);
 		QVector3D scale = QVector3D(1, 1, 1);
 	};
 
-	class GActor : public GObject
+	class ENGINE_API GActor : public GObject
 	{
 	public:
+		GActor() = default;
+		virtual ~GActor() = default;
+		GActor(const GActor&) = delete;
+		GActor& operator=(const GActor&) = delete;
+		GActor(GActor&&) noexcept = default;
+		GActor& operator=(GActor&&) noexcept = default;
+
 		virtual void Tick(float deltaTime);
 		void SetName(const std::string& name);
 		std::string GetName();

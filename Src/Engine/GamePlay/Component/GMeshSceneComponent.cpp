@@ -3,6 +3,8 @@
 #include "LEngine.h"
 #include "Render/LRenderQueue.h"
 #include "GamePlay/GActor.h"
+#include "Render/LMaterial.h"
+#include "Render/LMesh.h"
 
 namespace Lumin
 {
@@ -14,6 +16,10 @@ namespace Lumin
 	{
 		m_mesh = mesh;
 		m_material = material;
+	}
+
+	GMeshSceneComponent::~GMeshSceneComponent()
+	{
 	}
 
 	void GMeshSceneComponent::Tick(float deltaTime)

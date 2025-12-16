@@ -5,11 +5,12 @@
 #include <QMatrix4x4>
 
 #include "Graphics/LShader.h"
+#include "pre.h"
 
 namespace Lumin
 {
 
-	class LMaterial
+	class ENGINE_API LMaterial
 	{
 	public:
 		void SetShader(const std::shared_ptr<LShader>& shader);

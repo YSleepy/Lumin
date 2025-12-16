@@ -5,6 +5,11 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lumin", "Lumin.vcxproj", "{FEF81F19-3A96-4B30-A615-693CF16D417A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuminRuntime", "LuminRuntime\LuminRuntime.vcxproj", "{B5A14036-A860-4824-BF4A-E8201E0CD9BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FEF81F19-3A96-4B30-A615-693CF16D417A} = {FEF81F19-3A96-4B30-A615-693CF16D417A}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -15,6 +20,10 @@ Global
 		{FEF81F19-3A96-4B30-A615-693CF16D417A}.Debug|x64.Build.0 = Debug|x64
 		{FEF81F19-3A96-4B30-A615-693CF16D417A}.Release|x64.ActiveCfg = Release|x64
 		{FEF81F19-3A96-4B30-A615-693CF16D417A}.Release|x64.Build.0 = Release|x64
+		{B5A14036-A860-4824-BF4A-E8201E0CD9BF}.Debug|x64.ActiveCfg = Debug|x64
+		{B5A14036-A860-4824-BF4A-E8201E0CD9BF}.Debug|x64.Build.0 = Debug|x64
+		{B5A14036-A860-4824-BF4A-E8201E0CD9BF}.Release|x64.ActiveCfg = Release|x64
+		{B5A14036-A860-4824-BF4A-E8201E0CD9BF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

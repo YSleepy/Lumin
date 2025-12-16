@@ -1,9 +1,10 @@
 #pragma once
 #include "GamePlay/GActor.h"
+#include "pre.h"
 
 namespace Lumin
 {
-	class GController: public GActor
+	class ENGINE_API GController: public GActor
 	{
 	public:
 		virtual void Possess(GActor* actor);
