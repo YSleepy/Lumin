@@ -1,0 +1,6 @@
+#pragma once
+#ifdef @GAME_MODULE@_GAME_EXPORTS
+#define @GAME_MODULE@_API __declspec(dllexport)
+#else
+#define @GAME_MODULE@_API __declspec(dllimport)
+#endif

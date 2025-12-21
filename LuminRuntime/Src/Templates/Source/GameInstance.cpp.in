@@ -1,0 +1,17 @@
+#include "@GAME_MODULE@GameInstance.h"
+
+~@GAME_MODULE@GameInstance()
+{
+}
+
+bool @GAME_MODULE@GameInstance::Init()
+{
+}
+
+void @GAME_MODULE@GameInstance::Tick(float deltaTime)
+{
+}
+
+void @GAME_MODULE@GameInstance::Destroy()
+{
+}

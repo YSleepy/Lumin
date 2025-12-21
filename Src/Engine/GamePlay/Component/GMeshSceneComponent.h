@@ -4,11 +4,12 @@
 #include <memory>
 
 #include "GComponent.h"
-#include "Render/LMaterial.h"
-#include "Render/LMesh.h"
 
 namespace Lumin
 {
+	class LMaterial;
+	class LMesh;
+
 	class ENGINE_API GMeshSceneComponent : public GComponent
 	{
 	public:

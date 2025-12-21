@@ -1,0 +1,25 @@
+#include "@GAME_MODULE@Module.h"
+#include "@GAME_MODULE@GameInstance.h"
+
+Lumin::LGameInstanceBase* @GAME_MODULE@Module::CreateGameInstance()
+{
+    return new @GAME_MODULE@GameInstance();
+}
+
+void @GAME_MODULE@Module::DestroyGameInstance(Lumin::LGameInstanceBase* instance)
+{
+    delete instance;
+}
+
+extern "C"
+{
+    __declspec(dllexport) Lumin::LGameModuleBase* CreateGameModule()
+    {
+        return new @GAME_MODULE@Module();
+    }
+
+    __declspec(dllexport) void DestroyGameModule(Lumin::LGameModuleBase* module)
+    {
+        delete module;
+    }
+}

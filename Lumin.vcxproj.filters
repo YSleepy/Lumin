@@ -89,6 +89,15 @@
     <ClCompile Include="Src\Engine\FileSystem\LFileSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Engine\LGameModuleBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\EngineMath\LVec3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\EngineMath\LMat4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Engine\LGameInstanceBase.h">
@@ -161,6 +170,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Engine\pre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\LGameModuleBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\EngineMath\LVec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\EngineMath\LQuat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\EngineMath\LMat4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

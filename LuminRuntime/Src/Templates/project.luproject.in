@@ -1,0 +1,7 @@
+{
+  "ProjectName": "@PROJECT_NAME@",
+  "GameModule": "@GAME_MODULE@",
+  "Target": "Game",
+  "ContentDir": "Content",
+  "StartupMap": "Maps/Startup.map"
+}

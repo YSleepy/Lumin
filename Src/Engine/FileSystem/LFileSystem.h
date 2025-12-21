@@ -1,12 +1,13 @@
 #pragma once
+#include "pre.h"
 #include <string>
 
 namespace Lumin
 {
-	class LFileSystem
+	class ENGINE_API LFileSystem
 	{
 	public:
-		std::string GetEngineRootPath();
+		static std::string GetEngineRootPath();
 		std::string GetGameRootPath();
 	};
 

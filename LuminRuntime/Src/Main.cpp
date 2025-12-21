@@ -2,6 +2,7 @@
 #include <filesystem>
 #include <QtGui/QSurfaceFormat>
 
+#include "CommandLine/LCommandLine.h"
 #include "Engine/LApp.h"
 #include "Example/EGameInstance.h"
 #include "Engine/LEngine.h"
@@ -12,6 +13,14 @@ int main(int argc, char* argv[])
 {
 	Lumin::LApp app(argc, argv);
 	Lumin::InitLog();
+
+	auto cmd = EngineRuntime::LCommandLine::Parse(argc, argv);
+	if (cmd.IsEmpty())
+	{
+		// use default project
+	}
+	return cmd.Dispatch();
+
 	QSurfaceFormat format;
 	format.setRenderableType(QSurfaceFormat::OpenGL);
 	format.setVersion(3, 3);  // 设置 OpenGL 版本
@@ -20,7 +29,7 @@ int main(int argc, char* argv[])
 
 	qDebug() << "Main Thread";
 	Lumin::LEngine& engine = Lumin::LEngine::GetInstance();
-	EGameInstance* gameInstance = new EGameInstance();
+	DefaultGameMode::EGameInstance* gameInstance = new DefaultGameMode::EGameInstance();
 	engine.SetGameInstance(gameInstance);
 	Lumin::LEngineConfig engineConfig{
 		{

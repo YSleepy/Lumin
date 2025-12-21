@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.21)
+project(@PROJECT_NAME@)
+
+set(CMAKE_CXX_STANDARD 20)
+
+set(LUMIN_ENGINE_ROOT "@ENGINE_ROOT@")
+
+add_subdirectory(Source/@PROJECT_NAME@)

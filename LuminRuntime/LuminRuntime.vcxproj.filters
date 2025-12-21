@@ -29,7 +29,34 @@
     <ClCompile Include="Src\Example\EGameInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Example\MyActor.cpp">
+    <ClCompile Include="Src\Example\EActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Loader\LProjectLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Example\EGameModule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CommandLine\LCommandLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CommandLine\LCommandRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CommandLine\BuiltinCommands\CreateProjectCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Loader\LProjectTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CommandLine\BuiltinCommands\HelpCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CommandLine\BuiltinCommands\RunProjectCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Loader\LGameBootstrap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,8 +64,54 @@
     <ClInclude Include="Src\Example\EGameInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Example\MyActor.h">
+    <ClInclude Include="Src\Example\EActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Loader\LProjectLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Example\EGameModule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Loader\LProjectInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CommandLine\LCommandLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CommandLine\LCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CommandLine\BuiltinCommands\CreateProjectCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CommandLine\LCommandRegistry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Loader\LProjectTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CommandLine\BuiltinCommands\HelpCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CommandLine\BuiltinCommands\RunProjectCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Loader\RunEngineWithProject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Loader\LGameBootstrap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Src\Templates\CMakeLists.txt.in" />
+    <None Include="Src\Templates\Source\GameModule.h.in" />
+    <None Include="Src\Templates\Source\GameModule.cpp.in" />
+    <None Include="Src\Templates\Source\GameInstance.h.in" />
+    <None Include="Src\Templates\Source\GameInstance.cpp.in" />
+    <None Include="Src\Templates\project.luproject.in" />
+    <None Include="Src\Templates\Source\CMakeLists.txt.in" />
+    <None Include="Src\Templates\Source\GameExport.h.in" />
   </ItemGroup>
 </Project>

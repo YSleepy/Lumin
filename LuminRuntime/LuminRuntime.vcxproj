@@ -65,8 +65,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Src\Log;$(SolutionDir)Src\Engine;$(SolutionDir)Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\Log;$(SolutionDir)Src\Engine;$(SolutionDir)Src;$(SolutionDir)LuminRuntime\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y /E /I "$(ProjectDir)Src/Templates" "$(TargetDir)Templates"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -102,13 +105,44 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\CommandLine\BuiltinCommands\CreateProjectCommand.cpp" />
+    <ClCompile Include="Src\CommandLine\BuiltinCommands\HelpCommand.cpp" />
+    <ClCompile Include="Src\CommandLine\BuiltinCommands\RunProjectCommand.cpp" />
+    <ClCompile Include="Src\CommandLine\LCommandLine.cpp" />
+    <ClCompile Include="Src\CommandLine\LCommandRegistry.cpp" />
+    <ClCompile Include="Src\Example\EGameModule.cpp" />
+    <ClCompile Include="Src\Loader\LGameBootstrap.cpp" />
+    <ClCompile Include="Src\Loader\LProjectLoader.cpp" />
     <ClCompile Include="Src\Example\EGameInstance.cpp" />
-    <ClCompile Include="Src\Example\MyActor.cpp" />
+    <ClCompile Include="Src\Example\EActor.cpp" />
+    <ClCompile Include="Src\Loader\LProjectTool.cpp" />
     <ClCompile Include="Src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\CommandLine\BuiltinCommands\CreateProjectCommand.h" />
+    <ClInclude Include="Src\CommandLine\BuiltinCommands\HelpCommand.h" />
+    <ClInclude Include="Src\CommandLine\BuiltinCommands\RunProjectCommand.h" />
+    <ClInclude Include="Src\CommandLine\LCommand.h" />
+    <ClInclude Include="Src\CommandLine\LCommandLine.h" />
+    <ClInclude Include="Src\CommandLine\LCommandRegistry.h" />
+    <ClInclude Include="Src\Example\EGameModule.h" />
+    <ClInclude Include="Src\Loader\LGameBootstrap.h" />
+    <ClInclude Include="Src\Loader\LProjectInfo.h" />
+    <ClInclude Include="Src\Loader\LProjectLoader.h" />
     <ClInclude Include="Src\Example\EGameInstance.h" />
-    <ClInclude Include="Src\Example\MyActor.h" />
+    <ClInclude Include="Src\Example\EActor.h" />
+    <ClInclude Include="Src\Loader\LProjectTool.h" />
+    <ClInclude Include="Src\Loader\RunEngineWithProject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Src\Templates\CMakeLists.txt.in" />
+    <None Include="Src\Templates\Source\GameExport.h.in" />
+    <None Include="Src\Templates\Source\GameInstance.cpp.in" />
+    <None Include="Src\Templates\Source\GameInstance.h.in" />
+    <None Include="Src\Templates\Source\GameModule.cpp.in" />
+    <None Include="Src\Templates\Source\GameModule.h.in" />
+    <None Include="Src\Templates\project.luproject.in" />
+    <None Include="Src\Templates\Source\CMakeLists.txt.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
