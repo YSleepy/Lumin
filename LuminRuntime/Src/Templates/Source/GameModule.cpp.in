@@ -1,4 +1,4 @@
-#include "@GAME_MODULE@Module.h"
+#include "@GAME_MODULE@GameModule.h"
 #include "@GAME_MODULE@GameInstance.h"
 
 Lumin::LGameInstanceBase* @GAME_MODULE@Module::CreateGameInstance()

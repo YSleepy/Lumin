@@ -1,8 +1,8 @@
 #pragma once
 #include "OneExport.h"
-#include "Engine/LGameModuleBase.h"
+#include "LGameModuleBase.h"
 
-class @GAME_MODULE@_API @GAME_MODULE@Module : public Lumin::LGameModuleBase
+class @EXPORT_MACRO@ @GAME_MODULE@Module : public Lumin::LGameModuleBase
 {
 public:
     Lumin::LGameInstanceBase* CreateGameInstance() override;
@@ -11,6 +11,6 @@ public:
 
 extern "C"
 {
-    __declspec(dllexport) Lumin::IGameModule* CreateGameModule();
-    __declspec(dllexport) void DestroyGameModule(Lumin::IGameModule*);
+    __declspec(dllexport) Lumin::LGameModuleBase* CreateGameModule();
+    __declspec(dllexport) void DestroyGameModule(Lumin::LGameModuleBase*);
 }

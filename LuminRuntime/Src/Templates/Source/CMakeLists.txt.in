@@ -11,8 +11,8 @@ target_include_directories(@GAME_MODULE@
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         @ENGINE_ROOT@/Src
-        @ENGINE_ROOT@/Engine
-        @ENGINE_ROOT@/Log
+        @ENGINE_ROOT@/Src/Engine
+        @ENGINE_ROOT@/Src/Log
 )
 
 target_link_directories(@GAME_MODULE@
@@ -29,5 +29,5 @@ target_link_libraries(@GAME_MODULE@
 
 target_compile_definitions(@GAME_MODULE@
     PRIVATE
-        @GAME_MODULE@_GAME_EXPORTS
+        @PROJECT_NAME_UPPER@_GAME_EXPORTS
 )

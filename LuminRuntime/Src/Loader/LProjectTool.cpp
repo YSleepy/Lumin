@@ -34,6 +34,7 @@ namespace EngineRuntime
 		vars["GAME_MODULE"] = name;
 		vars["ENGINE_ROOT"] = QString(Lumin::LFileSystem::GetEngineRootPath().c_str());
 		vars["EXPORT_MACRO"] = name.toUpper() + "_API";
+		vars["PROJECT_NAME_UPPER"] = name.toUpper();
 
 		WriteFromTemplate("Templates/CMakeLists.txt.in", rootPath + "/CMakeLists.txt", vars);
 		WriteFromTemplate("Templates/project.luproject.in", rootPath + "/" + name + ".luproject", vars);

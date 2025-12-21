@@ -39,6 +39,13 @@ namespace EngineRuntime
 		}
 
 		auto json = QJsonDocument::fromJson(file.readAll()).object();
+		//{
+		//		"ProjectName": "@PROJECT_NAME@",
+		//		"GameModule" : "@GAME_MODULE@",
+		//		"Target" : "Game",
+		//		"ContentDir" : "Content",
+		//		"StartupMap" : "Maps/Startup.map"
+		//}
 
 		m_projectInfo.projectName = json["ProjectName"].toString();
 		m_projectInfo.gameModuleName = json["GameModule"].toString();

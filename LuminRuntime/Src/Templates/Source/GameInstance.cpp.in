@@ -1,11 +1,12 @@
 #include "@GAME_MODULE@GameInstance.h"
 
-~@GAME_MODULE@GameInstance()
+@GAME_MODULE@GameInstance::~@GAME_MODULE@GameInstance()
 {
 }
 
 bool @GAME_MODULE@GameInstance::Init()
 {
+    return true;
 }
 
 void @GAME_MODULE@GameInstance::Tick(float deltaTime)
