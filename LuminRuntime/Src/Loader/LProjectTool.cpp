@@ -10,7 +10,8 @@ namespace EngineRuntime
 {
 	bool LProjectTool::CreateProject(const QString& name, const QString& path)
 	{
-		QString rootPath = path + "/" + name;
+
+		QString rootPath = QDir::fromNativeSeparators(path) + "/" + name;
 		QDir dir(path);
 		if (!dir.exists())
 		{
@@ -35,6 +36,7 @@ namespace EngineRuntime
 		vars["ENGINE_ROOT"] = QString(Lumin::LFileSystem::GetEngineRootPath().c_str());
 		vars["EXPORT_MACRO"] = name.toUpper() + "_API";
 		vars["PROJECT_NAME_UPPER"] = name.toUpper();
+		vars["PROJECT_PATH"] = rootPath;
 
 		WriteFromTemplate("Templates/CMakeLists.txt.in", rootPath + "/CMakeLists.txt", vars);
 		WriteFromTemplate("Templates/project.luproject.in", rootPath + "/" + name + ".luproject", vars);
@@ -44,6 +46,8 @@ namespace EngineRuntime
 		WriteFromTemplate("Templates/Source/GameInstance.cpp.in", rootPath + "/Source/" + name + "/" + name + "GameInstance.cpp", vars);
 		WriteFromTemplate("Templates/Source/CMakeLists.txt.in", rootPath + "/Source/" + name + "/CMakeLists.txt", vars);
 		WriteFromTemplate("Templates/Source/GameExport.h.in", rootPath + "/Source/" + name + "/" + name + "Export.h", vars);
+		WriteFromTemplate("Templates/Source/GameActor.h.in", rootPath + "/Source/" + name + "/" + name + "GameActor.h", vars);
+		WriteFromTemplate("Templates/Source/GameActor.cpp.in", rootPath + "/Source/" + name + "/" + name + "GameActor.cpp", vars);
 		return true;
 	}
 

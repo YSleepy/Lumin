@@ -13,7 +13,7 @@ namespace EngineRuntime
 	{
 		return "Run a project";
 	}
-	// args[0] = name, args[1] = path
+
 	int RunProjectCommand::Execute(const QStringList& args)
 	{
 		if (args.isEmpty())
@@ -26,7 +26,6 @@ namespace EngineRuntime
 		if (!loader.LoadProject(args[0]))
 		{
 			qWarning() << "Failed to load project";
-			return -1;
 		}
 
 		RunEngineWithProject(&loader);

@@ -4,5 +4,6 @@ project(@PROJECT_NAME@)
 set(CMAKE_CXX_STANDARD 20)
 
 set(LUMIN_ENGINE_ROOT "@ENGINE_ROOT@")
+set(OUTPUT_DIR "${CMAKE_SOURCE_DIR}/Binaries")
 
 add_subdirectory(Source/@PROJECT_NAME@)

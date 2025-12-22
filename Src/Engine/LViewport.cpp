@@ -8,6 +8,8 @@
 #include "LLog.h"
 #include "GamePlay/Component/GCameraComponent.h"
 #include "OpenGLApi/LOpenGLFunctionsManager.h"
+#include "Render/LRenderQueue.h"
+#include "Input/LInputManager.h"
 
 namespace Lumin
 {

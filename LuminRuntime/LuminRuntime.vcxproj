@@ -136,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Templates\CMakeLists.txt.in" />
+    <None Include="Src\Templates\Source\GameActor.cpp.in" />
+    <None Include="Src\Templates\Source\GameActor.h.in" />
     <None Include="Src\Templates\Source\GameExport.h.in" />
     <None Include="Src\Templates\Source\GameInstance.cpp.in" />
     <None Include="Src\Templates\Source\GameInstance.h.in" />

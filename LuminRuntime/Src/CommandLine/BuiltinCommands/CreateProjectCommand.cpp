@@ -22,7 +22,7 @@ namespace EngineRuntime
 			qWarning() << "Usage: new <ProjectName> <Path>";
 			return -1;
 		}
-
+		// args[0] = name, args[1] = path
 		if (!LProjectTool::CreateProject(args[0], args[1]))
 		{
 			qWarning() << "Failed to create project";

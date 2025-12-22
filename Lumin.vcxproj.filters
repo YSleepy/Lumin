@@ -192,6 +192,7 @@
     <None Include="Doc\Cpp.md" />
     <None Include="Doc\随笔本.md" />
     <None Include="Doc\vs2022项目分离与依赖.md" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Src\Engine\LViewport.h">

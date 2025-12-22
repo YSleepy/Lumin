@@ -1,16 +1,29 @@
 #include "@GAME_MODULE@GameInstance.h"
 
+#include "@GAME_MODULE@GameActor.h"
+#include "Engine/GamePlay/Component/GCameraComponent.h"
+
 @GAME_MODULE@GameInstance::~@GAME_MODULE@GameInstance()
 {
 }
 
 bool @GAME_MODULE@GameInstance::Init()
 {
-    return true;
+	auto testActor = GetCurrentLevel()->CreateActor<OneGameActor>("test");
+	auto testPawn = GetCurrentLevel()->CreateActor("testCamera");
+	auto testPlayerController = GetCurrentLevel()->CreateActor<Lumin::GPlayerController>("testPlayerController");
+	testPawn->AddCommponent(new Lumin::GCameraComponent("testCameraComponent"));
+	testPawn->SetPosition(QVector3D(0, 0, 10));
+	GetCurrentLevel()->SetDefaultActor(testPawn);
+	GetCurrentLevel()->SetDefaultPlayerController(testPlayerController);
+	testPlayerController->Possess(testPawn);
+
+	return true;
 }
 
 void @GAME_MODULE@GameInstance::Tick(float deltaTime)
 {
+	LGameInstanceBase::Tick(deltaTime);
 }
 
 void @GAME_MODULE@GameInstance::Destroy()

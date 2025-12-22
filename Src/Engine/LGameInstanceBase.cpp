@@ -2,6 +2,11 @@
 
 namespace Lumin
 {
+	void LGameInstanceBase::Tick(float deltaTime)
+	{
+		m_world.Tick(deltaTime);
+	}
+
 	void LGameInstanceBase::SetNeedToBeClosed(bool value)
 	{
 		m_needToBeClosed = value;

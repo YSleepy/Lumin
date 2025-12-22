@@ -39,19 +39,12 @@ namespace EngineRuntime
 		}
 
 		auto json = QJsonDocument::fromJson(file.readAll()).object();
-		//{
-		//		"ProjectName": "@PROJECT_NAME@",
-		//		"GameModule" : "@GAME_MODULE@",
-		//		"Target" : "Game",
-		//		"ContentDir" : "Content",
-		//		"StartupMap" : "Maps/Startup.map"
-		//}
 
 		m_projectInfo.projectName = json["ProjectName"].toString();
+		m_projectInfo.projectPath = json["ProjectPath"].toString();
 		m_projectInfo.gameModuleName = json["GameModule"].toString();
 		m_projectInfo.gameDllPath = json["GameDLL"].toString();
 		m_projectInfo.contentDir = json["ContentDir"].toString();
-		m_projectInfo.startupMap = json["StartupMap"].toString();
 
 		if (!m_projectInfo.IsValid())
 		{
@@ -64,8 +57,7 @@ namespace EngineRuntime
 
 	bool LProjectLoader::LoadGameDLL()
 	{
-		QString baseDir = QCoreApplication::applicationDirPath();
-		QString dllPath = baseDir + "/" + m_projectInfo.gameDllPath;
+		QString dllPath = m_projectInfo.gameDllPath;
 
 #ifdef _WIN32
 		HMODULE module = LoadLibraryW((LPCWSTR)dllPath.utf16());

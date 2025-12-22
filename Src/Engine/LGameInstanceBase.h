@@ -16,7 +16,7 @@ namespace Lumin
 		LGameInstanceBase& operator=(LGameInstanceBase&&) noexcept = default;
 
 		virtual bool Init() = 0;
-		virtual void Tick(float deltaTime = 0) = 0;// deltaTime is in seconds
+		virtual void Tick(float deltaTime = 0);
 		virtual void Destroy() = 0;
 
 		void SetNeedToBeClosed(bool value);

@@ -1,0 +1,9 @@
+#pragma once
+#include "Engine/GamePlay/GActor.h"
+
+class @GAME_MODULE@GameActor : public Lumin::GActor
+{
+public:
+	@GAME_MODULE@GameActor();
+	void Tick(float deltaTime) override;
+};

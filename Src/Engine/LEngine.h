@@ -2,20 +2,19 @@
 #include "pre.h"
 
 #include <memory>
-#include <chrono>
-
-#include "LGameInstanceBase.h"
-#include "LViewport.h"
-#include "Input/LInputManager.h"
-#include "Graphics/LGraphicsCore.h"
-#include "Render/LRenderQueue.h"
 
 namespace Lumin
 {
 	struct ENGINE_API LEngineConfig
 	{
-		LViewportConfig viewportConfig;
+		int width;
+		int height;
 	};
+
+	class LGameInstanceBase;
+	class LInputManager;
+	class LGraphicsCore;
+	class LRenderQueue;
 
 	class ENGINE_API LEngine
 	{
@@ -32,16 +31,13 @@ namespace Lumin
 		LGraphicsCore& GetGraphicsCore();
 		LRenderQueue& GetRenderQueue();
 	private:
-		LEngine() = default;
+		LEngine();
 		LEngine& operator=(const LEngine&) = delete;
 		LEngine& operator=(LEngine&&) = delete;
 	private:
-		std::unique_ptr<LGameInstanceBase> m_gameInstance;
-		std::chrono::steady_clock::time_point m_lastFrameTime;
-		LViewport* m_viewport = nullptr;
-		LInputManager m_inputManager;
-		LGraphicsCore m_graphicsCore;
-		LRenderQueue m_renderQueue;
+		// Pimpl (Pointer to implementation)
+		struct Impl;
+		std::unique_ptr<Impl> m_impl;
 	};
 }
 

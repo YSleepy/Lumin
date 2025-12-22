@@ -23,7 +23,7 @@ namespace DefaultGameMode
 
 	void EGameInstance::Tick(float deltaTime)
 	{
-		m_world.Tick(deltaTime);
+		LGameInstanceBase::Tick(deltaTime);
 	}
 
 	void EGameInstance::Destroy()

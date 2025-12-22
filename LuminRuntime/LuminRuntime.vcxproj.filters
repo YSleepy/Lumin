@@ -113,5 +113,7 @@
     <None Include="Src\Templates\project.luproject.in" />
     <None Include="Src\Templates\Source\CMakeLists.txt.in" />
     <None Include="Src\Templates\Source\GameExport.h.in" />
+    <None Include="Src\Templates\Source\GameActor.h.in" />
+    <None Include="Src\Templates\Source\GameActor.cpp.in" />
   </ItemGroup>
 </Project>

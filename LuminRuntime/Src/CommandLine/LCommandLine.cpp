@@ -43,8 +43,9 @@ namespace EngineRuntime
 	{
 		if (m_commandName.isEmpty())
 		{
-			qWarning() << "No command specified";
-			return -1;
+			const QStringList args = {"default"};
+			return m_commands.find("run")->second->Execute(args);
+			//return -1;
 		}
 
 		auto it = m_commands.find(m_commandName);

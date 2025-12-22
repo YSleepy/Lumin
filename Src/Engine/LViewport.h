@@ -1,10 +1,7 @@
 #pragma once
+#include "pre.h"
 
 #include <QOpenGLWidget>
-#include <QOpenGLFunctions_3_3_Core>
-#include <QTimer>
-
-#include "pre.h"
 
 namespace Lumin
 {
@@ -21,7 +18,7 @@ namespace Lumin
 		Q_OBJECT
 	public:
 		explicit LViewport(const LViewportConfig& config, QWidget* parent = nullptr);
-		~LViewport();
+		~LViewport() override;
 		bool ViewportShouldClose() const;
 	protected:
 		void initializeGL() override;
