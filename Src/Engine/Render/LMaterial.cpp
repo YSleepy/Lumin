@@ -2,8 +2,18 @@
 #include "LMaterial.h"
 
 #include "LLog.h"
+#include "Graphics/LTexture.h"
+
 namespace Lumin
 {
+	LMaterial::LMaterial()
+	{
+	}
+
+	LMaterial::~LMaterial()
+	{
+	}
+
 	void LMaterial::SetShader(const std::shared_ptr<LShader>& shader)
 	{
 		m_shader = shader;
@@ -29,6 +39,11 @@ namespace Lumin
 		m_4matrixParams[name] = matrix;
 	}
 
+	void LMaterial::SetTexture(const std::string& name, const std::shared_ptr<LTexture>& texture)
+	{
+		m_textures[name] = texture;
+	}
+
 
 	void LMaterial::Bind()
 	{
@@ -49,6 +64,10 @@ namespace Lumin
 		for (auto& param : m_4matrixParams)
 		{
 			m_shader->SetUniform(param.first, param.second);
+		}
+		for (auto& param : m_textures)
+		{
+			m_shader->SetTexture(param.first, param.second.get());
 		}
 	}
 }

@@ -32,7 +32,7 @@ namespace EngineRuntime
 			module->CreateGameInstance();
 
 		engine.SetGameInstance(instance);
-		if (!engine.Init({ 1080, 960 }))
+		if (!engine.Init({ 1080, 960, loader->GetProjectInfo().projectPath.toStdString() }))
 		{
 			return;
 		}

@@ -39,7 +39,11 @@ namespace Lumin
 	{
 		LOpenGLFunctionsManager::GetInstance()->Initialize();
 		L_GL->glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
-		L_GL->glEnable(GL_DEPTH_TEST);
+		L_GL->glEnable(GL_DEPTH_TEST); // enable depth testing
+
+		L_GL->glEnable(GL_BLEND); // enable blending
+		L_GL->glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // set blending function
+
 		qDebug() << "OpenGL initialized successfully";
 		qDebug() << "OpenGL Version:" << (const char*)L_GL->glGetString(GL_VERSION);
 		qDebug() << "GLSL Version:" << (const char*)L_GL->glGetString(GL_SHADING_LANGUAGE_VERSION);

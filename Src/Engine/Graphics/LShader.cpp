@@ -5,6 +5,7 @@
 #include <QMatrix4x4>
 
 #include "LLog.h"
+#include "LTexture.h"
 #include "OpenGLApi/LOpenGLFunctionsManager.h"
 
 namespace Lumin
@@ -13,6 +14,7 @@ namespace Lumin
 	{
 		CHECK_CONDITION_RETURN(programID != 0, "Invalid program ID");
 		m_programID = programID;
+		m_textureUnit = 0;
 	}
 
 	LShader::LShader(const char* vertexShaderSource, const char* fragmentShaderSource)
@@ -74,6 +76,7 @@ namespace Lumin
 	{
 		CHECK_CONDITION_RETURN(m_programID != 0, "Shader not compiled");
 		L_GL->glUseProgram(m_programID);
+		m_textureUnit = 0;
 		L_GL->CheckOpenGLError();
 	}
 
@@ -117,4 +120,14 @@ namespace Lumin
 		auto id = GetUniformLocation(name);
 		L_GL->glUniformMatrix4fv(id, 1, GL_FALSE, value.data());
 	}
+
+	void LShader::SetTexture(const std::string& name, LTexture* texture)
+	{
+		auto id = GetUniformLocation(name);
+		L_GL->glActiveTexture(GL_TEXTURE0 + m_textureUnit);
+		L_GL->glBindTexture(GL_TEXTURE_2D, texture->GetTextureID());
+		L_GL->glUniform1i(id, m_textureUnit);
+		++m_textureUnit;
+	}
+
 }

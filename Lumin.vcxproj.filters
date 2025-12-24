@@ -98,6 +98,9 @@
     <ClCompile Include="Src\Engine\EngineMath\LMat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Engine\Graphics\LTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Engine\LGameInstanceBase.h">
@@ -184,6 +187,9 @@
     <ClInclude Include="Src\Engine\EngineMath\LMat4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Engine\Graphics\LTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Doc\设计文档.md" />
@@ -198,5 +204,22 @@
     <QtMoc Include="Src\Engine\LViewport.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\senrcul\T_senrcul_4K_B-O.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\senrcul\T_senrcul_4K_N.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\senrcul\T_senrcul_4K_ORM.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\QianLiJiangShan\QianLiJiangShan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\shime15.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

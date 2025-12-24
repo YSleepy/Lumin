@@ -14,6 +14,8 @@
 
 namespace EngineRuntime
 {
+	const QString DEFAULT_STR = "default";
+
 	LProjectLoader::LProjectLoader() = default;
 
 	LProjectLoader::~LProjectLoader()
@@ -31,6 +33,17 @@ namespace EngineRuntime
 
 	bool LProjectLoader::LoadProject(const QString& projectFilePath)
 	{
+		qDebug() << "Loading project:" << projectFilePath;
+		if (projectFilePath == "default")
+		{
+			// load fail, return false
+			m_projectInfo.projectName = DEFAULT_STR;
+			m_projectInfo.projectPath = DEFAULT_STR;
+			m_projectInfo.gameModuleName = DEFAULT_STR;
+			m_projectInfo.gameDllPath = DEFAULT_STR;
+			m_projectInfo.assetsDir = DEFAULT_STR;
+			return false;
+		}
 		QFile file(projectFilePath);
 		if (!file.open(QIODevice::ReadOnly))
 		{
@@ -44,7 +57,7 @@ namespace EngineRuntime
 		m_projectInfo.projectPath = json["ProjectPath"].toString();
 		m_projectInfo.gameModuleName = json["GameModule"].toString();
 		m_projectInfo.gameDllPath = json["GameDLL"].toString();
-		m_projectInfo.contentDir = json["ContentDir"].toString();
+		m_projectInfo.assetsDir = json["AssetsDir"].toString();
 
 		if (!m_projectInfo.IsValid())
 		{

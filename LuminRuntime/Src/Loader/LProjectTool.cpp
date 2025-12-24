@@ -27,7 +27,7 @@ namespace EngineRuntime
 		dir.cd(name);// dir is root
 		qDebug() << "Created project directory: " << dir.absolutePath();
 		dir.mkpath("Source/" + name);
-		dir.mkpath("Content");
+		dir.mkpath("Assets");
 		dir.mkpath("Binaries");
 
 		QMap<QString, QString> vars;

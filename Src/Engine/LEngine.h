@@ -2,6 +2,7 @@
 #include "pre.h"
 
 #include <memory>
+#include <string>
 
 namespace Lumin
 {
@@ -9,12 +10,14 @@ namespace Lumin
 	{
 		int width;
 		int height;
+		std::string gameRootPath;
 	};
 
 	class LGameInstanceBase;
 	class LInputManager;
 	class LGraphicsCore;
 	class LRenderQueue;
+	class LFileSystem;
 
 	class ENGINE_API LEngine
 	{
@@ -30,6 +33,8 @@ namespace Lumin
 		LInputManager& GetInputManager();
 		LGraphicsCore& GetGraphicsCore();
 		LRenderQueue& GetRenderQueue();
+		LFileSystem& GetFileSystem();
+
 	private:
 		LEngine();
 		LEngine& operator=(const LEngine&) = delete;

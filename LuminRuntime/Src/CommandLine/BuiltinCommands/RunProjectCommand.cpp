@@ -9,6 +9,7 @@
 namespace EngineRuntime
 {
 	REGISTER_COMMAND(RunProjectCommand);
+
 	const char* RunProjectCommand::GetDescription() const
 	{
 		return "Run a project";

@@ -3,5 +3,5 @@
   "ProjectPath": "@PROJECT_PATH@",
   "GameModule": "@GAME_MODULE@",
   "GameDLL": "@PROJECT_PATH@/Binaries",
-  "ContentDir": "@PROJECT_PATH@/Content"
+  "AssetsDir": "@PROJECT_PATH@/Assets"
 }

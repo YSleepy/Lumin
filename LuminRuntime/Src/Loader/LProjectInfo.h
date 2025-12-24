@@ -9,7 +9,7 @@ namespace EngineRuntime
 		QString projectPath;
 		QString gameModuleName;
 		QString gameDllPath;
-		QString contentDir;
+		QString assetsDir;
 
 		bool IsValid() const
 		{

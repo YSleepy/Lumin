@@ -70,7 +70,8 @@
       <PreprocessorDefinitions>ENGINECORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>xcopy /Y /E /I "$(ProjectDir)Src" "$(TargetDir)Src"</Command>
+      <Command>xcopy /Y /E /I "$(ProjectDir)Src" "$(TargetDir)Src"
+xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -113,6 +114,7 @@
     <ClCompile Include="Src\Engine\GamePlay\GLevel.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GObject.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GWorld.cpp" />
+    <ClCompile Include="Src\Engine\Graphics\LTexture.cpp" />
     <ClCompile Include="Src\Engine\LGameModuleBase.cpp" />
     <ClCompile Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.cpp" />
@@ -145,6 +147,7 @@
     <ClInclude Include="Src\Engine\GamePlay\Component\GMeshSceneComponent.h" />
     <ClInclude Include="Src\Engine\Graphics\LGraphicsCore.h" />
     <ClInclude Include="Src\Engine\Graphics\LShader.h" />
+    <ClInclude Include="Src\Engine\Graphics\LTexture.h" />
     <ClInclude Include="Src\Engine\Input\LInputManager.h" />
     <ClInclude Include="Src\Engine\LApp.h" />
     <ClInclude Include="Src\Engine\LGameModuleBase.h" />
@@ -167,6 +170,13 @@
     <None Include="Doc\vs2022项目分离与依赖.md" />
     <None Include="Doc\设计文档.md" />
     <None Include="Doc\随笔本.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\QianLiJiangShan\QianLiJiangShan.png" />
+    <Image Include="Assets\senrcul\T_senrcul_4K_B-O.png" />
+    <Image Include="Assets\senrcul\T_senrcul_4K_N.png" />
+    <Image Include="Assets\senrcul\T_senrcul_4K_ORM.png" />
+    <Image Include="Assets\shime15.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

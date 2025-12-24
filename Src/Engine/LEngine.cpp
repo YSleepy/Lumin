@@ -6,6 +6,7 @@
 #include "Input/LInputManager.h"
 #include "Graphics/LGraphicsCore.h"
 #include "Render/LRenderQueue.h"
+#include "FileSystem/LFileSystem.h"
 
 namespace Lumin
 {
@@ -17,6 +18,7 @@ namespace Lumin
 		LInputManager m_inputManager;
 		LGraphicsCore m_graphicsCore;
 		LRenderQueue m_renderQueue;
+		LFileSystem m_fileSystem;
 	};
 
 	LEngine& LEngine::GetInstance()
@@ -36,6 +38,7 @@ namespace Lumin
 		LViewportConfig viewportConfig{ config.width, config.height, this };
 		m_impl->m_viewport = new LViewport(viewportConfig);//手动管理
 		CHECK_PTR_RETURN_VALUE(m_impl->m_viewport, false, "Viewport is nullptr");
+		m_impl->m_fileSystem.Init(config.gameRootPath);
 		return m_impl->m_gameInstance->Init();
 	}
 
@@ -90,6 +93,11 @@ namespace Lumin
 	LRenderQueue& LEngine::GetRenderQueue()
 	{
 		return m_impl->m_renderQueue;
+	}
+
+	LFileSystem& LEngine::GetFileSystem()
+	{
+		return m_impl->m_fileSystem;
 	}
 
 	LEngine::LEngine(): m_impl(std::make_unique<Impl>())

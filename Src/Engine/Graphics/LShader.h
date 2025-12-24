@@ -7,6 +7,7 @@
 
 namespace Lumin
 {
+	class LTexture;
 	class ENGINE_API LShader
 	{
 	public:
@@ -22,11 +23,14 @@ namespace Lumin
 		void SetUniform(const std::string& name, const QVector2D& value);
 		void SetUniform(const std::string& name, const QVector3D& value);
 		void SetUniform(const std::string& name, const QMatrix4x4& value);
+		void SetTexture(const std::string& name, LTexture* texture);
+
 
 	private:
 		GLuint m_programID = 0;
 		// uniform变量的位置缓存
 		std::unordered_map<std::string, GLuint> m_uniformLocationsCache;
+		int m_textureUnit = 0;
 	};
 }
 
