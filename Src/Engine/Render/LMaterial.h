@@ -18,6 +18,7 @@ namespace Lumin
 		LMaterial& operator=(const LMaterial&) = delete;
 		~LMaterial();
 
+		static std::shared_ptr<LMaterial> LoadMaterial(const char* path);
 		void SetShader(const std::shared_ptr<LShader>& shader);
 		void SetFloatParam(const std::string& name, float value);
 		void Set2FloatParam(const std::string& name, float x, float y);

@@ -1,6 +1,7 @@
 #include "LFileSystem.h"
 
 #include <QCoreApplication>
+#include <QFile>
 
 namespace Lumin
 {
@@ -17,6 +18,18 @@ namespace Lumin
 	std::string LFileSystem::GetEngineAssetsPath()
 	{
 		return QCoreApplication::applicationDirPath().toStdString() + "/Assets";
+	}
+
+	QByteArray LFileSystem::LoadEngineAssetFileContents(const char* filePath)
+	{
+		std::string path = GetEngineAssetsPath() + filePath;
+		QString qPath = QString::fromStdString(path);
+		QFile file(qPath);
+		if (!file.open(QIODevice::ReadOnly))
+		{
+			qDebug() << "Failed to open file:" << qPath;
+		}
+		return file.readAll();
 	}
 
 	std::string LFileSystem::GetGameRootPath()

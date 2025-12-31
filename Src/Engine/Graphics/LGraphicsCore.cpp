@@ -2,11 +2,32 @@
 
 #include "LGraphicsCore.h"
 
+#include <QFile>
+
 #include "LLog.h"
+#include "LEngine.h"
+#include "FileSystem/LFileSystem.h"
 #include "OpenGLApi/LOpenGLFunctionsManager.h"
 
 namespace Lumin
 {
+	std::shared_ptr<LShader> LGraphicsCore::CreateShaderByFile(const char* vertexShaderPath,
+		const char* fragmentShaderPath)
+	{
+		auto vPath = Lumin::LEngine::GetInstance().GetFileSystem().GetEngineAssetsPath() + vertexShaderPath;
+		auto fPath = Lumin::LEngine::GetInstance().GetFileSystem().GetEngineAssetsPath() + fragmentShaderPath;
+		QString vPathStr(vPath.c_str());
+		QString fPathStr(fPath.c_str());
+		QFile vFile(vPathStr);
+		QFile fFile(fPathStr);
+
+		if (!vFile.open(QIODevice::ReadOnly) || !fFile.open(QIODevice::ReadOnly))
+		{
+			qDebug() << "Failed to open shader file: " << vPathStr << "or" << fPathStr;
+			return nullptr;
+		}
+		return CreateShader(vFile.readAll().toStdString().c_str(), fFile.readAll().toStdString().c_str());
+	}
 
 	std::shared_ptr<LShader> LGraphicsCore::CreateShader(const char* vertexShaderSource, const char* fragmentShaderSource)
 	{

@@ -1,8 +1,7 @@
 #pragma once
-#include <QOpenGLFunctions_3_3_Core>
+#include "pre.h"
 
 #include "Graphics/LVertexLayout.h"
-#include "pre.h"
 
 namespace Lumin
 {
@@ -10,12 +9,17 @@ namespace Lumin
 	{
 		Q_DISABLE_COPY(LMesh)
 	public:
+		static std::shared_ptr<LMesh> LoadMesh(const char* path);
 		LMesh(const LVertexLayout& layout, const std::vector<float>& vertices);
 		LMesh(const LVertexLayout& layout, const std::vector<float>& vertices, const std::vector<uint32_t>& indices);
 		~LMesh();
+		const std::vector<float>& GetVertices() const;
+		const std::vector<uint32_t>& GetIndices() const;
 		void Bind();
 		void Draw();
 	private:
+		std::vector<float> m_vertices {};
+		std::vector<uint32_t> m_indices {};
 		GLuint m_vao = 0;
 		GLuint m_vbo = 0;
 		GLuint m_ebo = 0;

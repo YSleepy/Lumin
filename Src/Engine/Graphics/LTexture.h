@@ -12,6 +12,7 @@ namespace Lumin
 		LTexture& operator=(const LTexture&) = delete;
 		~LTexture();
 
+		static std::shared_ptr<LTexture> LoadTextureRGBA8(const char* path);
 		GLuint GetTextureID() const;
 	private:
 		GLuint m_textureID = 0;

@@ -12,6 +12,7 @@ namespace DefaultGameMode
 		auto testActor = GetCurrentLevel()->CreateActor<EActor>("test");
 		auto testPawn = GetCurrentLevel()->CreateActor("testCamera");
 		auto testPlayerController = GetCurrentLevel()->CreateActor<Lumin::GPlayerController>("testPlayerController");
+		testPlayerController->SetSpeed(9);
 		testPawn->AddCommponent(new Lumin::GCameraComponent("testCameraComponent"));
 		testPawn->SetPosition(QVector3D(0, 0, 10));
 		GetCurrentLevel()->SetDefaultActor(testPawn);

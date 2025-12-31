@@ -190,6 +190,18 @@
     <ClInclude Include="Src\Engine\Graphics\LTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThirdParty\tiny_gltf\include\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\tiny_gltf\include\stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\tiny_gltf\include\stb_image_write.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\tiny_gltf\include\tiny_gltf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Doc\设计文档.md" />
@@ -199,6 +211,11 @@
     <None Include="Doc\随笔本.md" />
     <None Include="Doc\vs2022项目分离与依赖.md" />
     <None Include="ClassDiagram.cd" />
+    <None Include="Assets\Shaders\EVertex.glsl" />
+    <None Include="Assets\Shaders\EFragment.glsl" />
+    <None Include="Assets\Materials\Mat_Base.json" />
+    <None Include="Assets\Materials\Mat_Earth.json" />
+    <None Include="Doc\gltf.md" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Src\Engine\LViewport.h">
@@ -206,20 +223,23 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\senrcul\T_senrcul_4K_B-O.png">
+    <Image Include="Assets\Image\senrcul\T_senrcul_4K_B-O.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assets\senrcul\T_senrcul_4K_N.png">
+    <Image Include="Assets\Image\senrcul\T_senrcul_4K_N.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assets\senrcul\T_senrcul_4K_ORM.png">
+    <Image Include="Assets\Image\senrcul\T_senrcul_4K_ORM.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assets\QianLiJiangShan\QianLiJiangShan.png">
+    <Image Include="Assets\Image\QianLiJiangShan\QianLiJiangShan.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Assets\shime15.png">
+    <Image Include="Assets\Image\shime15.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ThirdParty\tiny_gltf\lib\tinygltf.lib" />
   </ItemGroup>
 </Project>

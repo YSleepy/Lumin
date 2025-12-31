@@ -55,5 +55,15 @@ namespace Lumin
 		}
 		m_controlledActor->SetPosition(pos);
 	}
+
+	void GPlayerController::SetMouseSensitivity(float sensitivity)
+	{
+		m_mouseSensitivity = sensitivity;
+	}
+
+	void GPlayerController::SetSpeed(float speed)
+	{
+		m_speed = speed;
+	}
 }
 

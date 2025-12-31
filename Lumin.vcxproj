@@ -60,7 +60,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>$(ProjectDir)Src\Engine;$(ProjectDir)Src\Log;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Src\Engine;$(ProjectDir)Src\Log;$(ProjectDir)ThirdParty\tiny_gltf\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)ThirdParty/tiny_gltf/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
@@ -73,6 +74,9 @@
       <Command>xcopy /Y /E /I "$(ProjectDir)Src" "$(TargetDir)Src"
 xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>tinygltf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -153,6 +157,10 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <ClInclude Include="Src\Engine\LGameModuleBase.h" />
     <ClInclude Include="Src\Engine\LGameInstanceBase.h" />
     <ClInclude Include="Src\Engine\LEngine.h" />
+    <ClInclude Include="ThirdParty\tiny_gltf\include\json.hpp" />
+    <ClInclude Include="ThirdParty\tiny_gltf\include\stb_image.h" />
+    <ClInclude Include="ThirdParty\tiny_gltf\include\stb_image_write.h" />
+    <ClInclude Include="ThirdParty\tiny_gltf\include\tiny_gltf.h" />
     <QtMoc Include="Src\Engine\LViewport.h" />
     <ClInclude Include="Src\Engine\OpenGLApi\LOpenGLFunctionsManager.h" />
     <ClInclude Include="Src\Engine\pre.h" />
@@ -163,8 +171,15 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <ClInclude Include="Src\Log\LLog.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Materials\Mat_Base.json">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\Materials\Mat_Earth.json" />
+    <None Include="Assets\Shaders\EFragment.glsl" />
+    <None Include="Assets\Shaders\EVertex.glsl" />
     <None Include="ClassDiagram.cd" />
     <None Include="Doc\Cpp.md" />
+    <None Include="Doc\gltf.md" />
     <None Include="Doc\Progress.md" />
     <None Include="Doc\OpenGLApi.md" />
     <None Include="Doc\vs2022项目分离与依赖.md" />
@@ -172,11 +187,14 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <None Include="Doc\随笔本.md" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\QianLiJiangShan\QianLiJiangShan.png" />
-    <Image Include="Assets\senrcul\T_senrcul_4K_B-O.png" />
-    <Image Include="Assets\senrcul\T_senrcul_4K_N.png" />
-    <Image Include="Assets\senrcul\T_senrcul_4K_ORM.png" />
-    <Image Include="Assets\shime15.png" />
+    <Image Include="Assets\Image\QianLiJiangShan\QianLiJiangShan.png" />
+    <Image Include="Assets\Image\senrcul\T_senrcul_4K_B-O.png" />
+    <Image Include="Assets\Image\senrcul\T_senrcul_4K_N.png" />
+    <Image Include="Assets\Image\senrcul\T_senrcul_4K_ORM.png" />
+    <Image Include="Assets\Image\shime15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ThirdParty\tiny_gltf\lib\tinygltf.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

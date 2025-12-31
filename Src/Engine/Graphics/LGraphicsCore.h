@@ -12,6 +12,7 @@ namespace Lumin
 	class ENGINE_API LGraphicsCore
 	{
 	public:
+		std::shared_ptr<LShader> CreateShaderByFile(const char* vertexShaderPath, const char* fragmentShaderPath);
 		std::shared_ptr<LShader> CreateShader(const char* vertexShaderSource, const char* fragmentShaderSource);
 		GLuint CreateVertexBufferObject(const std::vector<float>& vertices);
 		GLuint CreateIndexBufferObject(const std::vector<unsigned int>& indices);

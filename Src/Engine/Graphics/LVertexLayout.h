@@ -17,6 +17,6 @@ namespace Lumin
 	struct ENGINE_API LVertexLayout
 	{
 		std::vector<LVertexElement> elements;// vertex elements, eg. position, normal, color, uv
-		uint32_t stride;// vertex layout stride
+		uint32_t stride = 0;// vertex layout stride
 	};
 }

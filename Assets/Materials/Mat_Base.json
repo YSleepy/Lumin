@@ -1,0 +1,14 @@
+{
+	"shader": {
+		"vertexShader": "/Shaders/EVertex.glsl",
+		"fragmentShader": "/Shaders/EFragment.glsl"
+	},
+	"params": {
+		"textures": [
+		  {
+			"name": "aTexture",
+			"path": "/Image/shime15.png"
+		  }
+		]
+	}
+}

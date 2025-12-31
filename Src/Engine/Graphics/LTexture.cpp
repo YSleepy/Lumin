@@ -1,5 +1,9 @@
 #include "LTexture.h"
 
+#include <QImage>
+
+#include "LEngine.h"
+#include "FileSystem/LFileSystem.h"
 #include "OpenGLApi/LOpenGLFunctionsManager.h"
 
 namespace Lumin
@@ -28,6 +32,17 @@ namespace Lumin
 		{
 			L_GL->glDeleteTextures(1, &m_textureID);
 		}
+	}
+
+	std::shared_ptr<LTexture> LTexture::LoadTextureRGBA8(const char* path)
+	{
+		auto texturePath = Lumin::LEngine::GetInstance().GetFileSystem().GetEngineAssetsPath() + path;
+		QString texturePathStr(texturePath.c_str());
+		std::unique_ptr<QImage> sourceImage = std::make_unique<QImage>(texturePathStr);
+		QImage image = sourceImage->convertToFormat(QImage::Format_RGBA8888);
+		image = image.mirrored(false, true);
+		auto texture = std::make_shared<Lumin::LTexture>(image.size().width(), image.size().height(), 3, image.bits());
+		return texture;
 	}
 
 	GLuint LTexture::GetTextureID() const
