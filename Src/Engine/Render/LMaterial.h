@@ -22,7 +22,9 @@ namespace Lumin
 		void SetShader(const std::shared_ptr<LShader>& shader);
 		void SetFloatParam(const std::string& name, float value);
 		void Set2FloatParam(const std::string& name, float x, float y);
+		void Set2FloatParam(const std::string& name, const QVector2D& vector);
 		void Set3FloatParam(const std::string& name, float x, float y, float z);
+		void Set3FloatParam(const std::string& name, const QVector3D& vector);
 		void Set4MatrixParam(const std::string& name, const QMatrix4x4& matrix);
 		void SetTexture(const std::string& name, const std::shared_ptr<LTexture>& texture);
 		void Bind();

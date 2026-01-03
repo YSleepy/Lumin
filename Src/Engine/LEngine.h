@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 
+
 namespace Lumin
 {
 	struct ENGINE_API LEngineConfig
@@ -34,6 +35,7 @@ namespace Lumin
 		LGraphicsCore& GetGraphicsCore();
 		LRenderQueue& GetRenderQueue();
 		LFileSystem& GetFileSystem();
+		
 
 	private:
 		LEngine();

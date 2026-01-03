@@ -4,6 +4,7 @@
 
 #include "EActor.h"
 #include "Engine/GamePlay/Component/GCameraComponent.h"
+#include "GamePlay/Component/GLightComponent.h"
 
 namespace DefaultGameMode
 {
@@ -18,6 +19,12 @@ namespace DefaultGameMode
 		GetCurrentLevel()->SetDefaultActor(testPawn);
 		GetCurrentLevel()->SetDefaultPlayerController(testPlayerController);
 		testPlayerController->Possess(testPawn);
+
+		auto teseLight = GetCurrentLevel()->CreateActor("testLight");
+		auto testLightComponent = new Lumin::GLightComponent("testLightComponent");
+		testLightComponent->SetColor(0, 1, 0);
+		teseLight->AddCommponent(testLightComponent);
+		teseLight->SetPosition(QVector3D(0, 10, 0));
 
 		return true;
 	}

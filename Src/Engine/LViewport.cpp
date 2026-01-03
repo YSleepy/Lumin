@@ -60,15 +60,17 @@ namespace Lumin
 		L_GL->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		auto defaultActor = m_engine->GetGameInstance()->GetDefaultActor();
 		CHECK_CONDITION_RETURN(defaultActor, "defaultActor is null");
-		auto camera = defaultActor->GetComponentByName<GCameraComponent>();
+		auto camera = defaultActor->GetComponent<GCameraComponent>();
 		CHECK_CONDITION_RETURN(camera, "camera is null");
 		float aspectRatio = static_cast<float>(width()) / static_cast<float>(height());
 		CameraInfo cameraInfo{
 			camera->GetViewMatrix(),
 			camera->GetProjectionMatrix(aspectRatio),
 		};
+
+		auto lightsInfos = m_engine->GetGameInstance()->GetWorld()->GetCurrentLevelLightsInfo();
 		
-		m_engine->GetRenderQueue().Draw(m_engine->GetGraphicsCore(), cameraInfo);
+		m_engine->GetRenderQueue().Draw(m_engine->GetGraphicsCore(), cameraInfo, lightsInfos);
 	}
 
 	void LViewport::keyPressEvent(QKeyEvent* event)

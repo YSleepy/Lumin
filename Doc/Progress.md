@@ -72,3 +72,13 @@
 ## 12.26
 * `bug`: string 遗留问题，引擎最开始编码使用的是string，可引擎使用大量qt类，不可避免的出现类型转换
 * `debug`: 继续遗留，改动太多，以后再说
+
+## 12.30
+* `bug`: gltf使用tinygltf::TinyGLTF::LoadASCIIFromFile时间开销极大
+* `debug`: 仿照虚幻引擎提供一种二进制资源文件（适应OpenGL的格式，加载方便），这样只有在导入时缓慢
+* `debug`: 暂时没考虑好各种二进制文件如何保存，先做遗留
+
+## 1.01
+* `bug`: 设计缺陷：摄像机和Pawn不应该绑定，不应该从默认Pawn中获取相机数据
+* `debug`: 分离为 默认相机和Pawn两个类，或者默认使用Pawn下的摄像机，如果没有，则自动创建一个
+* `debug`: 运行PlayerController指定相机对象

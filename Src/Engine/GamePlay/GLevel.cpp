@@ -1,6 +1,7 @@
 #include "GLevel.h"
 
 #include "LLog.h"
+#include "Component/GLightComponent.h"
 #include "GameMode/GPlayerController.h"
 
 namespace Lumin
@@ -184,4 +185,35 @@ namespace Lumin
 		}
 		return actor;
 	}
+
+	namespace
+	{
+		void CollectLightRecursive(GActor* actor, std::vector<LightInfo>& outInfos)
+		{
+			if (auto light = actor->GetComponent<GLightComponent>())
+			{
+				LightInfo info{
+					actor->GetWorldPosition(),
+					light->GetColor()
+				};
+				outInfos.push_back(info);
+			}
+			for (auto& child : actor->GetChildren())
+			{
+				CollectLightRecursive(child.get(), outInfos);
+			}
+		}
+	}
+
+	std::vector<LightInfo> GLevel::CollectLightsInfo()
+	{
+		std::vector<LightInfo> result;
+		for (auto& actor : m_actors)
+		{
+			CollectLightRecursive(actor.get(), result);
+		}
+		return result;
+	}
+
+
 }

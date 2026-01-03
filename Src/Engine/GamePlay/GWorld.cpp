@@ -37,5 +37,10 @@ namespace Lumin
 	{
 		return GetLevel(m_currentLevel);
 	}
+
+	std::vector<LightInfo> GWorld::GetCurrentLevelLightsInfo()
+	{
+		return GetCurrentLevel()->CollectLightsInfo();
+	}
 }
 

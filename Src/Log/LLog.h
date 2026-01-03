@@ -45,6 +45,15 @@ namespace Lumin
 		}\
 	}while(0)\
 
+	// TODO: 待验证
+#define CHECK_CONDITION_RETURN_VALUE_FMT(ptr, value, fmt, ...) \
+    do { \
+        if (!(ptr)) { \
+            qDebug() << "[" << LOG_TAG << "] " << QString::asprintf((fmt), ##__VA_ARGS__); \
+            return (value); \
+        } \
+    } while(0)
+
 
 
 	// 自定义消息处理器（线程ID十进制显示）

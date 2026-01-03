@@ -138,9 +138,19 @@ namespace Lumin
 		m_2FloatParams[name] = QVector2D(x, y);
 	}
 
+	void LMaterial::Set2FloatParam(const std::string& name, const QVector2D& vector)
+	{
+		m_2FloatParams[name] = vector;
+	}
+
 	void LMaterial::Set3FloatParam(const std::string& name, float x, float y, float z)
 	{
 		m_3FloatParams[name] = QVector3D(x, y, z);
+	}
+
+	void LMaterial::Set3FloatParam(const std::string& name, const QVector3D& vector)
+	{
+		m_3FloatParams[name] = vector;
 	}
 
 	void LMaterial::Set4MatrixParam(const std::string& name, const QMatrix4x4& matrix)

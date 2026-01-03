@@ -17,6 +17,7 @@ namespace Lumin
 		GLevel* CreateEmptyLevel();
 		GLevel* GetLevel(uint32_t levelId);
 		GLevel* GetCurrentLevel();
+		std::vector<LightInfo> GetCurrentLevelLightsInfo();
 		
 	private:
 		uint32_t m_currentLevel;

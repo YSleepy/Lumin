@@ -58,6 +58,14 @@ namespace Lumin
 		return m_transform.position;
 	}
 
+	QVector3D GActor::GetWorldPosition()
+	{
+		// The origin undergoes world transformation to obtain the world position
+		// 
+		auto ret = GetWorldTransform().map(QVector4D(0, 0, 0, 1));
+		return ret.toVector3D() / ret.w();
+	}
+
 	void GActor::SetRotation(const QQuaternion& rotation)
 	{
 		m_transform.rotation = rotation;
@@ -117,5 +125,10 @@ namespace Lumin
 		CHECK_CONDITION_RETURN(component, "component is null");
 		m_components.emplace_back(component);
 		component->SetOwner(this);
+	}
+
+	const std::vector<std::unique_ptr<GActor>>& GActor::GetChildren() const
+	{
+		return m_children;
 	}
 }

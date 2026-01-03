@@ -34,6 +34,7 @@ namespace Lumin
 		GActor* GetParent();
 		void SetPosition(const QVector3D& position);
 		QVector3D GetPosition();
+		QVector3D GetWorldPosition();
 		void SetRotation(const QQuaternion& rotation);
 		QQuaternion GetRotation();
 		void SetScale(const QVector3D& scale);
@@ -44,12 +45,11 @@ namespace Lumin
 		void MarkNextFrameDestruction();
 		void AddCommponent(GComponent* component);
 		template<typename T, typename = std::enable_if_t<std::is_base_of_v<GComponent, T>>>
-		T* GetComponentByName() {
+		T* GetComponent() {
 			for (auto& component : m_components) {
 				if (T* res = dynamic_cast<T*>(component.get())) {
 					return res;
 				}
-
 			}
 			return nullptr;
 		}
@@ -64,6 +64,8 @@ namespace Lumin
 			}
 			return nullptr;
 		}
+		const std::vector<std::unique_ptr<GActor>>& GetChildren() const;
+
 	protected:
 		LTransform m_transform;
 		std::vector<std::unique_ptr<GComponent>> m_components;

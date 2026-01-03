@@ -8,7 +8,7 @@ namespace Lumin
 		m_renderQueue.push_back(renderable);
 	}
 
-	void LRenderQueue::Draw(LGraphicsCore& graphicsCore, const CameraInfo& cameraInfo)
+	void LRenderQueue::Draw(LGraphicsCore& graphicsCore, const CameraInfo& cameraInfo, const std::vector<LightInfo>& lightInfos)
 	{
 		std::lock_guard<std::mutex> lock(m_mutex);
 		if (m_renderQueue.size() > 0)
@@ -22,6 +22,12 @@ namespace Lumin
 			renderable.m_material->Set4MatrixParam(MODEL_MATRIX, renderable.m_modelMatrix);
 			renderable.m_material->Set4MatrixParam(VIEW_MATRIX, cameraInfo.ViewMatrix);
 			renderable.m_material->Set4MatrixParam(PROJECTION_MATRIX, cameraInfo.ProjectionMatrix);
+
+			for (auto& light : lightInfos)
+			{
+				renderable.m_material->Set3FloatParam(LIGHT_POSITION, light.Position);
+				renderable.m_material->Set3FloatParam(LIGHT_COLOR, light.Color);
+			}
 
 			graphicsCore.BindMaterial(renderable.m_material);
 			graphicsCore.DrawMesh(renderable.m_mesh);

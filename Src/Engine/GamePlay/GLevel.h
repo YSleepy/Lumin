@@ -4,6 +4,7 @@
 
 #include "GActor.h"
 #include "GObject.h"
+#include "Common.h"
 #include "GameMode/GGameModeBase.h"
 #include "GameMode/GPlayerController.h"
 #include "pre.h"
@@ -40,7 +41,8 @@ namespace Lumin
 			return actor;
 		}
 
-		
+		std::vector<LightInfo> CollectLightsInfo();
+
 	private:
 		//GLevel() = default;
 		std::unique_ptr<GGameModeBase> m_gameMode;

@@ -8,6 +8,7 @@
 
 namespace Lumin
 {
+	// TODO: Temporarily load mesh, This function is too time-consuming
 	std::shared_ptr<LMesh> LMesh::LoadMesh(const char* path)
 	{
 		std::string rPath = LFileSystem::GetEngineAssetsPath() + path;

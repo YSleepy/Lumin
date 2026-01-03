@@ -110,6 +110,7 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <ClCompile Include="Src\Engine\EngineMath\LMat4.cpp" />
     <ClCompile Include="Src\Engine\EngineMath\LVec3.cpp" />
     <ClCompile Include="Src\Engine\FileSystem\LFileSystem.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\Component\GLightComponent.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GameMode\GController.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GCameraComponent.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GComponent.cpp" />
@@ -135,10 +136,12 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\Common.h" />
     <ClInclude Include="Src\Engine\EngineMath\LMat4.h" />
     <ClInclude Include="Src\Engine\EngineMath\LQuat.h" />
     <ClInclude Include="Src\Engine\EngineMath\LVec3.h" />
     <ClInclude Include="Src\Engine\FileSystem\LFileSystem.h" />
+    <ClInclude Include="Src\Engine\GamePlay\Component\GLightComponent.h" />
     <ClInclude Include="Src\Engine\GamePlay\GameMode\GController.h" />
     <ClInclude Include="Src\Engine\GamePlay\Component\GCameraComponent.h" />
     <ClInclude Include="Src\Engine\GamePlay\Component\GComponent.h" />

@@ -101,6 +101,9 @@
     <ClCompile Include="Src\Engine\Graphics\LTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Engine\GamePlay\Component\GLightComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Engine\LGameInstanceBase.h">
@@ -200,6 +203,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThirdParty\tiny_gltf\include\tiny_gltf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\GamePlay\Component\GLightComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\Common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

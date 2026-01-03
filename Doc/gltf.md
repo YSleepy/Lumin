@@ -44,3 +44,5 @@ componentType：每个分量的数据类型（如 FLOAT、UNSIGNED_SHORT、UNSIG
 可选：min / max（边界框用）、normalized（是否归一化）
 
 ```
+
+LoadASCIIFromFile函数耗时极大
