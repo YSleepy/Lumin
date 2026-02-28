@@ -243,6 +243,7 @@
     <None Include="Assets\Materials\Mat_Base.json" />
     <None Include="Assets\Materials\Mat_Earth.json" />
     <None Include="Doc\gltf.md" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Src\Engine\LViewport.h">

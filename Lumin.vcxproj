@@ -194,6 +194,7 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <None Include="Doc\vs2022项目分离与依赖.md" />
     <None Include="Doc\设计文档.md" />
     <None Include="Doc\随笔本.md" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Image\QianLiJiangShan\QianLiJiangShan.png" />
