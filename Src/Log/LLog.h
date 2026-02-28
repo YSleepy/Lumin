@@ -13,47 +13,37 @@
 
 namespace Lumin
 {
-#define CHECK_PTR_RETURN(ptr, log)\
+#define CHECK_PTR_RETURN(ptr, fmt, ...)\
 	do{\
 		if (!(ptr)){\
-			qDebug() << "[" << LOG_TAG << "] " << (log);\
+			qCritical() << "[" << LOG_TAG << "] " << QString::asprintf((fmt), ##__VA_ARGS__);\
 			return;\
 		}\
 	}while(0)\
 
-#define CHECK_PTR_RETURN_VALUE(ptr, value, log)\
+#define CHECK_PTR_RETURN_VALUE(ptr, value, fmt, ...)\
 	do{\
 		if (!(ptr)){\
-			qDebug() << "["  << LOG_TAG << "] " << (log);\
+			qCritical() << "["  << LOG_TAG << "] " << QString::asprintf((fmt), ##__VA_ARGS__);\
 			return (value);\
 		}\
 	}while(0)\
 
-#define CHECK_CONDITION_RETURN(condition, log)\
+#define CHECK_CONDITION_RETURN(condition, fmt, ...)\
 	do{\
 		if (!(condition)){\
-			qDebug() << "["  << LOG_TAG << "] " << (log);\
+			qCritical() << "["  << LOG_TAG << "] " << QString::asprintf((fmt), ##__VA_ARGS__);\
 			return;\
 		}\
 	}while(0)\
 
-#define CHECK_CONDITION_RETURN_VALUE(ptr, value, log)\
+#define CHECK_CONDITION_RETURN_VALUE(ptr, value, fmt, ...)\
 	do{\
 		if (!(ptr)){\
-			qDebug() << "["  << LOG_TAG << "] " << (log);\
+			qCritical() << "["  << LOG_TAG << "] " << QString::asprintf((fmt), ##__VA_ARGS__);\
 			return (value);\
 		}\
 	}while(0)\
-
-	// TODO: 待验证
-#define CHECK_CONDITION_RETURN_VALUE_FMT(ptr, value, fmt, ...) \
-    do { \
-        if (!(ptr)) { \
-            qDebug() << "[" << LOG_TAG << "] " << QString::asprintf((fmt), ##__VA_ARGS__); \
-            return (value); \
-        } \
-    } while(0)
-
 
 
 	// 自定义消息处理器（线程ID十进制显示）

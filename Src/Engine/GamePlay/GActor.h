@@ -1,21 +1,15 @@
 #pragma once
 #include <memory>
 #include <vector>
-#include <QVector3D>
-#include <QQuaternion>
 
 #include "Component/GComponent.h"
+#include "Common.h"
 #include "GObject.h"
 #include "pre.h"
 
 namespace Lumin
 {
-	struct ENGINE_API LTransform
-	{
-		QVector3D position = QVector3D(0, 0, 0);
-		QQuaternion rotation = QQuaternion(1, 0, 0, 0);
-		QVector3D scale = QVector3D(1, 1, 1);
-	};
+
 
 	class ENGINE_API GActor : public GObject
 	{

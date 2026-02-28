@@ -23,7 +23,7 @@ namespace Lumin
 			connect(timer, &QTimer::timeout, this, [this]() {
 				update();
 				});
-			timer->start(16);
+			timer->start(1);
 			resize(config.width, config.height);
 			this->show();
 		}

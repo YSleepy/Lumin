@@ -29,7 +29,7 @@ namespace Lumin
 	private:
 		GLuint m_programID = 0;
 		// uniform变量的位置缓存
-		std::unordered_map<std::string, GLuint> m_uniformLocationsCache;
+		std::unordered_map<std::string, GLint> m_uniformLocationsCache;
 		int m_textureUnit = 0;
 	};
 }

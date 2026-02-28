@@ -107,6 +107,9 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\GamePlay\Component\GNonSceneComponent.cpp" />
+    <ClCompile Include="Src\Engine\GamePlay\Component\GSceneComponent.cpp" />
+    <ClCompile Include="Src\Engine\GltfUtils\LGltfUtils.cpp" />
     <ClCompile Include="Src\Engine\EngineMath\LMat4.cpp" />
     <ClCompile Include="Src\Engine\EngineMath\LVec3.cpp" />
     <ClCompile Include="Src\Engine\FileSystem\LFileSystem.cpp" />
@@ -136,6 +139,9 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\GamePlay\Component\GNonSceneComponent.h" />
+    <ClInclude Include="Src\Engine\GamePlay\Component\GSceneComponent.h" />
+    <ClInclude Include="Src\Engine\GltfUtils\LGltfUtils.h" />
     <ClInclude Include="Src\Engine\Common.h" />
     <ClInclude Include="Src\Engine\EngineMath\LMat4.h" />
     <ClInclude Include="Src\Engine\EngineMath\LQuat.h" />

@@ -7,7 +7,7 @@
 	"textures": [
 	  {
 		"name": "aTexture",
-		"path": "Mesh/earth_globe8k_gltf_extracted/textures/material_baseColor.jpeg"
+		"path": "/Mesh/earth_globe8k_gltf_extracted/textures/sphere_baseColor.jpeg"
 	  }
 	]
   }

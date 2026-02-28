@@ -19,6 +19,5 @@ void main()
    vec3 lightDir = normalize(aLight.position - vFragPos);
    float diff = max(dot(norm, lightDir), 0.0);
    vec3 diffuse = diff * aLight.color;
-
-   FragColor = vec4(diffuse, 1.0) * vec4(norm, 1.0);
+   FragColor = texture(aTexture, vUV);
 }

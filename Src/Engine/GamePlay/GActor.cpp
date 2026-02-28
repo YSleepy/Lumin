@@ -61,7 +61,6 @@ namespace Lumin
 	QVector3D GActor::GetWorldPosition()
 	{
 		// The origin undergoes world transformation to obtain the world position
-		// 
 		auto ret = GetWorldTransform().map(QVector4D(0, 0, 0, 1));
 		return ret.toVector3D() / ret.w();
 	}

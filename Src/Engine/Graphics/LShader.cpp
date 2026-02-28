@@ -91,11 +91,7 @@ namespace Lumin
 			return it->second;
 		}
 		GLint id = L_GL->glGetUniformLocation(m_programID, name.c_str());
-		CHECK_CONDITION_RETURN_VALUE(id != -1, -1, "Uniform location not found");
-		if (id == -1)
-		{
-			qDebug() << "Uniform location not found:" << name.c_str();
-		}
+		CHECK_CONDITION_RETURN_VALUE(id != -1, -1, "Uniform location not found %s", name.c_str());
 
 		m_uniformLocationsCache[name] = id;
 		return id;

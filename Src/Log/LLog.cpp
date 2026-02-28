@@ -40,7 +40,7 @@ namespace Lumin
 		switch (type) {
 		case QtDebugMsg:     typeStr = "DEBUG";     break;
 		case QtWarningMsg:   typeStr = "WARNING";   break;
-		case QtCriticalMsg:  typeStr = "CRITICAL";  break;
+		case QtCriticalMsg:  typeStr = "ERROR";  break;
 		case QtFatalMsg:     typeStr = "FATAL";     break;
 		case QtInfoMsg:      typeStr = "INFO";      break;
 		default:             typeStr = "UNKNOWN";

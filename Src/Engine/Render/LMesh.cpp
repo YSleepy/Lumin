@@ -23,9 +23,7 @@ namespace Lumin
 		}
 		std::shared_ptr<LMesh> ret = nullptr;
 		tinygltf::Accessor accs[3] = {};
-		auto& modelAccessor = model.accessors[model.meshes[6].primitives[0].attributes["POSITION"]];
-
-		auto& mesh = model.meshes[0];
+		auto& mesh = model.meshes[2];
 		auto& primitive = mesh.primitives[0];
 
 		if (primitive.mode != TINYGLTF_MODE_TRIANGLES)
