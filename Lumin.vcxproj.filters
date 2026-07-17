@@ -267,7 +267,4 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="ThirdParty\tiny_gltf\lib\tinygltf.lib" />
-  </ItemGroup>
 </Project>
