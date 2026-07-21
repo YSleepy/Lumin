@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B5A14036-A860-4824-BF4A-E8201E0CD9BF}</ProjectGuid>
+    <ProjectGuid>{467597F8-210F-4030-B039-5B9E4B39FD2B}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.26100.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.26100.0</WindowsTargetPlatformVersion>
@@ -19,13 +19,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -37,7 +37,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>6.5.3_msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets;opengl;openglwidgets</QtModules>
+    <QtModules>core</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -65,35 +65,31 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)LuminEngine\Src\Log;$(SolutionDir)LuminEngine\Src\Engine;$(SolutionDir)LuminEngine\Src;$(SolutionDir)LuminRuntime\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
-    <PostBuildEvent>
-      <Command>xcopy /Y /E /I "$(ProjectDir)Src/Templates" "$(TargetDir)Templates"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>LUMINPLATFORMQT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>LUMINPLATFORMQT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -101,59 +97,12 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lumin.vcxproj">
-      <Project>{fef81f19-3a96-4b30-a615-693cf16d417a}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Src\CommandLine\BuiltinCommands\CreateProjectCommand.cpp" />
-    <ClCompile Include="Src\CommandLine\BuiltinCommands\HelpCommand.cpp" />
-    <ClCompile Include="Src\CommandLine\BuiltinCommands\RunProjectCommand.cpp" />
-    <ClCompile Include="Src\CommandLine\LCommandLine.cpp" />
-    <ClCompile Include="Src\CommandLine\LCommandRegistry.cpp" />
-    <ClCompile Include="Src\Example\EGameModule.cpp" />
-    <ClCompile Include="Src\Loader\LGameBootstrap.cpp" />
-    <ClCompile Include="Src\Loader\LProjectLoader.cpp" />
-    <ClCompile Include="Src\Example\EGameInstance.cpp" />
-    <ClCompile Include="Src\Example\EActor.cpp" />
-    <ClCompile Include="Src\Loader\LProjectTool.cpp" />
-    <ClCompile Include="Src\Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Src\CommandLine\BuiltinCommands\CreateProjectCommand.h" />
-    <ClInclude Include="Src\CommandLine\BuiltinCommands\HelpCommand.h" />
-    <ClInclude Include="Src\CommandLine\BuiltinCommands\RunProjectCommand.h" />
-    <ClInclude Include="Src\CommandLine\LCommand.h" />
-    <ClInclude Include="Src\CommandLine\LCommandLine.h" />
-    <ClInclude Include="Src\CommandLine\LCommandRegistry.h" />
-    <ClInclude Include="Src\Example\EGameModule.h" />
-    <ClInclude Include="Src\Loader\LGameBootstrap.h" />
-    <ClInclude Include="Src\Loader\LProjectInfo.h" />
-    <ClInclude Include="Src\Loader\LProjectLoader.h" />
-    <ClInclude Include="Src\Example\EGameInstance.h" />
-    <ClInclude Include="Src\Example\EActor.h" />
-    <ClInclude Include="Src\Loader\LProjectTool.h" />
-    <ClInclude Include="Src\Loader\RunEngineWithProject.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Src\Templates\CMakeLists.txt.in" />
-    <None Include="Src\Templates\Source\GameActor.cpp.in" />
-    <None Include="Src\Templates\Source\GameActor.h.in" />
-    <None Include="Src\Templates\Source\GameExport.h.in" />
-    <None Include="Src\Templates\Source\GameInstance.cpp.in" />
-    <None Include="Src\Templates\Source\GameInstance.h.in" />
-    <None Include="Src\Templates\Source\GameModule.cpp.in" />
-    <None Include="Src\Templates\Source\GameModule.h.in" />
-    <None Include="Src\Templates\project.luproject.in" />
-    <None Include="Src\Templates\Source\CMakeLists.txt.in" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

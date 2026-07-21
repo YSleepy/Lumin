@@ -13,20 +13,20 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FEF81F19-3A96-4B30-A615-693CF16D417A}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.26100.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.26100.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
@@ -36,12 +36,12 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.8.1_msvc2022_64</QtInstall>
+    <QtInstall>6.5.3_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets;opengl;openglwidgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>6.4.3_msvc2019_64</QtInstall>
+    <QtInstall>6.5.3_msvc2019_64</QtInstall>
     <QtModules>core</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -114,11 +114,11 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Engine\EngineMath\LQuat.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GNonSceneComponent.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GSceneComponent.cpp" />
     <ClCompile Include="Src\Engine\GltfUtils\LGltfUtils.cpp" />
     <ClCompile Include="Src\Engine\EngineMath\LMat4.cpp" />
-    <ClCompile Include="Src\Engine\EngineMath\LVec3.cpp" />
     <ClCompile Include="Src\Engine\FileSystem\LFileSystem.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\Component\GLightComponent.cpp" />
     <ClCompile Include="Src\Engine\GamePlay\GameMode\GController.cpp" />
@@ -146,6 +146,10 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <ClCompile Include="Src\Engine\LEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Engine\EngineMath\LMathCommon.h" />
+    <ClInclude Include="Src\Engine\EngineMath\LTransform.h" />
+    <ClInclude Include="Src\Engine\EngineMath\LVec2.h" />
+    <ClInclude Include="Src\Engine\EngineMath\LVec4.h" />
     <ClInclude Include="Src\Engine\GamePlay\Component\GNonSceneComponent.h" />
     <ClInclude Include="Src\Engine\GamePlay\Component\GSceneComponent.h" />
     <ClInclude Include="Src\Engine\GltfUtils\LGltfUtils.h" />
@@ -185,30 +189,6 @@ xcopy/Y /E /I "$(ProjectDir)Assets" "$(TargetDir)Assets"</Command>
     <ClInclude Include="Src\Engine\Graphics\LVertexLayout.h" />
     <ClInclude Include="Src\Engine\Render\LRenderQueue.h" />
     <ClInclude Include="Src\Log\LLog.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Materials\Mat_Base.json">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="Assets\Materials\Mat_Earth.json" />
-    <None Include="Assets\Shaders\EFragment.glsl" />
-    <None Include="Assets\Shaders\EVertex.glsl" />
-    <None Include="ClassDiagram.cd" />
-    <None Include="Doc\Cpp.md" />
-    <None Include="Doc\gltf.md" />
-    <None Include="Doc\Progress.md" />
-    <None Include="Doc\OpenGLApi.md" />
-    <None Include="Doc\vs2022项目分离与依赖.md" />
-    <None Include="Doc\设计文档.md" />
-    <None Include="Doc\随笔本.md" />
-    <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\Image\QianLiJiangShan\QianLiJiangShan.png" />
-    <Image Include="Assets\Image\senrcul\T_senrcul_4K_B-O.png" />
-    <Image Include="Assets\Image\senrcul\T_senrcul_4K_N.png" />
-    <Image Include="Assets\Image\senrcul\T_senrcul_4K_ORM.png" />
-    <Image Include="Assets\Image\shime15.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

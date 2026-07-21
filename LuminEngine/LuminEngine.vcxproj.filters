@@ -92,9 +92,6 @@
     <ClCompile Include="Src\Engine\LGameModuleBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Engine\EngineMath\LVec3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Engine\EngineMath\LMat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -111,6 +108,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Engine\GamePlay\Component\GNonSceneComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\EngineMath\LQuat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -229,42 +229,22 @@
     <ClInclude Include="Src\Engine\GamePlay\Component\GNonSceneComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Doc\设计文档.md" />
-    <None Include="Doc\OpenGLApi.md" />
-    <None Include="Doc\Progress.md" />
-    <None Include="Doc\Cpp.md" />
-    <None Include="Doc\随笔本.md" />
-    <None Include="Doc\vs2022项目分离与依赖.md" />
-    <None Include="ClassDiagram.cd" />
-    <None Include="Assets\Shaders\EVertex.glsl" />
-    <None Include="Assets\Shaders\EFragment.glsl" />
-    <None Include="Assets\Materials\Mat_Base.json" />
-    <None Include="Assets\Materials\Mat_Earth.json" />
-    <None Include="Doc\gltf.md" />
-    <None Include="README.md" />
+    <ClInclude Include="Src\Engine\EngineMath\LMathCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\EngineMath\LVec2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\EngineMath\LVec4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\EngineMath\LTransform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Src\Engine\LViewport.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\Image\senrcul\T_senrcul_4K_B-O.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Assets\Image\senrcul\T_senrcul_4K_N.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Assets\Image\senrcul\T_senrcul_4K_ORM.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Assets\Image\QianLiJiangShan\QianLiJiangShan.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Assets\Image\shime15.png">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>

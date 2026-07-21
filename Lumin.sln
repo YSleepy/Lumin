@@ -1,14 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34728.123
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.37206.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lumin", "Lumin.vcxproj", "{FEF81F19-3A96-4B30-A615-693CF16D417A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuminEngine", "LuminEngine\LuminEngine.vcxproj", "{FEF81F19-3A96-4B30-A615-693CF16D417A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuminRuntime", "LuminRuntime\LuminRuntime.vcxproj", "{B5A14036-A860-4824-BF4A-E8201E0CD9BF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{FEF81F19-3A96-4B30-A615-693CF16D417A} = {FEF81F19-3A96-4B30-A615-693CF16D417A}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuminPlatformQt", "LuminPlatformQt\LuminPlatformQt.vcxproj", "{467597F8-210F-4030-B039-5B9E4B39FD2B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuminEditor", "LuminEditor\LuminEditor.vcxproj", "{E2055F9A-344E-4924-8BC4-039382B72134}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +28,14 @@ Global
 		{B5A14036-A860-4824-BF4A-E8201E0CD9BF}.Debug|x64.Build.0 = Debug|x64
 		{B5A14036-A860-4824-BF4A-E8201E0CD9BF}.Release|x64.ActiveCfg = Release|x64
 		{B5A14036-A860-4824-BF4A-E8201E0CD9BF}.Release|x64.Build.0 = Release|x64
+		{467597F8-210F-4030-B039-5B9E4B39FD2B}.Debug|x64.ActiveCfg = Debug|x64
+		{467597F8-210F-4030-B039-5B9E4B39FD2B}.Debug|x64.Build.0 = Debug|x64
+		{467597F8-210F-4030-B039-5B9E4B39FD2B}.Release|x64.ActiveCfg = Release|x64
+		{467597F8-210F-4030-B039-5B9E4B39FD2B}.Release|x64.Build.0 = Release|x64
+		{E2055F9A-344E-4924-8BC4-039382B72134}.Debug|x64.ActiveCfg = Debug|x64
+		{E2055F9A-344E-4924-8BC4-039382B72134}.Debug|x64.Build.0 = Debug|x64
+		{E2055F9A-344E-4924-8BC4-039382B72134}.Release|x64.ActiveCfg = Release|x64
+		{E2055F9A-344E-4924-8BC4-039382B72134}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
