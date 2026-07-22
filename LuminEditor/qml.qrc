@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/qt/qml/lumineditor">
         <file>main.qml</file>
+        <file>Resources/MathDocWindow.qml</file>
     </qresource>
 </RCC>
