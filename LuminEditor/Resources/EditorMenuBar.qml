@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 
 MenuBar {
+    signal openMathDocRequested()
     background: Rectangle { color: "transparent" }
 
     Menu {
@@ -149,7 +150,7 @@ MenuBar {
         Action {
             text: qsTr("Lumin数学文档(&M)")
             shortcut: "Ctrl+M"
-            onTriggered: mainWindow.openMathDoc()
+            onTriggered: openMathDocRequested()
         }
 
         MenuSeparator {}

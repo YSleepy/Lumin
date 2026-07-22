@@ -15,14 +15,19 @@ ApplicationWindow {
     flags: Qt.FramelessWindowHint | Qt.Window
 
     // 停靠状态
+    readonly property int dockNone: 0
+    readonly property int dockTop: 1
+    readonly property int dockBottom: 2
+    readonly property int dockLeft: 3
+    readonly property int dockRight: 4
+
     property var dockedTopPanel: null
     property var dockedBottomPanel: null
     property var dockedLeftPanel: null
     property var dockedRightPanel: null
     readonly property int dockThreshold: 60
-
-    // 停靠位置枚举
-    enum DockPosition { None, Top, Bottom, Left, Right }
+    property bool dockHintVisible: false
+    property int activeDockHint: 0  // dockNone
 
     ColumnLayout {
         anchors.fill: parent
@@ -30,13 +35,24 @@ ApplicationWindow {
 
         TitleBar {}
 
-        // 上部停靠区
-        Loader {
-            id: topDock
+        // 上方停靠区 + 停靠提示
+        Item {
             Layout.fillWidth: true
             Layout.preferredHeight: dockedTopPanel ? dockedTopPanel.prefHeight : 0
-            visible: dockedTopPanel !== null
-            sourceComponent: dockedTopPanel ? dockedTopPanel.component : null
+
+            Loader {
+                anchors.fill: parent
+                visible: dockedTopPanel !== null
+                sourceComponent: dockedTopPanel ? dockedTopPanel.component : null
+            }
+
+            // 停靠提示
+            DockHintOverlay {
+                anchors.fill: parent
+                visible: dockHintVisible
+                active: activeDockHint === mainWindow.dockTop
+                hintPosition: "top"
+            }
         }
 
         RowLayout {
@@ -44,80 +60,129 @@ ApplicationWindow {
             Layout.fillHeight: true
             spacing: 0
 
-            // 左侧停靠区
-            Loader {
-                id: leftDock
+            // 左侧
+            Item {
                 Layout.preferredWidth: dockedLeftPanel ? dockedLeftPanel.prefWidth : 0
                 Layout.fillHeight: true
-                visible: dockedLeftPanel !== null
-                sourceComponent: dockedLeftPanel ? dockedLeftPanel.component : null
+
+                Loader {
+                    anchors.fill: parent
+                    visible: dockedLeftPanel !== null
+                    sourceComponent: dockedLeftPanel ? dockedLeftPanel.component : null
+                }
+
+                DockHintOverlay {
+                    anchors.fill: parent
+                    visible: dockHintVisible
+                    active: activeDockHint === mainWindow.dockLeft
+                    hintPosition: "left"
+                }
             }
 
-            // 中央编辑区 + 底部停靠区
             ColumnLayout {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 spacing: 0
 
-                Rectangle {
+                // 中央编辑区
+                Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    color: "#1e1e1e"
 
-                    Text {
+                    Rectangle {
+                        anchors.fill: parent
+                        color: "#1e1e1e"
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: qsTr("编辑视口区域")
+                            color: "#555555"
+                            font.pixelSize: 24
+                        }
+                    }
+
+                    // 中央停靠提示
+                    DockHintOverlay {
                         anchors.centerIn: parent
-                        text: qsTr("编辑视口区域")
-                        color: "#555555"
-                        font.pixelSize: 24
+                        width: 120; height: 120
+                        visible: dockHintVisible
+                        active: activeDockHint === mainWindow.dockNone
+                        hintPosition: "center"
                     }
                 }
 
-                Loader {
-                    id: bottomDock
+                // 下方
+                Item {
                     Layout.fillWidth: true
                     Layout.preferredHeight: dockedBottomPanel ? dockedBottomPanel.prefHeight : 0
-                    visible: dockedBottomPanel !== null
-                    sourceComponent: dockedBottomPanel ? dockedBottomPanel.component : null
+
+                    Loader {
+                        anchors.fill: parent
+                        visible: dockedBottomPanel !== null
+                        sourceComponent: dockedBottomPanel ? dockedBottomPanel.component : null
+                    }
+
+                    DockHintOverlay {
+                        anchors.fill: parent
+                        visible: dockHintVisible
+                        active: activeDockHint === mainWindow.dockBottom
+                        hintPosition: "bottom"
+                    }
                 }
             }
 
-            // 右侧停靠区
-            Loader {
-                id: rightDock
+            // 右侧
+            Item {
                 Layout.preferredWidth: dockedRightPanel ? dockedRightPanel.prefWidth : 0
                 Layout.fillHeight: true
-                visible: dockedRightPanel !== null
-                sourceComponent: dockedRightPanel ? dockedRightPanel.component : null
+
+                Loader {
+                    anchors.fill: parent
+                    visible: dockedRightPanel !== null
+                    sourceComponent: dockedRightPanel ? dockedRightPanel.component : null
+                }
+
+                DockHintOverlay {
+                    anchors.fill: parent
+                    visible: dockHintVisible
+                    active: activeDockHint === mainWindow.dockRight
+                    hintPosition: "right"
+                }
             }
         }
     }
 
-    // 检测浮动窗口是否靠近主窗口边缘，返回停靠位置
     function checkDockPosition(winX, winY, winW, winH) {
         var mx = x, my = y, mw = width, mh = height;
         var threshold = dockThreshold;
 
-        // 上边缘
         if (Math.abs(winY + winH - my) < threshold &&
             winX + winW > mx + 100 && winX < mx + mw - 100) {
-            return MainWindow.DockPosition.Top;
+            return mainWindow.dockTop;
         }
-        // 下边缘
         if (Math.abs(my + mh - winY) < threshold &&
             winX + winW > mx + 100 && winX < mx + mw - 100) {
-            return MainWindow.DockPosition.Bottom;
+            return mainWindow.dockBottom;
         }
-        // 左边缘
         if (Math.abs(winX + winW - mx) < threshold &&
             winY + winH > my + 30 && winY < my + mh - 30) {
-            return MainWindow.DockPosition.Left;
+            return mainWindow.dockLeft;
         }
-        // 右边缘
         if (Math.abs(mx + mw - winX) < threshold &&
             winY + winH > my + 30 && winY < my + mh - 30) {
-            return MainWindow.DockPosition.Right;
+            return mainWindow.dockRight;
         }
-        return MainWindow.DockPosition.None;
+        return mainWindow.dockNone;
+    }
+
+    function showDockHint(position) {
+        dockHintVisible = true;
+        activeDockHint = position;
+    }
+
+    function hideDockHint() {
+        dockHintVisible = false;
+        activeDockHint = mainWindow.dockNone;
     }
 
     function dockPanel(win, position, component, prefWidth, prefHeight) {
@@ -129,13 +194,13 @@ ApplicationWindow {
         };
 
         switch (position) {
-        case MainWindow.DockPosition.Top:
+        case mainWindow.dockTop:
             dockedTopPanel = panel; break;
-        case MainWindow.DockPosition.Bottom:
+        case mainWindow.dockBottom:
             dockedBottomPanel = panel; break;
-        case MainWindow.DockPosition.Left:
+        case mainWindow.dockLeft:
             dockedLeftPanel = panel; break;
-        case MainWindow.DockPosition.Right:
+        case mainWindow.dockRight:
             dockedRightPanel = panel; break;
         }
     }
@@ -143,13 +208,13 @@ ApplicationWindow {
     function undockPanel(position) {
         var panel = null;
         switch (position) {
-        case MainWindow.DockPosition.Top:
+        case mainWindow.dockTop:
             panel = dockedTopPanel; dockedTopPanel = null; break;
-        case MainWindow.DockPosition.Bottom:
+        case mainWindow.dockBottom:
             panel = dockedBottomPanel; dockedBottomPanel = null; break;
-        case MainWindow.DockPosition.Left:
+        case mainWindow.dockLeft:
             panel = dockedLeftPanel; dockedLeftPanel = null; break;
-        case MainWindow.DockPosition.Right:
+        case mainWindow.dockRight:
             panel = dockedRightPanel; dockedRightPanel = null; break;
         }
         return panel;
@@ -157,16 +222,15 @@ ApplicationWindow {
 
     function isPositionDocked(position) {
         switch (position) {
-        case MainWindow.DockPosition.Top: return dockedTopPanel !== null;
-        case MainWindow.DockPosition.Bottom: return dockedBottomPanel !== null;
-        case MainWindow.DockPosition.Left: return dockedLeftPanel !== null;
-        case MainWindow.DockPosition.Right: return dockedRightPanel !== null;
+        case mainWindow.dockTop: return dockedTopPanel !== null;
+        case mainWindow.dockBottom: return dockedBottomPanel !== null;
+        case mainWindow.dockLeft: return dockedLeftPanel !== null;
+        case mainWindow.dockRight: return dockedRightPanel !== null;
         }
         return false;
     }
 
     function openMathDoc() {
-        // 如果已停靠则聚焦
         if (dockedBottomPanel && dockedBottomPanel.window &&
             dockedBottomPanel.window.title && dockedBottomPanel.window.title.indexOf("数学文档") >= 0) {
             return;
@@ -188,6 +252,8 @@ ApplicationWindow {
         if (comp.status === Component.Ready) {
             var win = comp.createObject(mainWindow);
             win.show();
+        } else {
+            console.error("Failed to create MathDocWindow: " + comp.errorString());
         }
     }
 }

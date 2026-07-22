@@ -4,6 +4,7 @@
         <file>Resources/TitleBar.qml</file>
         <file>Resources/EditorMenuBar.qml</file>
         <file>Resources/WindowButtons.qml</file>
+        <file>Resources/DockHintOverlay.qml</file>
         <file>Resources/MathDocPanel.qml</file>
         <file>Resources/MathDocWindow.qml</file>
     </qresource>

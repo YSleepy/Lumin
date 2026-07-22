@@ -10,16 +10,16 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         property point lastPos: Qt.point(0, 0)
-        onPressed: {
+        onPressed: function(mouse) {
             lastPos = Qt.point(mouse.x, mouse.y)
         }
-        onPositionChanged: {
+        onPositionChanged: function(mouse) {
             if (pressed) {
                 mainWindow.x += mouse.x - lastPos.x
                 mainWindow.y += mouse.y - lastPos.y
             }
         }
-        onDoubleClicked: {
+        onDoubleClicked: function(mouse) {
             if (mainWindow.visibility === Window.Maximized) {
                 mainWindow.visibility = Window.Windowed
             } else {
@@ -44,6 +44,7 @@ Rectangle {
 
         EditorMenuBar {
             Layout.fillWidth: true
+            onOpenMathDocRequested: mainWindow.openMathDoc()
         }
 
         WindowButtons {
