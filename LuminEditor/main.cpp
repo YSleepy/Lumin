@@ -1,6 +1,6 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
-#include "Src/LMarkdownRenderer.h"
+#include "Src/LMarkdownView.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,9 +8,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
-    qmlRegisterType<LMarkdownRenderer>("Lumin.Editor", 1, 0, "LMarkdownRenderer");
+    qmlRegisterType<LMarkdownView>("Lumin.Editor", 1, 0, "LMarkdownView");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qt/qml/lumineditor/main.qml")));

@@ -17,32 +17,78 @@
       <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
       <Extensions>ui</Extensions>
     </Filter>
-    <Filter Include="Translation Files">
-      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
-      <Extensions>ts</Extensions>
-    </Filter>
     <Filter Include="QML Files">
       <UniqueIdentifier>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{B2C3D4E5-F6A7-8901-BCDE-F12345678901}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\LMarkdownRenderer.cpp">
+    <ClCompile Include="Src\LMarkdownView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClInclude Include="Src\LMarkdownRenderer.h">
+    <ClCompile Include="ThirdParty\qmarkdowntextedit\markdownhighlighter.cpp">
+      <Filter>ThirdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\qmarkdowntextedit\qmarkdowntextedit.cpp">
+      <Filter>ThirdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\qmarkdowntextedit\qownlanguagedata.cpp">
+      <Filter>ThirdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\qmarkdowntextedit\qplaintexteditsearchwidget.cpp">
+      <Filter>ThirdParty</Filter>
+    </ClCompile>
+    <QtMoc Include="Src\LMarkdownView.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
+    <QtMoc Include="ThirdParty\qmarkdowntextedit\markdownhighlighter.h">
+      <Filter>ThirdParty</Filter>
+    </QtMoc>
+    <QtMoc Include="ThirdParty\qmarkdowntextedit\qmarkdowntextedit.h">
+      <Filter>ThirdParty</Filter>
+    </QtMoc>
+    <QtMoc Include="ThirdParty\qmarkdowntextedit\qownlanguagedata.h">
+      <Filter>ThirdParty</Filter>
+    </QtMoc>
+    <QtMoc Include="ThirdParty\qmarkdowntextedit\qplaintexteditsearchwidget.h">
+      <Filter>ThirdParty</Filter>
+    </QtMoc>
+    <QtUic Include="ThirdParty\qmarkdowntextedit\qplaintexteditsearchwidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
     <QtRcc Include="qml.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <QtRcc Include="ThirdParty\qmarkdowntextedit\media.qrc">
+      <Filter>ThirdParty</Filter>
+    </QtRcc>
     <None Include="main.qml">
+      <Filter>QML Files</Filter>
+    </None>
+    <None Include="Resources\TitleBar.qml">
+      <Filter>QML Files</Filter>
+    </None>
+    <None Include="Resources\EditorMenuBar.qml">
+      <Filter>QML Files</Filter>
+    </None>
+    <None Include="Resources\WindowButtons.qml">
+      <Filter>QML Files</Filter>
+    </None>
+    <None Include="Resources\MathDocPanel.qml">
       <Filter>QML Files</Filter>
     </None>
     <None Include="Resources\MathDocWindow.qml">
       <Filter>QML Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ThirdParty\qmarkdowntextedit\linenumberarea.h">
+      <Filter>ThirdParty</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

@@ -1,0 +1,3 @@
+[submodule "LuminEditor/ThirdParty/qmarkdowntextedit"]
+	path = LuminEditor/ThirdParty/qmarkdowntextedit
+	url = https://github.com/pbek/qmarkdowntextedit.git

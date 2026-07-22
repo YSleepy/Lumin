@@ -1,114 +1,110 @@
-import QtQuick 2.9
-import QtQuick.Window 2.2
-import QtQuick.Controls 2.5
+import QtQuick
+import QtQuick.Window
+import QtQuick.Layouts
 import Lumin.Editor 1.0
 
 Window {
-    id: mathDocWindow
+    id: docWindow
     width: 800
     height: 600
     title: qsTr("Lumin数学文档")
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint
+    color: "#1e1e1e"
 
-    property string currentFile: ""
-    property bool docked: false
+    property int dockPosition: MainWindow.DockPosition.None
+    property bool dragging: false
 
-    // 停靠信号
-    signal RequestDock();
-    signal RequestUndock();
+    onXChanged: { if (!dragging) checkSnap(); }
+    onYChanged: { if (!dragging) checkSnap(); }
 
-    LMarkdownRenderer {
-        id: renderer
+    onClosing: {
+        if (dockPosition !== MainWindow.DockPosition.None) {
+            mainWindow.undockPanel(dockPosition);
+        }
     }
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 0
         spacing: 0
 
-        // 工具栏
+        // 自定义标题栏（可拖拽）
         Rectangle {
             Layout.fillWidth: true
-            Layout.preferredHeight: 36
-            color: "#2d2d2d"
+            Layout.preferredHeight: 28
+            color: "#323233"
+
+            MouseArea {
+                anchors.fill: parent
+                property point lastPos: Qt.point(0, 0)
+                onPressed: {
+                    lastPos = Qt.point(mouse.x, mouse.y);
+                    dragging = true;
+                }
+                onReleased: {
+                    dragging = false;
+                }
+                onPositionChanged: {
+                    if (pressed) {
+                        docWindow.x += mouse.x - lastPos.x;
+                        docWindow.y += mouse.y - lastPos.y;
+                    }
+                }
+            }
 
             RowLayout {
                 anchors.fill: parent
-                anchors.margins: 4
-                spacing: 4
+                anchors.rightMargin: 4
+                spacing: 0
 
-                // 文件选择
-                ComboBox {
-                    id: fileSelector
+                Text {
                     Layout.fillWidth: true
-                    model: [
-                        "数学基础.md",
-                        "向量运算.md",
-                        "矩阵运算.md",
-                        "四元数.md",
-                        "坐标系变换.md"
-                    ]
-                    onCurrentTextChanged: {
-                        var basePath = Qt.resolvedUrl("../../Doc/Math/");
-                        var path = basePath + currentText;
-                        contentView.text = renderer.LoadFile(path.replace("file:///", ""));
-                    }
+                    Layout.leftMargin: 8
+                    text: qsTr("Lumin数学文档")
+                    color: "#cccccc"
+                    font.pixelSize: 12
                 }
 
-                // 刷新按钮
-                Button {
-                    text: qsTr("刷新")
-                    onClicked: {
-                        var basePath = Qt.resolvedUrl("../../Doc/Math/");
-                        var path = basePath + fileSelector.currentText;
-                        contentView.text = renderer.LoadFile(path.replace("file:///", ""));
-                    }
-                }
+                Rectangle {
+                    Layout.preferredWidth: 36
+                    Layout.preferredHeight: 28
+                    color: closeHover.hovered ? "#e81123" : "transparent"
 
-                // 停靠/分离按钮
-                Button {
-                    text: docked ? qsTr("分离") : qsTr("停靠")
-                    onClicked: {
-                        if (docked) {
-                            RequestUndock();
-                        } else {
-                            RequestDock();
-                        }
+                    Text {
+                        anchors.centerIn: parent
+                        text: "✕"
+                        color: closeHover.hovered ? "#ffffff" : "#cccccc"
+                        font.pixelSize: 12
+                    }
+
+                    MouseArea {
+                        id: closeHover
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onClicked: docWindow.close()
                     }
                 }
             }
         }
 
-        // 内容区域
-        ScrollView {
+        MathDocPanel {
+            id: panel
             Layout.fillWidth: true
             Layout.fillHeight: true
-
-            TextArea {
-                id: contentView
-                readOnly: true
-                textFormat: TextEdit.RichText
-                wrapMode: TextEdit.Wrap
-                selectByMouse: true
-                font.family: "Microsoft YaHei"
-                color: "#cccccc"
-
-                background: Rectangle {
-                    color: "#1e1e1e"
-                }
-
-                text: qsTr("选择左侧文件以查看数学文档。\n\n文档文件位于 Doc/Math/ 目录下。")
-            }
+            dockPosition: docWindow.dockPosition
         }
     }
 
-    Component.onCompleted: {
-        // 尝试加载默认文件
-        var basePath = Qt.resolvedUrl("../../Doc/Math/");
-        var defaultFile = basePath + "数学基础.md";
-        var content = renderer.LoadFile(defaultFile.replace("file:///", ""));
-        if (content.indexOf("无法打开") < 0) {
-            contentView.text = content;
+    function checkSnap() {
+        if (dragging) return;
+        var pos = mainWindow.checkDockPosition(docWindow.x, docWindow.y, docWindow.width, docWindow.height);
+        if (pos === MainWindow.DockPosition.None) return;
+        if (mainWindow.isPositionDocked(pos)) return;
+
+        dockPosition = pos;
+        var comp = Qt.createComponent("MathDocPanel.qml");
+        if (comp.status === Component.Ready) {
+            mainWindow.dockPanel(docWindow, pos, comp, docWindow.width, docWindow.height);
+            docWindow.hide();
         }
     }
 }

@@ -1,7 +1,8 @@
-import QtQuick 2.9
-import QtQuick.Window 2.2
-import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.3
+import QtQuick
+import QtQuick.Window
+import QtQuick.Controls
+import QtQuick.Layouts
+import "Resources"
 
 ApplicationWindow {
     id: mainWindow
@@ -9,343 +10,184 @@ ApplicationWindow {
     width: 1280
     height: 720
     title: "LuminEditor"
+    color: "#1e1e1e"
 
-    // 数学文档相关
-    property bool mathDocDocked: false
-    property var mathDocWindow: null
+    flags: Qt.FramelessWindowHint | Qt.Window
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("文件(&F)")
+    // 停靠状态
+    property var dockedTopPanel: null
+    property var dockedBottomPanel: null
+    property var dockedLeftPanel: null
+    property var dockedRightPanel: null
+    readonly property int dockThreshold: 60
 
-            Action {
-                text: qsTr("新建项目(&N)...")
-                shortcut: StandardKey.New
-                onTriggered: {}
-            }
+    // 停靠位置枚举
+    enum DockPosition { None, Top, Bottom, Left, Right }
 
-            Action {
-                text: qsTr("打开项目(&O)...")
-                shortcut: StandardKey.Open
-                onTriggered: {}
-            }
-
-            MenuSeparator {}
-
-            Action {
-                text: qsTr("保存场景(&S)")
-                shortcut: StandardKey.Save
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("另存为...")
-                shortcut: StandardKey.SaveAs
-                onTriggered: {}
-            }
-
-            MenuSeparator {}
-
-            Action {
-                text: qsTr("退出(&X)")
-                shortcut: StandardKey.Quit
-                onTriggered: Qt.quit()
-            }
-        }
-
-        Menu {
-            title: qsTr("编辑(&E)")
-
-            Action {
-                text: qsTr("撤销(&U)")
-                shortcut: StandardKey.Undo
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("重做(&R)")
-                shortcut: StandardKey.Redo
-                onTriggered: {}
-            }
-
-            MenuSeparator {}
-
-            Action {
-                text: qsTr("剪切(&X)")
-                shortcut: StandardKey.Cut
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("复制(&C)")
-                shortcut: StandardKey.Copy
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("粘贴(&P)")
-                shortcut: StandardKey.Paste
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("删除(&D)")
-                shortcut: StandardKey.Delete
-                onTriggered: {}
-            }
-
-            MenuSeparator {}
-
-            Action {
-                text: qsTr("编辑器设置...")
-                onTriggered: {}
-            }
-        }
-
-        Menu {
-            title: qsTr("Git")
-
-            Action {
-                text: qsTr("提交(&C)...")
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("推送(&P)")
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("拉取(&L)")
-                onTriggered: {}
-            }
-
-            MenuSeparator {}
-
-            Action {
-                text: qsTr("查看历史...")
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("查看差异")
-                onTriggered: {}
-            }
-        }
-
-        Menu {
-            title: qsTr("项目(&P)")
-
-            Action {
-                text: qsTr("运行(&R)")
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("打包...")
-                onTriggered: {}
-            }
-
-            MenuSeparator {}
-
-            Action {
-                text: qsTr("项目设置...")
-                onTriggered: {}
-            }
-        }
-
-        Menu {
-            title: qsTr("帮助(&H)")
-
-            Action {
-                text: qsTr("Lumin数学文档(&M)")
-                shortcut: "Ctrl+M"
-                onTriggered: OpenMathDoc()
-            }
-
-            MenuSeparator {}
-
-            Action {
-                text: qsTr("关于 LuminEditor(&A)")
-                onTriggered: {}
-            }
-
-            Action {
-                text: qsTr("关于 Qt")
-                onTriggered: {}
-            }
-        }
-    }
-
-    // 主内容区
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
 
-        // 停靠的数学文档面板
+        TitleBar {}
+
+        // 上部停靠区
         Loader {
-            id: dockedMathDoc
+            id: topDock
             Layout.fillWidth: true
-            Layout.preferredHeight: 300
-            visible: mathDocDocked
-            active: mathDocDocked
-            sourceComponent: mathDocComponent
+            Layout.preferredHeight: dockedTopPanel ? dockedTopPanel.prefHeight : 0
+            visible: dockedTopPanel !== null
+            sourceComponent: dockedTopPanel ? dockedTopPanel.component : null
         }
 
-        // 中央区域（编辑器视口等，暂时占位）
-        Rectangle {
+        RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: "#1e1e1e"
-
-            Text {
-                anchors.centerIn: parent
-                text: qsTr("编辑视口区域")
-                color: "#555555"
-                font.pixelSize: 24
-            }
-        }
-    }
-
-    // 数学文档组件（停靠和独立窗口共用）
-    Component {
-        id: mathDocComponent
-
-        ColumnLayout {
-            anchors.fill: parent
-            anchors.margins: 0
             spacing: 0
 
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 36
-                color: "#2d2d2d"
-
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 4
-                    spacing: 4
-
-                    ComboBox {
-                        id: fileSelector
-                        Layout.fillWidth: true
-                        model: [
-                            "数学基础.md",
-                            "向量运算.md",
-                            "矩阵运算.md",
-                            "四元数.md",
-                            "坐标系变换.md"
-                        ]
-                        onCurrentTextChanged: ReloadDoc()
-                    }
-
-                    Button {
-                        text: qsTr("刷新")
-                        onClicked: ReloadDoc()
-                    }
-
-                    Button {
-                        text: mathDocDocked ? qsTr("分离") : qsTr("停靠")
-                        onClicked: ToggleDock()
-                    }
-                }
+            // 左侧停靠区
+            Loader {
+                id: leftDock
+                Layout.preferredWidth: dockedLeftPanel ? dockedLeftPanel.prefWidth : 0
+                Layout.fillHeight: true
+                visible: dockedLeftPanel !== null
+                sourceComponent: dockedLeftPanel ? dockedLeftPanel.component : null
             }
 
-            ScrollView {
+            // 中央编辑区 + 底部停靠区
+            ColumnLayout {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                spacing: 0
 
-                TextArea {
-                    id: contentView
-                    readOnly: true
-                    textFormat: TextEdit.RichText
-                    wrapMode: TextEdit.Wrap
-                    selectByMouse: true
-                    font.family: "Microsoft YaHei"
-                    color: "#cccccc"
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    color: "#1e1e1e"
 
-                    background: Rectangle {
-                        color: "#1e1e1e"
+                    Text {
+                        anchors.centerIn: parent
+                        text: qsTr("编辑视口区域")
+                        color: "#555555"
+                        font.pixelSize: 24
                     }
+                }
 
-                    text: qsTr("选择文档以查看数学内容。")
+                Loader {
+                    id: bottomDock
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: dockedBottomPanel ? dockedBottomPanel.prefHeight : 0
+                    visible: dockedBottomPanel !== null
+                    sourceComponent: dockedBottomPanel ? dockedBottomPanel.component : null
                 }
             }
 
-            function ReloadDoc() {
-                var basePath = Qt.resolvedUrl("../Doc/Math/");
-                var path = basePath + fileSelector.currentText;
-                contentView.text = renderer.LoadFile(path.replace("file:///", ""));
-            }
-        }
-    }
-
-    // 独立窗口组件
-    Component {
-        id: mathDocWindowComponent
-
-        Window {
-            id: docWindow
-            width: 800
-            height: 600
-            title: qsTr("Lumin数学文档")
-            flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint
-
-            property bool isDocked: false
-
-            onClosing: {
-                mainWindow.mathDocWindow = null;
-            }
-
+            // 右侧停靠区
             Loader {
-                anchors.fill: parent
-                sourceComponent: mathDocComponent
-                onLoaded: {
-                    // 覆盖组件内的 ToggleDock 函数
-                    item.ToggleDock = function() {
-                        docWindow.close();
-                        mainWindow.mathDocDocked = true;
-                        mainWindow.mathDocWindow = null;
-                    };
-                }
+                id: rightDock
+                Layout.preferredWidth: dockedRightPanel ? dockedRightPanel.prefWidth : 0
+                Layout.fillHeight: true
+                visible: dockedRightPanel !== null
+                sourceComponent: dockedRightPanel ? dockedRightPanel.component : null
             }
         }
     }
 
-    // 全局函数：打开数学文档
-    function OpenMathDoc() {
-        if (mathDocWindow) {
-            mathDocWindow.raise();
-            mathDocWindow.requestActivate();
+    // 检测浮动窗口是否靠近主窗口边缘，返回停靠位置
+    function checkDockPosition(winX, winY, winW, winH) {
+        var mx = x, my = y, mw = width, mh = height;
+        var threshold = dockThreshold;
+
+        // 上边缘
+        if (Math.abs(winY + winH - my) < threshold &&
+            winX + winW > mx + 100 && winX < mx + mw - 100) {
+            return MainWindow.DockPosition.Top;
+        }
+        // 下边缘
+        if (Math.abs(my + mh - winY) < threshold &&
+            winX + winW > mx + 100 && winX < mx + mw - 100) {
+            return MainWindow.DockPosition.Bottom;
+        }
+        // 左边缘
+        if (Math.abs(winX + winW - mx) < threshold &&
+            winY + winH > my + 30 && winY < my + mh - 30) {
+            return MainWindow.DockPosition.Left;
+        }
+        // 右边缘
+        if (Math.abs(mx + mw - winX) < threshold &&
+            winY + winH > my + 30 && winY < my + mh - 30) {
+            return MainWindow.DockPosition.Right;
+        }
+        return MainWindow.DockPosition.None;
+    }
+
+    function dockPanel(win, position, component, prefWidth, prefHeight) {
+        var panel = {
+            window: win,
+            component: component,
+            prefWidth: prefWidth || 400,
+            prefHeight: prefHeight || 300
+        };
+
+        switch (position) {
+        case MainWindow.DockPosition.Top:
+            dockedTopPanel = panel; break;
+        case MainWindow.DockPosition.Bottom:
+            dockedBottomPanel = panel; break;
+        case MainWindow.DockPosition.Left:
+            dockedLeftPanel = panel; break;
+        case MainWindow.DockPosition.Right:
+            dockedRightPanel = panel; break;
+        }
+    }
+
+    function undockPanel(position) {
+        var panel = null;
+        switch (position) {
+        case MainWindow.DockPosition.Top:
+            panel = dockedTopPanel; dockedTopPanel = null; break;
+        case MainWindow.DockPosition.Bottom:
+            panel = dockedBottomPanel; dockedBottomPanel = null; break;
+        case MainWindow.DockPosition.Left:
+            panel = dockedLeftPanel; dockedLeftPanel = null; break;
+        case MainWindow.DockPosition.Right:
+            panel = dockedRightPanel; dockedRightPanel = null; break;
+        }
+        return panel;
+    }
+
+    function isPositionDocked(position) {
+        switch (position) {
+        case MainWindow.DockPosition.Top: return dockedTopPanel !== null;
+        case MainWindow.DockPosition.Bottom: return dockedBottomPanel !== null;
+        case MainWindow.DockPosition.Left: return dockedLeftPanel !== null;
+        case MainWindow.DockPosition.Right: return dockedRightPanel !== null;
+        }
+        return false;
+    }
+
+    function openMathDoc() {
+        // 如果已停靠则聚焦
+        if (dockedBottomPanel && dockedBottomPanel.window &&
+            dockedBottomPanel.window.title && dockedBottomPanel.window.title.indexOf("数学文档") >= 0) {
+            return;
+        }
+        if (dockedTopPanel && dockedTopPanel.window &&
+            dockedTopPanel.window.title && dockedTopPanel.window.title.indexOf("数学文档") >= 0) {
+            return;
+        }
+        if (dockedLeftPanel && dockedLeftPanel.window &&
+            dockedLeftPanel.window.title && dockedLeftPanel.window.title.indexOf("数学文档") >= 0) {
+            return;
+        }
+        if (dockedRightPanel && dockedRightPanel.window &&
+            dockedRightPanel.window.title && dockedRightPanel.window.title.indexOf("数学文档") >= 0) {
             return;
         }
 
-        if (mathDocDocked) {
-            return;
+        var comp = Qt.createComponent("Resources/MathDocWindow.qml");
+        if (comp.status === Component.Ready) {
+            var win = comp.createObject(mainWindow);
+            win.show();
         }
-
-        var window = mathDocWindowComponent.createObject(mainWindow);
-        mathDocWindow = window;
-        window.show();
-    }
-
-    function ToggleDock() {
-        if (mathDocDocked) {
-            mathDocDocked = false;
-            var window = mathDocWindowComponent.createObject(mainWindow);
-            mathDocWindow = window;
-            window.show();
-        } else {
-            if (mathDocWindow) {
-                mathDocWindow.close();
-                mathDocWindow = null;
-            }
-            mathDocDocked = true;
-        }
-    }
-
-    // 注册渲染器
-    LMarkdownRenderer {
-        id: renderer
     }
 }
