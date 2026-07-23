@@ -1,11 +1,13 @@
 <RCC>
     <qresource prefix="/qt/qml/lumineditor">
         <file>main.qml</file>
-        <file>Resources/TitleBar.qml</file>
-        <file>Resources/EditorMenuBar.qml</file>
-        <file>Resources/WindowButtons.qml</file>
-        <file>Resources/DockHintOverlay.qml</file>
-        <file>Resources/MathDocPanel.qml</file>
-        <file>Resources/MathDocWindow.qml</file>
+        <file>Resources/Dock/Dock.qml</file>
+        <file>Resources/Dock/MyBorder.qml</file>
+        <file>Resources/Dock/MyDockBase.qml</file>
+        <file>Resources/Dock/MyDockHome.qml</file>
+        <file>Resources/Dock/MyDockWindow.qml</file>
+        <file>Resources/Dock/MySplit.qml</file>
+        <file>Resources/Dock/MyTabView.qml</file>
+        <file>Resources/main.qml</file>
     </qresource>
 </RCC>

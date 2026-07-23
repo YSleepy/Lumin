@@ -7,20 +7,20 @@ class QMarkdownTextEdit;
 class LMarkdownView : public QQuickPaintedItem
 {
     Q_OBJECT
-    Q_PROPERTY(QString filePath READ GetFilePath WRITE LoadFile NOTIFY filePathChanged)
-    Q_PROPERTY(bool readOnly READ IsReadOnly WRITE SetReadOnly NOTIFY readOnlyChanged)
+    Q_PROPERTY(QString filePath READ getFilePath WRITE loadFile NOTIFY filePathChanged)
+    Q_PROPERTY(bool readOnly READ isReadOnly WRITE setReadOnly NOTIFY readOnlyChanged)
 
 public:
     explicit LMarkdownView(QQuickItem* parent = nullptr);
     ~LMarkdownView() override;
 
-    Q_INVOKABLE void LoadFile(const QString& path);
-    Q_INVOKABLE void SetMarkdownText(const QString& text);
-    Q_INVOKABLE QString GetMarkdownText() const;
+    Q_INVOKABLE void loadFile(const QString& path);
+    Q_INVOKABLE void setMarkdownText(const QString& text);
+    Q_INVOKABLE QString getMarkdownText() const;
 
-    QString GetFilePath() const { return m_filePath; }
-    bool IsReadOnly() const { return m_readOnly; }
-    void SetReadOnly(bool ro);
+    QString getFilePath() const { return m_filePath; }
+    bool isReadOnly() const { return m_readOnly; }
+    void setReadOnly(bool ro);
 
     void paint(QPainter* painter) override;
 

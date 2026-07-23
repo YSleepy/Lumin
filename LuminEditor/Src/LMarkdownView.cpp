@@ -46,25 +46,25 @@ void LMarkdownView::componentComplete()
         loadContent();
 }
 
-void LMarkdownView::LoadFile(const QString& path)
+void LMarkdownView::loadFile(const QString& path)
 {
     m_filePath = path;
     if (m_editor)
         loadContent();
 }
 
-void LMarkdownView::SetMarkdownText(const QString& text)
+void LMarkdownView::setMarkdownText(const QString& text)
 {
     if (m_editor)
         m_editor->setPlainText(text);
 }
 
-QString LMarkdownView::GetMarkdownText() const
+QString LMarkdownView::getMarkdownText() const
 {
     return m_editor ? m_editor->toPlainText() : QString();
 }
 
-void LMarkdownView::SetReadOnly(bool ro)
+void LMarkdownView::setReadOnly(bool ro)
 {
     m_readOnly = ro;
     if (m_editor)

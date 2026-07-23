@@ -118,11 +118,6 @@
     <ClCompile Include="ThirdParty\qmarkdowntextedit\qownlanguagedata.cpp" />
     <ClCompile Include="ThirdParty\qmarkdowntextedit\qplaintexteditsearchwidget.cpp" />
     <None Include="main.qml" />
-    <None Include="Resources\TitleBar.qml" />
-    <None Include="Resources\EditorMenuBar.qml" />
-    <None Include="Resources\WindowButtons.qml" />
-    <None Include="Resources\MathDocPanel.qml" />
-    <None Include="Resources\MathDocWindow.qml" />
     <QtMoc Include="Src\LMarkdownView.h" />
     <QtMoc Include="ThirdParty\qmarkdowntextedit\markdownhighlighter.h" />
     <QtMoc Include="ThirdParty\qmarkdowntextedit\qmarkdowntextedit.h" />

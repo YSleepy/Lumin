@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<LMarkdownView>("Lumin.Editor", 1, 0, "LMarkdownView");
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/qt/qml/lumineditor/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qt/qml/lumineditor/Resources/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
 

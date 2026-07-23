@@ -70,21 +70,6 @@
     <None Include="main.qml">
       <Filter>QML Files</Filter>
     </None>
-    <None Include="Resources\TitleBar.qml">
-      <Filter>QML Files</Filter>
-    </None>
-    <None Include="Resources\EditorMenuBar.qml">
-      <Filter>QML Files</Filter>
-    </None>
-    <None Include="Resources\WindowButtons.qml">
-      <Filter>QML Files</Filter>
-    </None>
-    <None Include="Resources\MathDocPanel.qml">
-      <Filter>QML Files</Filter>
-    </None>
-    <None Include="Resources\MathDocWindow.qml">
-      <Filter>QML Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ThirdParty\qmarkdowntextedit\linenumberarea.h">
