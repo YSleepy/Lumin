@@ -109,6 +109,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="Resources\Bar\LuminMainMenuBar.qml" />
+    <None Include="Resources\Bar\LuminWidgetBar.qml" />
     <QtRcc Include="qml.qrc" />
     <QtRcc Include="ThirdParty\qmarkdowntextedit\media.qrc" />
     <ClCompile Include="main.cpp" />

@@ -9,5 +9,7 @@
         <file>Resources/Dock/MySplit.qml</file>
         <file>Resources/Dock/MyTabView.qml</file>
         <file>Resources/main.qml</file>
+        <file>Resources/Bar/LuminWidgetBar.qml</file>
+        <file>Resources/Bar/LuminMainMenuBar.qml</file>
     </qresource>
 </RCC>

@@ -4,6 +4,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import "Resources"
+import "Resources/Bar"
 
 ApplicationWindow {
     id: mainWindow
@@ -14,4 +15,10 @@ ApplicationWindow {
     color: "#1e1e1e"
 
     flags: Qt.FramelessWindowHint | Qt.Window
+
+    LuminWidgetBar {
+        title: "Lumin"
+        targetWindow: mainWindow
+        menuBar: LuminMainMenuBar{}
+    }
 }

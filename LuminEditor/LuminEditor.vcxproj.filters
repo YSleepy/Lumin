@@ -76,4 +76,12 @@
       <Filter>ThirdParty</Filter>
     </QtMoc>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bar\LuminWidgetBar.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Bar\LuminMainMenuBar.qml">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
