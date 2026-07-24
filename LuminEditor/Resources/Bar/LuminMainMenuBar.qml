@@ -1,11 +1,14 @@
-﻿// MainMenuBar.qml
-import QtQuick 2.15
+﻿import QtQuick 2.15
 import QtQuick.Controls 2.15
 import Qt5Compat.GraphicalEffects
 
 MenuBar {
     id: root
-    spacing: 8
+    spacing: menuSpacing
+
+    property string menuTextColor: "white"
+    property int menuSpacing: 8
+
     Menu {
         title: "文件"
         MenuItem { text: "打开"; onTriggered: console.log("打开") }
@@ -20,17 +23,18 @@ MenuBar {
     }
     Menu {
         title: "帮助"
-        MenuItem { text: "关于" }
+        MenuItem { text: "Markdown" }
+        MenuItem { text: "关于Lumin" }
     }
-    Component.onCompleted: {
-        Qt.callLater(function() {
-            var items = root.contentItem.children
-            for (var i = 0; i < items.length; ++i) {
-                var item = items[i]
-                if (item.hasOwnProperty("contentItem") && item.contentItem) {
-                    item.contentItem.color = "white"
-                }
-            }
-        })
+
+    delegate: MenuBarItem {
+        id: control
+        contentItem: Text {
+            text: control.text
+            font: control.font
+            color: root.menuTextColor
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
     }
 }

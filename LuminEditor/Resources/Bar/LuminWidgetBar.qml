@@ -130,8 +130,8 @@ Rectangle {
         id: menuBarContainer
         anchors.left: leftRow.right
         anchors.verticalCenter: root.top
+        anchors.leftMargin: 8
         Component.onCompleted: {
-            console.log(root.menuBar);
             if (root.menuBar) {
                 root.menuBar.parent = menuBarContainer;
                 root.menuBar.anchors.fill = menuBarContainer;

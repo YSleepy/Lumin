@@ -3,7 +3,7 @@
 TEMPLATE = app
 TARGET = LuminEditor
 
-QT += core quick gui widgets
+QT += core quick quickdialogs2 widgets
 
 # Defines
 DEFINES += \
@@ -11,7 +11,7 @@ DEFINES += \
 
 # Include paths
 INCLUDEPATH += \
-    D:/XDY/XDY/XDY_Project/Lumin/LuminEditor/ThirdParty/qmarkdowntextedit
+    $$PWD/ThirdParty/qmarkdowntextedit
 
 # Sources
 # Source Files
