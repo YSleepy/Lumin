@@ -1,3 +1,6 @@
 [submodule "LuminEditor/ThirdParty/qmarkdowntextedit"]
 	path = LuminEditor/ThirdParty/qmarkdowntextedit
 	url = https://github.com/pbek/qmarkdowntextedit.git
+[submodule "LuminEditor/ThirdParty/QtFlexQml"]
+	path = LuminEditor/ThirdParty/QtFlexQml
+	url = https://github.com/YSleepy/QtFlexQml.git
