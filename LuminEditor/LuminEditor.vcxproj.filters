@@ -83,5 +83,11 @@
     <None Include="Resources\Bar\LuminMainMenuBar.qml">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="Resources\Bar\LuminToolBar.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Dock\LuminDockContent.qml">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

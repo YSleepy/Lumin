@@ -4,10 +4,26 @@
         <file>Resources/Bar/LuminWidgetBar.qml</file>
         <file>Resources/Bar/LuminMainMenuBar.qml</file>
         <file>Resources/Bar/LuminToolBar.qml</file>
-        <file>Resources/Dock/LuminDockItem.qml</file>
-        <file>Resources/Dock/LuminDockPane.qml</file>
-        <file>Resources/Dock/LuminDockSplit.qml</file>
-        <file>Resources/Dock/LuminDockDropOverlay.qml</file>
-        <file>Resources/Dock/LuminDockContainer.qml</file>
+        <file>Resources/Dock/LuminDockContent.qml</file>
+    </qresource>
+    <qresource prefix="/qml/Dock">
+        <file alias="qmldir">ThirdParty/QtFlexQml/qml/Dock/qmldir</file>
+        <file alias="Enums.qml">ThirdParty/QtFlexQml/qml/Dock/Enums.qml</file>
+        <file alias="Theme.qml">ThirdParty/QtFlexQml/qml/Dock/Theme.qml</file>
+        <file alias="LayoutAlg.qml">ThirdParty/QtFlexQml/qml/Dock/LayoutAlg.qml</file>
+        <file alias="FlexManager.qml">ThirdParty/QtFlexQml/qml/Dock/FlexManager.qml</file>
+        <file alias="DragController.qml">ThirdParty/QtFlexQml/qml/Dock/DragController.qml</file>
+        <file alias="FlexWindow.qml">ThirdParty/QtFlexQml/qml/Dock/FlexWindow.qml</file>
+        <file alias="FlexWindowFrame.qml">ThirdParty/QtFlexQml/qml/Dock/FlexWindowFrame.qml</file>
+        <file alias="NodeView.qml">ThirdParty/QtFlexQml/qml/Dock/NodeView.qml</file>
+        <file alias="SplitContainer.qml">ThirdParty/QtFlexQml/qml/Dock/SplitContainer.qml</file>
+        <file alias="DockSite.qml">ThirdParty/QtFlexQml/qml/Dock/DockSite.qml</file>
+        <file alias="DockWidget.qml">ThirdParty/QtFlexQml/qml/Dock/DockWidget.qml</file>
+        <file alias="DockSide.qml">ThirdParty/QtFlexQml/qml/Dock/DockSide.qml</file>
+        <file alias="DockGuider.qml">ThirdParty/QtFlexQml/qml/Dock/DockGuider.qml</file>
+        <file alias="DragLayer.qml">ThirdParty/QtFlexQml/qml/Dock/DragLayer.qml</file>
+        <file alias="Controls/DockButton.qml">ThirdParty/QtFlexQml/qml/Dock/Controls/DockButton.qml</file>
+        <file alias="Controls/TabCloseButton.qml">ThirdParty/QtFlexQml/qml/Dock/Controls/TabCloseButton.qml</file>
+        <file alias="Controls/TitleBar.qml">ThirdParty/QtFlexQml/qml/Dock/Controls/TitleBar.qml</file>
     </qresource>
 </RCC>

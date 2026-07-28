@@ -3,9 +3,9 @@ import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
 
-import "Resources"
-import "Resources/Bar"
 import "Resources/Dock"
+import "Resources/Bar"
+import "qrc:/qml/Dock"
 
 ApplicationWindow {
     id: mainWindow
@@ -13,9 +13,54 @@ ApplicationWindow {
     width: 1280
     height: 720
     title: "LuminEditor"
-    color: "#1e1e1e"
+    color: Theme.bg0
 
     flags: Qt.FramelessWindowHint | Qt.Window
+
+    // Content component registered for all dock panels
+    Component {
+        id: luminContent
+        LuminDockContent {}
+    }
+
+    Component.onCompleted: {
+        // Register content types
+        FlexManager.registerContent("file", luminContent)
+        FlexManager.registerContent("tool", luminContent)
+
+        // Create main FlexWindow
+        FlexManager.createFlexWindow(Enums.viewMode.HybridView, "Main", false)
+        var fw = FlexManager.flexWindow("Main")
+        if (fw) {
+            fw.parent = central
+            fw.anchors.fill = central
+        }
+
+        // Create default layout
+        addPanel("Editor", "file", Enums.viewMode.FileView, Enums.dockArea.M)
+        addPanel("Editor", "file", Enums.viewMode.FileView, Enums.dockArea.M)
+        addPanel("Explorer", "tool", Enums.viewMode.ToolView, Enums.dockArea.L0)
+        addPanel("Output", "tool", Enums.viewMode.ToolView, Enums.dockArea.B0)
+
+        // Handle window recreation (e.g., after layout restore)
+        FlexManager.onWindowRecreated = function(name, win) {
+            if (name === "Main") {
+                win.parent = central
+                win.anchors.fill = central
+            }
+        }
+    }
+
+    // Helper to add a panel
+    property int fileIdx: 0
+    property int toolIdx: 0
+
+    function addPanel(prefix, contentId, viewMode, area) {
+        var idx = (contentId === "file") ? (++fileIdx) : (++toolIdx)
+        var name = prefix + "-" + idx
+        var desc = FlexManager.createDockWidget(viewMode, contentId, name, prefix + " " + idx)
+        FlexManager.addDockWidget("Main", desc, area)
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -34,37 +79,10 @@ ApplicationWindow {
             Layout.fillWidth: true
         }
 
-        LuminDockContainer {
-            id: dockContainer
+        Item {
+            id: central
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
-    }
-
-    Component.onCompleted: {
-        // Create dock items with placeholder content
-        var explorer = dockContainer.createItem("Explorer")
-        var editor = dockContainer.createItem("Editor")
-        var output = dockContainer.createItem("Output")
-
-        // Add colored placeholders so we can see the panels
-        var r1 = Qt.createQmlObject(
-            'import QtQuick; Rectangle { anchors.fill: parent; color: "#252526" }',
-            explorer.contentHost)
-        var r2 = Qt.createQmlObject(
-            'import QtQuick; Rectangle { anchors.fill: parent; color: "#1e1e1e" }',
-            editor.contentHost)
-        var r3 = Qt.createQmlObject(
-            'import QtQuick; Rectangle { anchors.fill: parent; color: "#252526" }',
-            output.contentHost)
-
-        // Layout: Editor as initial center
-        dockContainer.addDockItem(editor, "center", null)
-
-        // Dock Explorer to the left of Editor's pane
-        dockContainer.addDockItem(explorer, "left", editor.pane)
-
-        // Dock Output below Editor's pane
-        dockContainer.addDockItem(output, "bottom", editor.pane)
     }
 }

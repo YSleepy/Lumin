@@ -1,12 +1,9 @@
-﻿import QtQuick 2.3
+import QtQuick 2.3
 import QtQuick.Controls
 
 Rectangle {
     id: root
     height: heightBar
-    anchors.top: parent.top
-    anchors.left: parent.left
-    anchors.right: parent.right
     color: colorBar !== "" ? colorBar : "#2d2d30"
     z: 1
 

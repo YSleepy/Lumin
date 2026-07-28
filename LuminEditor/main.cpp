@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<LMarkdownView>("Lumin.Editor", 1, 0, "LMarkdownView");
 
     QQmlApplicationEngine engine;
+    // Add QtFlexQml import path so "import Dock" resolves to ThirdParty/QtFlexQml/qml/Dock
+    engine.addImportPath(QStringLiteral("ThirdParty/QtFlexQml/qml"));
     engine.load(QUrl(QStringLiteral("qrc:/qt/qml/lumineditor/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
