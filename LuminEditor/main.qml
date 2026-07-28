@@ -5,6 +5,7 @@ import QtQuick.Layouts
 
 import "Resources/Dock"
 import "Resources/Bar"
+import "Resources/Theme"
 import "qrc:/qml/Dock"
 
 ApplicationWindow {
@@ -13,7 +14,7 @@ ApplicationWindow {
     width: 1280
     height: 720
     title: "LuminEditor"
-    color: Theme.bg0
+    color: LuminTheme.bg0
 
     flags: Qt.FramelessWindowHint | Qt.Window
 

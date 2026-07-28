@@ -1,30 +1,35 @@
 ﻿import QtQuick 2.15
 import QtQuick.Controls 2.15
-import Qt5Compat.GraphicalEffects
+import "../Theme"
 
 MenuBar {
     id: root
-    spacing: menuSpacing
+    spacing: LuminTheme.menuSpacing
 
-    property string menuTextColor: "white"
     property int menuSpacing: 8
+    Component.onCompleted:{
+        console.info("[LuminMainMenuBar] x:", x, " y:", y, " w:", width, " h:", height)
+    }
 
     Menu {
         title: "文件"
-        MenuItem { text: "打开"; onTriggered: console.log("打开") }
-        MenuItem { text: "保存"; onTriggered: console.log("保存") }
+
+        Action { text: "打开"; onTriggered: console.log("打开") }
+        Action { text: "保存"; onTriggered: console.log("保存") }
         MenuSeparator {}
-        MenuItem { text: "退出"; onTriggered: Qt.quit() }
+        Action { text: "退出"; onTriggered: Qt.quit() }
     }
     Menu {
         title: "编辑"
-        MenuItem { text: "剪切" }
-        MenuItem { text: "复制" }
+
+        Action { text: "剪切" }
+        Action { text: "复制" }
     }
     Menu {
         title: "帮助"
-        MenuItem { text: "Markdown" }
-        MenuItem { text: "关于Lumin" }
+
+        Action { text: "Markdown" }
+        Action { text: "关于Lumin" }
     }
 
     delegate: MenuBarItem {
@@ -32,9 +37,15 @@ MenuBar {
         contentItem: Text {
             text: control.text
             font: control.font
-            color: root.menuTextColor
+            color: control.hovered ? LuminTheme.textMain : LuminTheme.textSoft
+            opacity: control.hovered ? 1.0 : 0.8
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
+        }
+
+        background: Rectangle {
+            color: control.hovered ? LuminTheme.hoverBg : "transparent"
+            radius: LuminTheme.radius
         }
     }
 }

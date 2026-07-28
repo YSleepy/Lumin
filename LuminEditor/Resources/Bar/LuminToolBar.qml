@@ -1,12 +1,13 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "../Theme"
 
 Rectangle {
     id: root
 
-    height: 36
-    color: "#2d2d30"
+    height: LuminTheme.toolBarHeight
+    color: LuminTheme.bg0
 
     property alias model: toolRepeater.model
 
@@ -17,7 +18,7 @@ Rectangle {
         spacing: 2
 
         ToolButton {
-            text: "\u25A4"
+            text: "▤"
             implicitWidth: 32
             implicitHeight: 28
             ToolTip.text: "New"
@@ -25,19 +26,19 @@ Rectangle {
             ToolTip.delay: 500
             contentItem: Text {
                 text: parent.text
-                color: "#cccccc"
+                color: LuminTheme.textSoft
                 font.pixelSize: 14
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
             background: Rectangle {
-                color: parent.hovered ? "#3e3e3e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                 radius: 2
             }
         }
 
         ToolButton {
-            text: "\u25A5"
+            text: "▥"
             implicitWidth: 32
             implicitHeight: 28
             ToolTip.text: "Open"
@@ -45,19 +46,19 @@ Rectangle {
             ToolTip.delay: 500
             contentItem: Text {
                 text: parent.text
-                color: "#cccccc"
+                color: LuminTheme.textSoft
                 font.pixelSize: 14
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
             background: Rectangle {
-                color: parent.hovered ? "#3e3e3e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                 radius: 2
             }
         }
 
         ToolButton {
-            text: "\u25A6"
+            text: "▦"
             implicitWidth: 32
             implicitHeight: 28
             ToolTip.text: "Save"
@@ -65,13 +66,13 @@ Rectangle {
             ToolTip.delay: 500
             contentItem: Text {
                 text: parent.text
-                color: "#cccccc"
+                color: LuminTheme.textSoft
                 font.pixelSize: 14
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
             background: Rectangle {
-                color: parent.hovered ? "#3e3e3e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                 radius: 2
             }
         }
@@ -81,11 +82,11 @@ Rectangle {
             Layout.rightMargin: 4
             width: 1
             height: 20
-            color: "#404040"
+            color: LuminTheme.separator
         }
 
         ToolButton {
-            text: "\u21B6"
+            text: "↶"
             implicitWidth: 32
             implicitHeight: 28
             ToolTip.text: "Undo"
@@ -93,19 +94,19 @@ Rectangle {
             ToolTip.delay: 500
             contentItem: Text {
                 text: parent.text
-                color: "#cccccc"
+                color: LuminTheme.textSoft
                 font.pixelSize: 14
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
             background: Rectangle {
-                color: parent.hovered ? "#3e3e3e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                 radius: 2
             }
         }
 
         ToolButton {
-            text: "\u21B7"
+            text: "↷"
             implicitWidth: 32
             implicitHeight: 28
             ToolTip.text: "Redo"
@@ -113,13 +114,13 @@ Rectangle {
             ToolTip.delay: 500
             contentItem: Text {
                 text: parent.text
-                color: "#cccccc"
+                color: LuminTheme.textSoft
                 font.pixelSize: 14
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
             background: Rectangle {
-                color: parent.hovered ? "#3e3e3e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                 radius: 2
             }
         }
@@ -129,11 +130,11 @@ Rectangle {
             Layout.rightMargin: 4
             width: 1
             height: 20
-            color: "#404040"
+            color: LuminTheme.separator
         }
 
         ToolButton {
-            text: "\u25B6"
+            text: "▶"
             implicitWidth: 32
             implicitHeight: 28
             ToolTip.text: "Run"
@@ -141,19 +142,19 @@ Rectangle {
             ToolTip.delay: 500
             contentItem: Text {
                 text: parent.text
-                color: "#cccccc"
+                color: LuminTheme.textSoft
                 font.pixelSize: 14
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
             background: Rectangle {
-                color: parent.hovered ? "#3e3e3e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                 radius: 2
             }
         }
 
         ToolButton {
-            text: "\u25A0"
+            text: "■"
             implicitWidth: 32
             implicitHeight: 28
             ToolTip.text: "Stop"
@@ -161,13 +162,13 @@ Rectangle {
             ToolTip.delay: 500
             contentItem: Text {
                 text: parent.text
-                color: "#cccccc"
+                color: LuminTheme.textSoft
                 font.pixelSize: 14
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
             background: Rectangle {
-                color: parent.hovered ? "#3e3e3e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                 radius: 2
             }
         }
@@ -182,14 +183,14 @@ Rectangle {
 
                 contentItem: Text {
                     text: parent.text
-                    color: "#cccccc"
+                    color: LuminTheme.textSoft
                     font.pixelSize: 14
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
 
                 background: Rectangle {
-                    color: parent.hovered ? "#3e3e3e" : "transparent"
+                    color: parent.hovered ? LuminTheme.hoverBg : "transparent"
                     radius: 2
                 }
 

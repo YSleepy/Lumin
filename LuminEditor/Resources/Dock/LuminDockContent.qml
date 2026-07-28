@@ -1,9 +1,10 @@
 import QtQuick
 import QtQuick.Controls
+import "../Theme"
 
 Rectangle {
     id: root
-    color: "#1e1e1e"
+    color: LuminTheme.bg2
 
     property var descriptor
     property string panelTitle: ""
@@ -11,7 +12,7 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         text: root.panelTitle || "Panel"
-        color: "#cccccc"
+        color: LuminTheme.textSoft
         font.pixelSize: 14
     }
 }

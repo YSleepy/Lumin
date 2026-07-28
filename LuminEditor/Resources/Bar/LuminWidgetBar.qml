@@ -1,16 +1,17 @@
-import QtQuick 2.3
+﻿import QtQuick 2.3
 import QtQuick.Controls
+import "../Theme"
 
 Rectangle {
     id: root
     height: heightBar
-    color: colorBar !== "" ? colorBar : "#2d2d30"
+    color: colorBar !== "" ? colorBar : LuminTheme.bg0
     z: 1
 
     property string title: ""
     property string iconSource: ""
     property string colorBar: ""
-    property int heightBar: 30
+    property int heightBar: LuminTheme.titleBarHeight
 
     property Window targetWindow: null
     property LuminMainMenuBar menuBar: null
@@ -35,7 +36,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 visible: root.title !== ""
                 text: root.title
-                color: "white"
+                color: LuminTheme.textMain
                 font.pixelSize: 16
                 font.bold: false
             }
@@ -57,7 +58,7 @@ Rectangle {
                     root.targetWindow.showMinimized();
             }
             background: Rectangle {
-                color: parent.hovered ? "#34495e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverWinBtn : "transparent"
                 radius: 2
             }
         }
@@ -79,7 +80,7 @@ Rectangle {
                     root.targetWindow.showMaximized();
             }
             background: Rectangle {
-                color: parent.hovered ? "#34495e" : "transparent"
+                color: parent.hovered ? LuminTheme.hoverWinBtn : "transparent"
                 radius: 2
             }
 
@@ -101,25 +102,9 @@ Rectangle {
                     root.targetWindow.close();
             }
             background: Rectangle {
-                color: parent.hovered ? "#e74c3c" : "transparent"
+                color: parent.hovered ? LuminTheme.closeRed : "transparent"
                 radius: 2
             }
-        }
-    }
-
-    MouseArea {
-        anchors.right: rightRow.left
-        anchors.left: leftRow.right
-        anchors.top: leftRow.top
-        anchors.bottom: leftRow.bottom
-        onPressed: targetWindow?.startSystemMove()
-        onDoubleClicked: {
-            if (!targetWindow)
-                return;
-            if (targetWindow.visibility === Window.Maximized)
-                targetWindow.showNormal();
-            else
-                targetWindow.showMaximized();
         }
     }
 
@@ -135,6 +120,40 @@ Rectangle {
                 root.menuBar.anchors.verticalCenter = menuBarContainer.verticalCenter;
                 root.menuBar.anchors.topMargin = 2;
             }
+        }
+    }
+
+    MouseArea {
+        // anchors.right: rightRow.left
+        // anchors.left: menuBar ? menuBar.right : leftRow.right
+        y: parent.y
+        x: menuBar ? leftRow.width + menuBar.width : leftRow.width
+        width: rightRow.x - x
+        height: parent.height
+        // anchors.top: leftRow.top
+        // anchors.bottom: leftRow.bottom
+        onPressed: {
+            targetWindow?.startSystemMove()
+            console.info("[LuminWidgetBar] MouseArea x:", x, " y:", y, " w:", width, " h:", height)
+        }
+        onDoubleClicked: {
+            if (!targetWindow)
+                return;
+            if (targetWindow.visibility === Window.Maximized)
+                targetWindow.showNormal();
+            else
+                targetWindow.showMaximized();
+        }
+        Component.onCompleted: {
+            console.info("[LuminWidgetBar] MouseArea x:", x, " y:", y, " w:", width, " h:", height)
+        }
+        onXChanged: {
+            console.info("[LuminWidgetBar.onXChanged] MouseArea x:", x, " y:", y, " w:", width, " h:", height)
+        }
+
+        Rectangle{
+            anchors.fill: parent
+            color: "red"
         }
     }
 }

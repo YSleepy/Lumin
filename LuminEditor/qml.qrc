@@ -5,6 +5,8 @@
         <file>Resources/Bar/LuminMainMenuBar.qml</file>
         <file>Resources/Bar/LuminToolBar.qml</file>
         <file>Resources/Dock/LuminDockContent.qml</file>
+        <file>Resources/Theme/qmldir</file>
+        <file>Resources/Theme/LuminTheme.qml</file>
     </qresource>
     <qresource prefix="/qml/Dock">
         <file alias="qmldir">ThirdParty/QtFlexQml/qml/Dock/qmldir</file>
