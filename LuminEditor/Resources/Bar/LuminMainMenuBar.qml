@@ -1,51 +1,46 @@
-﻿import QtQuick 2.15
-import QtQuick.Controls 2.15
-import "../Theme"
+import QtQuick
+import "../Common"
 
-MenuBar {
+LuminMenuBar {
     id: root
-    spacing: LuminTheme.menuSpacing
 
-    property int menuSpacing: 8
-    Component.onCompleted:{
-        console.info("[LuminMainMenuBar] x:", x, " y:", y, " w:", width, " h:", height)
-    }
-
-    Menu {
+    LuminMenu {
         title: "文件"
 
-        Action { text: "打开"; onTriggered: console.log("打开") }
-        Action { text: "保存"; onTriggered: console.log("保存") }
-        MenuSeparator {}
-        Action { text: "退出"; onTriggered: Qt.quit() }
+        LuminMenuItem { text: "新建"; onTriggered: console.log("新建") }
+        LuminMenuItem { text: "打开"; onTriggered: console.log("打开") }
+        LuminMenuItem { text: "保存"; onTriggered: console.log("保存") }
+
+        LuminMenuSeparator {}
+
+        LuminMenuItem { text: "退出"; onTriggered: Qt.quit() }
     }
-    Menu {
+
+    LuminMenu {
         title: "编辑"
 
-        Action { text: "剪切" }
-        Action { text: "复制" }
+        LuminMenuItem { text: "撤销"; onTriggered: console.log("撤销") }
+        LuminMenuItem { text: "重做"; onTriggered: console.log("重做") }
+
+        LuminMenuSeparator {}
+
+        LuminMenuItem { text: "剪切"; onTriggered: console.log("剪切") }
+        LuminMenuItem { text: "复制"; onTriggered: console.log("复制") }
+        LuminMenuItem { text: "粘贴"; onTriggered: console.log("粘贴") }
     }
-    Menu {
+
+    LuminMenu {
+        title: "视图"
+
+        LuminMenuItem { text: "资源管理器"; onTriggered: console.log("资源管理器") }
+        LuminMenuItem { text: "输出面板"; onTriggered: console.log("输出面板") }
+        LuminMenuItem { text: "属性面板"; onTriggered: console.log("属性面板") }
+    }
+
+    LuminMenu {
         title: "帮助"
 
-        Action { text: "Markdown" }
-        Action { text: "关于Lumin" }
-    }
-
-    delegate: MenuBarItem {
-        id: control
-        contentItem: Text {
-            text: control.text
-            font: control.font
-            color: control.hovered ? LuminTheme.textMain : LuminTheme.textSoft
-            opacity: control.hovered ? 1.0 : 0.8
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        background: Rectangle {
-            color: control.hovered ? LuminTheme.hoverBg : "transparent"
-            radius: LuminTheme.radius
-        }
+        LuminMenuItem { text: "Markdown 文档"; onTriggered: console.log("Markdown 文档") }
+        LuminMenuItem { text: "关于 Lumin"; onTriggered: console.log("关于 Lumin") }
     }
 }

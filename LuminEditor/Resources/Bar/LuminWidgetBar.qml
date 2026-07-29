@@ -1,159 +1,91 @@
-﻿import QtQuick 2.3
-import QtQuick.Controls
+import QtQuick
+import QtQuick.Window
+import QtQuick.Layouts
 import "../Theme"
+import "../Common"
 
 Rectangle {
     id: root
-    height: heightBar
-    color: colorBar !== "" ? colorBar : LuminTheme.bg0
+
+    height: LuminTheme.titleBarHeight
+    color: backgroundColor
     z: 1
 
     property string title: ""
     property string iconSource: ""
-    property string colorBar: ""
-    property int heightBar: LuminTheme.titleBarHeight
-
+    property color backgroundColor: LuminTheme.bg0
     property Window targetWindow: null
-    property LuminMainMenuBar menuBar: null
 
-    Row {
-        id: leftRow
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        Row {
+    // 菜单栏以 Component 形式传入，由本组件负责实例化与布局
+    property Component menuBarComponent: null
+    readonly property var menuBar: menuBarLoader.item
+
+    property alias showWindowButtons: windowButtons.visible
+
+    RowLayout {
+        anchors.fill: parent
+        spacing: 0
+
+        // 图标 + 标题
+        RowLayout {
+            Layout.leftMargin: 8
+            Layout.alignment: Qt.AlignVCenter
+            spacing: 8
+
             Image {
-                id: iconImg
-                anchors.verticalCenter: parent.verticalCenter
                 visible: root.iconSource !== ""
                 source: root.iconSource
-                width: 24
-                height: 24
+                Layout.preferredWidth: 20
+                Layout.preferredHeight: 20
                 fillMode: Image.PreserveAspectFit
             }
 
             Text {
-                id: titleText
-                anchors.verticalCenter: parent.verticalCenter
                 visible: root.title !== ""
                 text: root.title
                 color: LuminTheme.textMain
-                font.pixelSize: 16
-                font.bold: false
+                font.pixelSize: 13
+                verticalAlignment: Text.AlignVCenter
             }
         }
-    }
 
-    Row {
-        id: rightRow
-        anchors.right: parent.right
-        anchors.rightMargin: 8
-        anchors.verticalCenter: parent.verticalCenter
-        spacing: 2
+        // 菜单栏
+        Loader {
+            id: menuBarLoader
+            Layout.leftMargin: root.menuBarComponent ? 8 : 0
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredHeight: root.height
+            sourceComponent: root.menuBarComponent
+        }
 
-        ToolButton {
-            text: "─"
-            font.pixelSize: 18
-            onClicked: {
+        // 可拖拽区域：菜单栏右边界到窗口控制区左侧
+        MouseArea {
+            id: dragArea
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            acceptedButtons: Qt.LeftButton
+
+            onPressed: {
                 if (root.targetWindow)
-                    root.targetWindow.showMinimized();
+                    root.targetWindow.startSystemMove()
             }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverWinBtn : "transparent"
-                radius: 2
-            }
-        }
 
-        ToolButton {
-            id: maxBtn
-            text: {
+            onDoubleClicked: {
                 if (!root.targetWindow)
-                    return "☐";
-                return root.targetWindow.visibility === Window.Maximized ? "❐" : "☐";
-            }
-            font.pixelSize: 18
-            onClicked: {
-                if (!root.targetWindow)
-                    return;
+                    return
                 if (root.targetWindow.visibility === Window.Maximized)
-                    root.targetWindow.showNormal();
+                    root.targetWindow.showNormal()
                 else
-                    root.targetWindow.showMaximized();
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverWinBtn : "transparent"
-                radius: 2
-            }
-
-            Connections {
-                target: root.targetWindow
-                function onVisibilityChanged() {
-                    if (root.targetWindow) {
-                        maxBtn.text = root.targetWindow.visibility === Window.Maximized ? "❐" : "☐";
-                    }
-                }
+                    root.targetWindow.showMaximized()
             }
         }
 
-        ToolButton {
-            text: "✕"
-            font.pixelSize: 18
-            onClicked: {
-                if (root.targetWindow)
-                    root.targetWindow.close();
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.closeRed : "transparent"
-                radius: 2
-            }
-        }
-    }
-
-    Row {
-        id: menuBarContainer
-        anchors.left: leftRow.right
-        anchors.verticalCenter: root.top
-        anchors.leftMargin: 8
-        Component.onCompleted: {
-            if (root.menuBar) {
-                root.menuBar.parent = menuBarContainer;
-                root.menuBar.anchors.fill = menuBarContainer;
-                root.menuBar.anchors.verticalCenter = menuBarContainer.verticalCenter;
-                root.menuBar.anchors.topMargin = 2;
-            }
-        }
-    }
-
-    MouseArea {
-        // anchors.right: rightRow.left
-        // anchors.left: menuBar ? menuBar.right : leftRow.right
-        y: parent.y
-        x: menuBar ? leftRow.width + menuBar.width : leftRow.width
-        width: rightRow.x - x
-        height: parent.height
-        // anchors.top: leftRow.top
-        // anchors.bottom: leftRow.bottom
-        onPressed: {
-            targetWindow?.startSystemMove()
-            console.info("[LuminWidgetBar] MouseArea x:", x, " y:", y, " w:", width, " h:", height)
-        }
-        onDoubleClicked: {
-            if (!targetWindow)
-                return;
-            if (targetWindow.visibility === Window.Maximized)
-                targetWindow.showNormal();
-            else
-                targetWindow.showMaximized();
-        }
-        Component.onCompleted: {
-            console.info("[LuminWidgetBar] MouseArea x:", x, " y:", y, " w:", width, " h:", height)
-        }
-        onXChanged: {
-            console.info("[LuminWidgetBar.onXChanged] MouseArea x:", x, " y:", y, " w:", width, " h:", height)
-        }
-
-        Rectangle{
-            anchors.fill: parent
-            color: "red"
+        // 窗口生命控制区
+        LuminWindowButtons {
+            id: windowButtons
+            Layout.alignment: Qt.AlignVCenter
+            targetWindow: root.targetWindow
+            buttonHeight: root.height
         }
     }
 }

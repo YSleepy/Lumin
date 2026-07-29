@@ -2,6 +2,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import "../Theme"
+import "../Common"
+
+pragma ComponentBehavior: Bound
 
 Rectangle {
     id: root
@@ -9,198 +12,71 @@ Rectangle {
     height: LuminTheme.toolBarHeight
     color: LuminTheme.bg0
 
-    property alias model: toolRepeater.model
+    // 数据驱动：[{ type: "button" | "separator", icon, tooltip, action, ... }]
+    property alias toolItems: toolRepeater.model
+    property int buttonSpacing: 2
+    property int sectionSpacing: 4
 
     RowLayout {
         anchors.fill: parent
         anchors.leftMargin: 4
         anchors.rightMargin: 4
-        spacing: 2
-
-        ToolButton {
-            text: "▤"
-            implicitWidth: 32
-            implicitHeight: 28
-            ToolTip.text: "New"
-            ToolTip.visible: hovered
-            ToolTip.delay: 500
-            contentItem: Text {
-                text: parent.text
-                color: LuminTheme.textSoft
-                font.pixelSize: 14
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                radius: 2
-            }
-        }
-
-        ToolButton {
-            text: "▥"
-            implicitWidth: 32
-            implicitHeight: 28
-            ToolTip.text: "Open"
-            ToolTip.visible: hovered
-            ToolTip.delay: 500
-            contentItem: Text {
-                text: parent.text
-                color: LuminTheme.textSoft
-                font.pixelSize: 14
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                radius: 2
-            }
-        }
-
-        ToolButton {
-            text: "▦"
-            implicitWidth: 32
-            implicitHeight: 28
-            ToolTip.text: "Save"
-            ToolTip.visible: hovered
-            ToolTip.delay: 500
-            contentItem: Text {
-                text: parent.text
-                color: LuminTheme.textSoft
-                font.pixelSize: 14
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                radius: 2
-            }
-        }
-
-        Rectangle {
-            Layout.leftMargin: 4
-            Layout.rightMargin: 4
-            width: 1
-            height: 20
-            color: LuminTheme.separator
-        }
-
-        ToolButton {
-            text: "↶"
-            implicitWidth: 32
-            implicitHeight: 28
-            ToolTip.text: "Undo"
-            ToolTip.visible: hovered
-            ToolTip.delay: 500
-            contentItem: Text {
-                text: parent.text
-                color: LuminTheme.textSoft
-                font.pixelSize: 14
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                radius: 2
-            }
-        }
-
-        ToolButton {
-            text: "↷"
-            implicitWidth: 32
-            implicitHeight: 28
-            ToolTip.text: "Redo"
-            ToolTip.visible: hovered
-            ToolTip.delay: 500
-            contentItem: Text {
-                text: parent.text
-                color: LuminTheme.textSoft
-                font.pixelSize: 14
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                radius: 2
-            }
-        }
-
-        Rectangle {
-            Layout.leftMargin: 4
-            Layout.rightMargin: 4
-            width: 1
-            height: 20
-            color: LuminTheme.separator
-        }
-
-        ToolButton {
-            text: "▶"
-            implicitWidth: 32
-            implicitHeight: 28
-            ToolTip.text: "Run"
-            ToolTip.visible: hovered
-            ToolTip.delay: 500
-            contentItem: Text {
-                text: parent.text
-                color: LuminTheme.textSoft
-                font.pixelSize: 14
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                radius: 2
-            }
-        }
-
-        ToolButton {
-            text: "■"
-            implicitWidth: 32
-            implicitHeight: 28
-            ToolTip.text: "Stop"
-            ToolTip.visible: hovered
-            ToolTip.delay: 500
-            contentItem: Text {
-                text: parent.text
-                color: LuminTheme.textSoft
-                font.pixelSize: 14
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-            background: Rectangle {
-                color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                radius: 2
-            }
-        }
+        spacing: root.buttonSpacing
 
         Repeater {
             id: toolRepeater
-            model: 0
-            delegate: ToolButton {
-                text: modelData.text || ""
-                implicitWidth: 32
-                implicitHeight: 28
 
-                contentItem: Text {
-                    text: parent.text
-                    color: LuminTheme.textSoft
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
+            delegate: Loader {
+                id: itemLoader
 
-                background: Rectangle {
-                    color: parent.hovered ? LuminTheme.hoverBg : "transparent"
-                    radius: 2
-                }
+                required property var modelData
 
-                onClicked: {
-                    if (modelData.action)
-                        modelData.action()
+                readonly property bool isSeparator: modelData && modelData.type === "separator"
+
+                Layout.alignment: Qt.AlignVCenter
+                Layout.leftMargin: isSeparator ? root.sectionSpacing : 0
+                Layout.rightMargin: isSeparator ? root.sectionSpacing : 0
+
+                sourceComponent: isSeparator ? separatorComponent : buttonComponent
+
+                // 将 modelData 作为属性传递给动态创建的组件
+                onLoaded: {
+                    if (item) {
+                        item.itemData = Qt.binding(function() { return modelData })
+                    }
                 }
             }
         }
 
         Item { Layout.fillWidth: true }
+    }
+
+    Component {
+        id: buttonComponent
+
+        LuminToolButton {
+            property var itemData: null
+
+            iconText: itemData && itemData.icon !== undefined ? itemData.icon : (itemData && itemData.text || "")
+            iconSize: itemData && itemData.iconSize !== undefined ? itemData.iconSize : 14
+            implicitWidth: itemData && itemData.width !== undefined ? itemData.width : 32
+            implicitHeight: itemData && itemData.height !== undefined ? itemData.height : 28
+            enabled: itemData && itemData.enabled !== undefined ? itemData.enabled : true
+
+            ToolTip.text: itemData && itemData.tooltip || ""
+            ToolTip.visible: hovered && ToolTip.text !== ""
+            ToolTip.delay: 500
+
+            onClicked: if (itemData && itemData.action) itemData.action()
+        }
+    }
+
+    Component {
+        id: separatorComponent
+
+        LuminSeparator {
+            horizontal: false
+            length: 20
+        }
     }
 }

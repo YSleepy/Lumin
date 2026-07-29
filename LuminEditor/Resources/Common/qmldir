@@ -1,0 +1,10 @@
+module Common
+
+LuminButton 1.0 LuminButton.qml
+LuminToolButton 1.0 LuminToolButton.qml
+LuminMenuBar 1.0 LuminMenuBar.qml
+LuminMenu 1.0 LuminMenu.qml
+LuminMenuItem 1.0 LuminMenuItem.qml
+LuminSeparator 1.0 LuminSeparator.qml
+LuminMenuSeparator 1.0 LuminMenuSeparator.qml
+LuminWindowButtons 1.0 LuminWindowButtons.qml

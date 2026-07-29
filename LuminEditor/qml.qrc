@@ -7,6 +7,15 @@
         <file>Resources/Dock/LuminDockContent.qml</file>
         <file>Resources/Theme/qmldir</file>
         <file>Resources/Theme/LuminTheme.qml</file>
+        <file>Resources/Common/qmldir</file>
+        <file>Resources/Common/LuminButton.qml</file>
+        <file>Resources/Common/LuminToolButton.qml</file>
+        <file>Resources/Common/LuminMenuBar.qml</file>
+        <file>Resources/Common/LuminMenu.qml</file>
+        <file>Resources/Common/LuminMenuItem.qml</file>
+        <file>Resources/Common/LuminSeparator.qml</file>
+        <file>Resources/Common/LuminMenuSeparator.qml</file>
+        <file>Resources/Common/LuminWindowButtons.qml</file>
     </qresource>
     <qresource prefix="/qml/Dock">
         <file alias="qmldir">ThirdParty/QtFlexQml/qml/Dock/qmldir</file>

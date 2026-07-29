@@ -24,6 +24,12 @@ ApplicationWindow {
         LuminDockContent {}
     }
 
+    // 标题栏中的菜单栏
+    Component {
+        id: mainMenuBarComponent
+        LuminMainMenuBar {}
+    }
+
     Component.onCompleted: {
         // Register content types
         FlexManager.registerContent("file", luminContent)
@@ -68,16 +74,28 @@ ApplicationWindow {
         spacing: 0
 
         LuminWidgetBar {
-            id: luminWidgetBar
+            id: titleBar
             Layout.fillWidth: true
             title: "Lumin"
+            iconSource: ""
             targetWindow: mainWindow
-            menuBar: LuminMainMenuBar {}
+            menuBarComponent: mainMenuBarComponent
         }
 
         LuminToolBar {
-            id: luminToolBar
+            id: toolBar
             Layout.fillWidth: true
+            toolItems: [
+                { type: "button", icon: "▤", tooltip: "New", action: function() { console.log("New") } },
+                { type: "button", icon: "▥", tooltip: "Open", action: function() { console.log("Open") } },
+                { type: "button", icon: "▦", tooltip: "Save", action: function() { console.log("Save") } },
+                { type: "separator" },
+                { type: "button", icon: "↶", tooltip: "Undo", action: function() { console.log("Undo") } },
+                { type: "button", icon: "↷", tooltip: "Redo", action: function() { console.log("Redo") } },
+                { type: "separator" },
+                { type: "button", icon: "▶", tooltip: "Run", action: function() { console.log("Run") } },
+                { type: "button", icon: "■", tooltip: "Stop", action: function() { console.log("Stop") } }
+            ]
         }
 
         Item {
