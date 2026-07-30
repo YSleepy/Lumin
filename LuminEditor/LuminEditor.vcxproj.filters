@@ -89,5 +89,34 @@
     <None Include="Resources\Dock\LuminDockContent.qml">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="Resources\Common\LuminButton.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\LuminMenu.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\LuminMenuBar.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\LuminMenuItem.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\LuminMenuSeparator.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\LuminSeparator.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\LuminToolButton.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\LuminWindowButtons.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Common\qmldir" />
+    <None Include="Resources\Theme\LuminTheme.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Resources\Theme\qmldir" />
   </ItemGroup>
 </Project>

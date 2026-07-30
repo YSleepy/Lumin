@@ -1,0 +1,651 @@
+
+10:27:01: Starting D:\XDY\XDY\XDY_Project\Lumin\LuminEditor\build\Desktop_Qt_6_5_3_MSVC2019_64bit-Debug\debug\LuminEditor.exe...
+QML debugging is enabled. Only use this in a safe environment.
+qrc:/qt/qml/lumineditor/Resources/Bar/LuminToolBar.qml:45: Error: Cannot assign to non-existent property "itemData"
+qrc:/qt/qml/lumineditor/Resources/Bar/LuminToolBar.qml:45: Error: Cannot assign to non-existent property "itemData"
+qml: [FlexManager] createFlexWindow: Main floating: false
+qml: [FlexManager] FlexWindow component status: 1 
+qml: [FlexManager] FlexWindow created: ok size:0x0
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Editor-1 area=0 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=null
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Editor-1 area=0 siteId=undefined rootNode=null
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad children=n/a tabs=1
+qml: [NodeView] onNodeChanged gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [FlexWindow.addDockWidget] rootNode was null, created new site, rootNode.id=2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad DONE
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Editor-2 area=0 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Editor-2 area=0 siteId=undefined rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [FlexWindow.addDockWidget] creating newSite.id=96f81680-0597-4e19-8de8-fd44c1f31706 and inserting
+qml: [LayoutAlg.insertSite] ENTER area=0 targetSiteId=undefined newSite.id=96f81680-0597-4e19-8de8-fd44c1f31706 newSite.tabs.length=1 root=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [LayoutAlg.insertSite] area=0 (merge)
+qml: [LayoutAlg.insertSite] root is site, merging into root
+qml: [LayoutAlg.mergeTabs] ENTER siteId=2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs.length=1 tabIds=["Editor-2"]
+qml: [LayoutAlg.mergeTabs] site found, before tabs.length=1 tabIds=["Editor-1"]
+qml: [LayoutAlg.mergeTabs] after merge tabs.length=2 tabIds=["Editor-1","Editor-2"]
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad children=n/a tabs=2
+qml: [NodeView] onNodeChanged gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs=2 children=n/a
+qml: [FlexWindow.addDockWidget] after insert, rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad DONE
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Explorer-1 area=1 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Explorer-1 area=1 siteId=undefined rootNode=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [FlexWindow.addDockWidget] creating newSite.id=a07538b2-f26d-4b57-ae6a-2e196eeb7f49 and inserting
+qml: [LayoutAlg.insertSite] ENTER area=1 targetSiteId=undefined newSite.id=a07538b2-f26d-4b57-ae6a-2e196eeb7f49 newSite.tabs.length=1 root=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [LayoutAlg.insertSite] area 1 (L0..B0), dir=L
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=split children=2 tabs=n/a
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [FlexWindow.addDockWidget] after insert, rootNode=split DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=split DONE
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Output-2 area=4 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=split
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Output-2 area=4 siteId=undefined rootNode=split
+qml: [FlexWindow.addDockWidget] creating newSite.id=d3eaa6ee-d224-4285-8659-bf4465f1a77b and inserting
+qml: [LayoutAlg.insertSite] ENTER area=4 targetSiteId=undefined newSite.id=d3eaa6ee-d224-4285-8659-bf4465f1a77b newSite.tabs.length=1 root=split
+qml: [LayoutAlg.insertSite] area 4 (L0..B0), dir=B
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=split children=2 tabs=n/a
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [FlexWindow.addDockWidget] after insert, rootNode=split DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=split DONE
+qml: [NodeView.recreate] ENTER gen=0 node=split childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=V children.length=2 childIds=[split?,d3eaa6ee-d224-4285-8659-bf4465f1a77b]
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [NodeView] Component.onCompleted gen=0 node=split
+qml: [NodeView] onNodeChanged gen=0 node=site:d3eaa6ee-d224-4285-8659-bf4465f1a77b tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:d3eaa6ee-d224-4285-8659-bf4465f1a77b
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=V children.length=2 childIds=[split?,d3eaa6ee-d224-4285-8659-bf4465f1a77b]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_63(0x2eebad550a0)
+qml: [NodeView.recreate] ENTER gen=0 node=split childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=H children.length=2 childIds=[a07538b2-f26d-4b57-ae6a-2e196eeb7f49,2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad]
+qml: [NodeView] onNodeChanged gen=0 node=site:a07538b2-f26d-4b57-ae6a-2e196eeb7f49 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:a07538b2-f26d-4b57-ae6a-2e196eeb7f49
+qml: [NodeView] onNodeChanged gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs=2 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=H children.length=2 childIds=[a07538b2-f26d-4b57-ae6a-2e196eeb7f49,2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_63(0x2ee824652d0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:d3eaa6ee-d224-4285-8659-bf4465f1a77b childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=d3eaa6ee-d224-4285-8659-bf4465f1a77b tabs.length=1 tabIds=[Output-2] current=0
+qml: [DockSite] Component.onCompleted node.id=d3eaa6ee-d224-4285-8659-bf4465f1a77b tabs.length=1 tabIds=[Output-2] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_67(0x2ee824687b0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:a07538b2-f26d-4b57-ae6a-2e196eeb7f49 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=a07538b2-f26d-4b57-ae6a-2e196eeb7f49 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [DockSite] Component.onCompleted node.id=a07538b2-f26d-4b57-ae6a-2e196eeb7f49 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_67(0x2eebad552e0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [DockSite] Component.onCompleted node.id=2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_67(0x2ee82abe730)
+qml: openMarkdownFile called with: file:///D:/XDY/XDY/XDY_Project/Lumin/test.md
+qml:   filePath: D:/XDY/XDY/XDY_Project/Lumin/test.md
+qml:   fileName: test.md
+qml:   Registering markdown content component
+qml:   widgetName: Markdown-3
+qml:   Stored in markdownFiles: {"filePath":"D:/XDY/XDY/XDY_Project/Lumin/test.md","fileName":"test.md"}
+qml:   Created descriptor: [object Object]
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Markdown-3 area=0 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=split
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Markdown-3 area=0 siteId=undefined rootNode=split
+qml: [FlexWindow.addDockWidget] creating newSite.id=18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2 and inserting
+qml: [LayoutAlg.insertSite] ENTER area=0 targetSiteId=undefined newSite.id=18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2 newSite.tabs.length=1 root=split
+qml: [LayoutAlg.insertSite] area=0 (merge)
+qml: [LayoutAlg.insertSite] pushing newSite as child
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=split children=3 tabs=n/a
+qml: [NodeView] onNodeChanged gen=1 node=split tabs=n/a children=3
+qml: [FlexWindow.addDockWidget] after insert, rootNode=split DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=split DONE
+qml:   Added to Main window
+qml: [NodeView.recreate] ENTER gen=1 node=split childrenCount=1
+qml: [NodeView.recreate] destroying child 0: SplitContainer_QMLTYPE_63(0x2eebad550a0)
+qml: [NodeView.recreate] new gen=2 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=V children.length=3 childIds=[split?,d3eaa6ee-d224-4285-8659-bf4465f1a77b,18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2]
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [NodeView] Component.onCompleted gen=0 node=split
+qml: [NodeView] onNodeChanged gen=0 node=site:d3eaa6ee-d224-4285-8659-bf4465f1a77b tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:d3eaa6ee-d224-4285-8659-bf4465f1a77b
+qml: [NodeView] onNodeChanged gen=0 node=site:18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=V children.length=3 childIds=[split?,d3eaa6ee-d224-4285-8659-bf4465f1a77b,18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_63(0x2ee82da5840)
+qml: [NodeView.recreate] ENTER gen=0 node=split childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=H children.length=2 childIds=[a07538b2-f26d-4b57-ae6a-2e196eeb7f49,2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad]
+qml: [NodeView] onNodeChanged gen=0 node=site:a07538b2-f26d-4b57-ae6a-2e196eeb7f49 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:a07538b2-f26d-4b57-ae6a-2e196eeb7f49
+qml: [NodeView] onNodeChanged gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs=2 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=H children.length=2 childIds=[a07538b2-f26d-4b57-ae6a-2e196eeb7f49,2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_63(0x2ee82da4640)
+qml: [NodeView.recreate] ENTER gen=0 node=site:d3eaa6ee-d224-4285-8659-bf4465f1a77b childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=d3eaa6ee-d224-4285-8659-bf4465f1a77b tabs.length=1 tabIds=[Output-2] current=0
+qml: [DockSite] Component.onCompleted node.id=d3eaa6ee-d224-4285-8659-bf4465f1a77b tabs.length=1 tabIds=[Output-2] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_67(0x2ee82da88a0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2 tabs.length=1 tabIds=[Markdown-3] current=0
+LMarkdownView::componentComplete
+  Initial filePath: ""
+  QQuickWindow: ApplicationWindow_QMLTYPE_7_QML_44(0x2eeba59bf90 active exposed, visibility=QWindow::Windowed, flags=QFlags<Qt::WindowType>(Window|FramelessWindowHint), title="LuminEditor", geometry=320,160 1280x720)
+  Host widget: QWidget(0x0)
+LMarkdownView::componentComplete
+  Initial filePath: ""
+  QQuickWindow: ApplicationWindow_QMLTYPE_7_QML_44(0x2eeba59bf90 active exposed, visibility=QWindow::Windowed, flags=QFlags<Qt::WindowType>(Window|FramelessWindowHint), title="LuminEditor", geometry=320,160 1280x720)
+  Host widget: QWidget(0x0)
+qml: LuminMarkdownEditor.onCompleted
+qml:   descriptor: undefined
+qml:   filePath: 
+qml:   fileName: 
+qml: markdownEditorComponent.onCompleted
+qml:   descriptor: undefined
+qml: [DockSite] Component.onCompleted node.id=18e3f9fd-bde9-4dba-8ef4-cdb5839dc9f2 tabs.length=1 tabIds=[Markdown-3] current=0
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:32:13: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:67:21: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:90:17: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:116:17: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:152:17: Unable to assign [undefined] to QColor
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_67(0x2ee82ac10d0)
+LMarkdownView::syncGeometry - setting geometry to: QRect(529,800 1066x-8)
+LMarkdownView::syncGeometry - setting geometry to: QRect(325,800 629x-8)
+LMarkdownView::syncGeometry - setting geometry to: QRect(966,800 629x-8)
+LMarkdownView::syncGeometry - setting geometry to: QRect(966,800 629x83)
+LMarkdownView::syncGeometry - setting geometry to: QRect(325,800 629x83)
+qml: [NodeView.recreate] ENTER gen=0 node=site:a07538b2-f26d-4b57-ae6a-2e196eeb7f49 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=a07538b2-f26d-4b57-ae6a-2e196eeb7f49 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [DockSite] Component.onCompleted node.id=a07538b2-f26d-4b57-ae6a-2e196eeb7f49 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_67(0x2ee8246c7d0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [DockSite] Component.onCompleted node.id=2eed28b0-ce5c-4e0c-8e54-ed7a4ebd9fad tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_67(0x2ee82ab1090)
+LMarkdownView::setMarkdownText - length: 0
+10:30:49: Requesting process to stop...
+10:30:50: The command "D:\XDY\XDY\XDY_Project\Lumin\LuminEditor\build\Desktop_Qt_6_5_3_MSVC2019_64bit-Debug\debug\LuminEditor.exe" was canceled after 228443 ms.
+
+10:33:53: Starting D:\XDY\XDY\XDY_Project\Lumin\LuminEditor\build\Desktop_Qt_6_5_3_MSVC2019_64bit-Debug\debug\LuminEditor.exe...
+QML debugging is enabled. Only use this in a safe environment.
+qrc:/qt/qml/lumineditor/Resources/Bar/LuminToolBar.qml:45: Error: Cannot assign to non-existent property "itemData"
+qrc:/qt/qml/lumineditor/Resources/Bar/LuminToolBar.qml:45: Error: Cannot assign to non-existent property "itemData"
+qml: [FlexManager] createFlexWindow: Main floating: false
+qml: [FlexManager] FlexWindow component status: 1 
+qml: [FlexManager] FlexWindow created: ok size:0x0
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Editor-1 area=0 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=null
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Editor-1 area=0 siteId=undefined rootNode=null
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256 children=n/a tabs=1
+qml: [NodeView] onNodeChanged gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [FlexWindow.addDockWidget] rootNode was null, created new site, rootNode.id=07cb4029-24d9-4018-a1fe-a4091b820256 DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256 DONE
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Editor-2 area=0 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Editor-2 area=0 siteId=undefined rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [FlexWindow.addDockWidget] creating newSite.id=e2738621-c4b3-4ef3-a2b9-929e114b34dd and inserting
+qml: [LayoutAlg.insertSite] ENTER area=0 targetSiteId=undefined newSite.id=e2738621-c4b3-4ef3-a2b9-929e114b34dd newSite.tabs.length=1 root=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [LayoutAlg.insertSite] area=0 (merge)
+qml: [LayoutAlg.insertSite] root is site, merging into root
+qml: [LayoutAlg.mergeTabs] ENTER siteId=07cb4029-24d9-4018-a1fe-a4091b820256 tabs.length=1 tabIds=["Editor-2"]
+qml: [LayoutAlg.mergeTabs] site found, before tabs.length=1 tabIds=["Editor-1"]
+qml: [LayoutAlg.mergeTabs] after merge tabs.length=2 tabIds=["Editor-1","Editor-2"]
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256 children=n/a tabs=2
+qml: [NodeView] onNodeChanged gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256 tabs=2 children=n/a
+qml: [FlexWindow.addDockWidget] after insert, rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256 DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256 DONE
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Explorer-1 area=1 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Explorer-1 area=1 siteId=undefined rootNode=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [FlexWindow.addDockWidget] creating newSite.id=93e07d7a-cebf-4898-937a-3f5fb7485cb5 and inserting
+qml: [LayoutAlg.insertSite] ENTER area=1 targetSiteId=undefined newSite.id=93e07d7a-cebf-4898-937a-3f5fb7485cb5 newSite.tabs.length=1 root=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [LayoutAlg.insertSite] area 1 (L0..B0), dir=L
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=split children=2 tabs=n/a
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [FlexWindow.addDockWidget] after insert, rootNode=split DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=split DONE
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Output-2 area=4 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=split
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Output-2 area=4 siteId=undefined rootNode=split
+qml: [FlexWindow.addDockWidget] creating newSite.id=3030fc55-3c60-409a-8c75-b5721c64b1f0 and inserting
+qml: [LayoutAlg.insertSite] ENTER area=4 targetSiteId=undefined newSite.id=3030fc55-3c60-409a-8c75-b5721c64b1f0 newSite.tabs.length=1 root=split
+qml: [LayoutAlg.insertSite] area 4 (L0..B0), dir=B
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=split children=2 tabs=n/a
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [FlexWindow.addDockWidget] after insert, rootNode=split DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=split DONE
+qml: [NodeView.recreate] ENTER gen=0 node=split childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=V children.length=2 childIds=[split?,3030fc55-3c60-409a-8c75-b5721c64b1f0]
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [NodeView] Component.onCompleted gen=0 node=split
+qml: [NodeView] onNodeChanged gen=0 node=site:3030fc55-3c60-409a-8c75-b5721c64b1f0 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:3030fc55-3c60-409a-8c75-b5721c64b1f0
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=V children.length=2 childIds=[split?,3030fc55-3c60-409a-8c75-b5721c64b1f0]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_60(0x1c8e6c0aa80)
+qml: [NodeView.recreate] ENTER gen=0 node=split childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=H children.length=2 childIds=[93e07d7a-cebf-4898-937a-3f5fb7485cb5,07cb4029-24d9-4018-a1fe-a4091b820256]
+qml: [NodeView] onNodeChanged gen=0 node=site:93e07d7a-cebf-4898-937a-3f5fb7485cb5 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:93e07d7a-cebf-4898-937a-3f5fb7485cb5
+qml: [NodeView] onNodeChanged gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256 tabs=2 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=H children.length=2 childIds=[93e07d7a-cebf-4898-937a-3f5fb7485cb5,07cb4029-24d9-4018-a1fe-a4091b820256]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_60(0x1c8edba68f0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:3030fc55-3c60-409a-8c75-b5721c64b1f0 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=3030fc55-3c60-409a-8c75-b5721c64b1f0 tabs.length=1 tabIds=[Output-2] current=0
+qml: [DockSite] Component.onCompleted node.id=3030fc55-3c60-409a-8c75-b5721c64b1f0 tabs.length=1 tabIds=[Output-2] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_64(0x1c8edba54b0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:93e07d7a-cebf-4898-937a-3f5fb7485cb5 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=93e07d7a-cebf-4898-937a-3f5fb7485cb5 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [DockSite] Component.onCompleted node.id=93e07d7a-cebf-4898-937a-3f5fb7485cb5 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_64(0x1c8edba1d90)
+qml: [NodeView.recreate] ENTER gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=07cb4029-24d9-4018-a1fe-a4091b820256 tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [DockSite] Component.onCompleted node.id=07cb4029-24d9-4018-a1fe-a4091b820256 tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_64(0x1c8ee22f4e0)
+qml: openMarkdownFile called with: file:///D:/XDY/XDY/XDY_Project/Lumin/test.md
+qml:   filePath: D:/XDY/XDY/XDY_Project/Lumin/test.md
+qml:   fileName: test.md
+qml:   Registering markdown content component
+qml:   widgetName: Markdown-3
+qml:   Stored in markdownFiles: {"filePath":"D:/XDY/XDY/XDY_Project/Lumin/test.md","fileName":"test.md"}
+qml:   Created descriptor: [object Object]
+qml: [FlexManager.addDockWidget] ENTER winName=Main desc.id=Markdown-3 area=0 siteId=undefined
+qml: [FlexManager.addDockWidget] before add, rootNode=split
+qml: [FlexWindow.addDockWidget] ENTER win=Main desc.id=Markdown-3 area=0 siteId=undefined rootNode=split
+qml: [FlexWindow.addDockWidget] creating newSite.id=f3799ccc-5b4c-42db-9e93-04a678c89e42 and inserting
+qml: [LayoutAlg.insertSite] ENTER area=0 targetSiteId=undefined newSite.id=f3799ccc-5b4c-42db-9e93-04a678c89e42 newSite.tabs.length=1 root=split
+qml: [LayoutAlg.insertSite] area=0 (merge)
+qml: [LayoutAlg.insertSite] pushing newSite as child
+qml: [FlexWindow.onRootNodeChanged] win=Main rootNode=split children=3 tabs=n/a
+qml: [NodeView] onNodeChanged gen=1 node=split tabs=n/a children=3
+qml: [FlexWindow.addDockWidget] after insert, rootNode=split DONE
+qml: [FlexManager.addDockWidget] after add, rootNode=split DONE
+qml:   Added to Main window
+qml: [NodeView.recreate] ENTER gen=1 node=split childrenCount=1
+qml: [NodeView.recreate] destroying child 0: SplitContainer_QMLTYPE_60(0x1c8e6c0aa80)
+qml: [NodeView.recreate] new gen=2 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=V children.length=3 childIds=[split?,3030fc55-3c60-409a-8c75-b5721c64b1f0,f3799ccc-5b4c-42db-9e93-04a678c89e42]
+qml: [NodeView] onNodeChanged gen=0 node=split tabs=n/a children=2
+qml: [NodeView] Component.onCompleted gen=0 node=split
+qml: [NodeView] onNodeChanged gen=0 node=site:3030fc55-3c60-409a-8c75-b5721c64b1f0 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:3030fc55-3c60-409a-8c75-b5721c64b1f0
+qml: [NodeView] onNodeChanged gen=0 node=site:f3799ccc-5b4c-42db-9e93-04a678c89e42 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:f3799ccc-5b4c-42db-9e93-04a678c89e42
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=V children.length=3 childIds=[split?,3030fc55-3c60-409a-8c75-b5721c64b1f0,f3799ccc-5b4c-42db-9e93-04a678c89e42]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_60(0x1c8f0e29600)
+qml: [NodeView.recreate] ENTER gen=0 node=split childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=split
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/SplitContainer.qml
+qml: [SplitContainer] onNodeChanged node.type=split orientation=H children.length=2 childIds=[93e07d7a-cebf-4898-937a-3f5fb7485cb5,07cb4029-24d9-4018-a1fe-a4091b820256]
+qml: [NodeView] onNodeChanged gen=0 node=site:93e07d7a-cebf-4898-937a-3f5fb7485cb5 tabs=1 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:93e07d7a-cebf-4898-937a-3f5fb7485cb5
+qml: [NodeView] onNodeChanged gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256 tabs=2 children=n/a
+qml: [NodeView] Component.onCompleted gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256
+qml: [SplitContainer] Component.onCompleted node.type=split orientation=H children.length=2 childIds=[93e07d7a-cebf-4898-937a-3f5fb7485cb5,07cb4029-24d9-4018-a1fe-a4091b820256]
+qml: [NodeView.recreate.finish] object created successfully, type=SplitContainer_QMLTYPE_60(0x1c8f10df410)
+qml: [NodeView.recreate] ENTER gen=0 node=site:3030fc55-3c60-409a-8c75-b5721c64b1f0 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=3030fc55-3c60-409a-8c75-b5721c64b1f0 tabs.length=1 tabIds=[Output-2] current=0
+qml: [DockSite] Component.onCompleted node.id=3030fc55-3c60-409a-8c75-b5721c64b1f0 tabs.length=1 tabIds=[Output-2] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_64(0x1c8f10de7b0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:f3799ccc-5b4c-42db-9e93-04a678c89e42 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=f3799ccc-5b4c-42db-9e93-04a678c89e42 tabs.length=1 tabIds=[Markdown-3] current=0
+LMarkdownView::componentComplete
+  Initial filePath: ""
+  QQuickWindow: ApplicationWindow_QMLTYPE_24_QML_44(0x1c8e6444a20 active exposed, visibility=QWindow::Windowed, flags=QFlags<Qt::WindowType>(Window|FramelessWindowHint), title="LuminEditor", geometry=320,160 1280x720)
+  Setting QWidget as child of QQuickWindow
+LMarkdownView::syncGeometry - setting geometry to: QRect(529,231 -212x-8)
+QWindowsWindow::setGeometry: Unable to set geometry 2x2+529+231 (frame: 2x2+529+231) on QWidgetWindow/"QMarkdownTextEditClassWindow" on "AF2711". Resulting geometry: 2x2+849+391 (frame: 2x2+849+391) margins: 0, 0, 0, 0 minimum size: 2x2 MINMAXINFO(maxSize=POINT(x=0, y=0), maxpos=POINT(x=0, y=0), maxtrack=POINT(x=0, y=0), mintrack=POINT(x=2, y=2)))
+LMarkdownView::componentComplete
+  Initial filePath: ""
+  QQuickWindow: ApplicationWindow_QMLTYPE_24_QML_44(0x1c8e6444a20 active exposed, visibility=QWindow::Windowed, flags=QFlags<Qt::WindowType>(Window|FramelessWindowHint), title="LuminEditor", geometry=320,160 1280x720)
+  Setting QWidget as child of QQuickWindow
+LMarkdownView::syncGeometry - setting geometry to: QRect(325,231 192x-8)
+QWindowsWindow::setGeometry: Unable to set geometry 192x2+325+231 (frame: 192x2+325+231) on QWidgetWindow/"QMarkdownTextEditClassWindow" on "AF2711". Resulting geometry: 192x2+645+391 (frame: 192x2+645+391) margins: 0, 0, 0, 0 minimum size: 2x2 MINMAXINFO(maxSize=POINT(x=0, y=0), maxpos=POINT(x=0, y=0), maxtrack=POINT(x=0, y=0), mintrack=POINT(x=2, y=2)))
+qml: LuminMarkdownEditor.onCompleted
+qml:   descriptor: undefined
+qml:   filePath: 
+qml:   fileName: 
+qml: descriptor changed: [object Object]
+qml:   Loading file: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: LuminMarkdownEditor.filePathChanged: D:/XDY/XDY/XDY_Project/Lumin/test.md
+LMarkdownView::loadFile "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+LMarkdownView::loadContent - loading: "D:/XDY/XDY/XDY_Project/Lumin/test.md"
+  Loaded 850 characters
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:1843645984: RangeError: Maximum call stack size exceeded.
+qml: [DockSite] Component.onCompleted node.id=f3799ccc-5b4c-42db-9e93-04a678c89e42 tabs.length=1 tabIds=[Markdown-3] current=0
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:32:13: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:67:21: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:90:17: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:116:17: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:152:17: Unable to assign [undefined] to QColor
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_64(0x1c8ee18fff0)
+LMarkdownView::syncGeometry - setting geometry to: QRect(529,800 1066x-8)
+QWindowsWindow::setGeometry: Unable to set geometry 1066x2+529+800 (frame: 1066x2+529+800) on QWidgetWindow/"QMarkdownTextEditClassWindow" on "AF2711". Resulting geometry: 1066x2+849+960 (frame: 1066x2+849+960) margins: 0, 0, 0, 0 minimum size: 2x2 MINMAXINFO(maxSize=POINT(x=0, y=0), maxpos=POINT(x=0, y=0), maxtrack=POINT(x=0, y=0), mintrack=POINT(x=2, y=2)))
+LMarkdownView::syncGeometry - setting geometry to: QRect(325,800 629x-8)
+QWindowsWindow::setGeometry: Unable to set geometry 629x2+325+800 (frame: 629x2+325+800) on QWidgetWindow/"QMarkdownTextEditClassWindow" on "AF2711". Resulting geometry: 629x2+645+960 (frame: 629x2+645+960) margins: 0, 0, 0, 0 minimum size: 2x2 MINMAXINFO(maxSize=POINT(x=0, y=0), maxpos=POINT(x=0, y=0), maxtrack=POINT(x=0, y=0), mintrack=POINT(x=2, y=2)))
+LMarkdownView::syncGeometry - setting geometry to: QRect(966,800 629x-8)
+QWindowsWindow::setGeometry: Unable to set geometry 629x2+966+800 (frame: 629x2+966+800) on QWidgetWindow/"QMarkdownTextEditClassWindow" on "AF2711". Resulting geometry: 629x2+1286+960 (frame: 629x2+1286+960) margins: 0, 0, 0, 0 minimum size: 2x2 MINMAXINFO(maxSize=POINT(x=0, y=0), maxpos=POINT(x=0, y=0), maxtrack=POINT(x=0, y=0), mintrack=POINT(x=2, y=2)))
+LMarkdownView::syncGeometry - setting geometry to: QRect(966,800 629x83)
+QWindowsWindow::setGeometry: Unable to set geometry 629x83+966+800 (frame: 629x83+966+800) on QWidgetWindow/"QMarkdownTextEditClassWindow" on "AF2711". Resulting geometry: 629x83+1286+960 (frame: 629x83+1286+960) margins: 0, 0, 0, 0 minimum size: 2x2 MINMAXINFO(maxSize=POINT(x=0, y=0), maxpos=POINT(x=0, y=0), maxtrack=POINT(x=0, y=0), mintrack=POINT(x=2, y=2)))
+LMarkdownView::syncGeometry - setting geometry to: QRect(325,800 629x83)
+QWindowsWindow::setGeometry: Unable to set geometry 629x83+325+800 (frame: 629x83+325+800) on QWidgetWindow/"QMarkdownTextEditClassWindow" on "AF2711". Resulting geometry: 629x83+645+960 (frame: 629x83+645+960) margins: 0, 0, 0, 0 minimum size: 26x2 MINMAXINFO(maxSize=POINT(x=0, y=0), maxpos=POINT(x=0, y=0), maxtrack=POINT(x=0, y=0), mintrack=POINT(x=26, y=2)))
+qml: [NodeView.recreate] ENTER gen=0 node=site:93e07d7a-cebf-4898-937a-3f5fb7485cb5 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=93e07d7a-cebf-4898-937a-3f5fb7485cb5 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [DockSite] Component.onCompleted node.id=93e07d7a-cebf-4898-937a-3f5fb7485cb5 tabs.length=1 tabIds=[Explorer-1] current=0
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_64(0x1c8f0efaea0)
+qml: [NodeView.recreate] ENTER gen=0 node=site:07cb4029-24d9-4018-a1fe-a4091b820256 childrenCount=0
+qml: [NodeView.recreate] new gen=1 node type=site
+qml: [NodeView.recreate] component already ready, calling finish immediately
+qml: [NodeView.recreate.finish] creating object, url=qrc:/qml/Dock/DockSite.qml
+qml: [DockSite] onNodeChanged node.id=07cb4029-24d9-4018-a1fe-a4091b820256 tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [DockSite] Component.onCompleted node.id=07cb4029-24d9-4018-a1fe-a4091b820256 tabs.length=2 tabIds=[Editor-1,Editor-2] current=1
+qml: [NodeView.recreate.finish] object created successfully, type=DockSite_QMLTYPE_64(0x1c8f12f5cf0)
+qml: Setting preview text from: D:/XDY/XDY/XDY_Project/Lumin/test.md
+qml: Got text length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qml: Text loaded, length: 850
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+LMarkdownView::setMarkdownText - length: 850
+QFont::setPointSizeF: Point size <= 0 (0.000000), must be greater than 0
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:116:17: Unable to assign [undefined] to QColor
+qrc:/qt/qml/lumineditor/Resources/Panel/LuminMarkdownEditor.qml:116:17: Unable to assign [undefined] to QColor

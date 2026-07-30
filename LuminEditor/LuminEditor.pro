@@ -50,3 +50,7 @@ RESOURCES += \
 RESOURCES += \
     ThirdParty/qmarkdowntextedit/media.qrc
 
+# Windows libraries
+win32 {
+    LIBS += -lUser32
+}

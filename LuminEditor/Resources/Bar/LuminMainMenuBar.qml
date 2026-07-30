@@ -4,11 +4,15 @@ import "../Common"
 LuminMenuBar {
     id: root
 
+    signal openMarkdownFile()
+
     LuminMenu {
         title: "文件"
 
         LuminMenuItem { text: "新建"; onTriggered: console.log("新建") }
-        LuminMenuItem { text: "打开"; onTriggered: console.log("打开") }
+        LuminMenuItem { text: "打开文件"; onTriggered: root.openMarkdownFile() }
+        LuminMenuItem { text: "打开文件夹"; onTriggered: console.log("打开文件夹") }
+        LuminMenuItem { text: "打开Lumin项目"; onTriggered: console.log("打开Lumin项目") }
         LuminMenuItem { text: "保存"; onTriggered: console.log("保存") }
 
         LuminMenuSeparator {}

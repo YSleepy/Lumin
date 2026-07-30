@@ -2,9 +2,11 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Dialogs
 
 import "Resources/Dock"
 import "Resources/Bar"
+import "Resources/Panel"
 import "Resources/Theme"
 import "qrc:/qml/Dock"
 
@@ -24,10 +26,47 @@ ApplicationWindow {
         LuminDockContent {}
     }
 
+    // Markdown 编辑器组件工厂
+    property var markdownFiles: ({})
+
+    Component {
+        id: markdownEditorComponent
+        LuminMarkdownEditor {
+            id: mdEditor
+
+            // 监听 descriptor 变化并设置文件信息
+            onDescriptorChanged: {
+                if (descriptor && mainWindow.markdownFiles[descriptor.id]) {
+                    var info = mainWindow.markdownFiles[descriptor.id]
+                    filePath = info.filePath
+                    fileName = info.fileName
+                }
+            }
+
+            onCloseRequested: {
+                if (descriptor) {
+                    delete mainWindow.markdownFiles[descriptor.id]
+                }
+            }
+        }
+    }
+
     // 标题栏中的菜单栏
     Component {
         id: mainMenuBarComponent
-        LuminMainMenuBar {}
+        LuminMainMenuBar {
+            onOpenMarkdownFile: fileDialog.open()
+        }
+    }
+
+    // 文件打开对话框
+    FileDialog {
+        id: fileDialog
+        title: "打开 Markdown 文件"
+        nameFilters: ["Markdown 文件 (*.md *.markdown)", "所有文件 (*)"]
+        onAccepted: {
+            openMarkdownFile(selectedFile)
+        }
     }
 
     Component.onCompleted: {
@@ -69,6 +108,29 @@ ApplicationWindow {
         FlexManager.addDockWidget("Main", desc, area)
     }
 
+    function openMarkdownFile(fileUrl) {
+        var filePath = fileUrl.toString().replace("file:///", "")
+        var fileName = filePath.split('/').pop()
+
+        // 注册 Markdown 内容组件（首次调用）
+        if (!FlexManager.content("markdown")) {
+            FlexManager.registerContent("markdown", markdownEditorComponent)
+        }
+
+        // 创建唯一的 widget 名称
+        var widgetName = "Markdown-" + (++fileIdx)
+
+        // 保存文件信息到映射
+        markdownFiles[widgetName] = {
+            filePath: filePath,
+            fileName: fileName
+        }
+
+        // 创建 Markdown 编辑器面板
+        var desc = FlexManager.createDockWidget(Enums.viewMode.FileView, "markdown", widgetName, fileName)
+        FlexManager.addDockWidget("Main", desc, Enums.dockArea.M)
+    }
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
@@ -87,7 +149,7 @@ ApplicationWindow {
             Layout.fillWidth: true
             toolItems: [
                 { type: "button", icon: "▤", tooltip: "New", action: function() { console.log("New") } },
-                { type: "button", icon: "▥", tooltip: "Open", action: function() { console.log("Open") } },
+                { type: "button", icon: "▥", tooltip: "Open", action: function() { fileDialog.open() } },
                 { type: "button", icon: "▦", tooltip: "Save", action: function() { console.log("Save") } },
                 { type: "separator" },
                 { type: "button", icon: "↶", tooltip: "Undo", action: function() { console.log("Undo") } },
